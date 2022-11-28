@@ -102,12 +102,12 @@ Hex = Hex = Winter is Coming</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4wqtg4j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyvx1d4j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclhtuo6nj20zk0m8ttm.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclwuom7cj20zk0m8dvn.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
         </ul>
       </div>
     </header>
@@ -166,7 +166,9 @@ Hex = Hex = Winter is Coming</title>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128015910292.png" alt="image-20221128015910292"></p>
 <p>这里还要再说明图片素材的一点是</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128100708605.png" alt="image-20221128100708605"></p>
-<p>一般来说，一些图片资源会放在一张图片中，这时就需要使用到插件去自动分割出这些素材，切割成单独的部分</p>
+<p>一般来说，一些图片资源会放在一张图片中，这时就需要使用到插件去自动分割出这些素材，切割成单独的部分，使用的插件为sprite edit</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102811521.png" alt="image-20221128102811521"></p>
+<p>点击Slice即可自动切割，如下所示</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128100941408.png" alt="image-20221128100941408"></p>
 <p>这里每个图片都是16×16像素，因此一般设置<strong>pixels per unit</strong>为16</p>
 <h3 id="2-音频素材"><a href="#2-音频素材" class="headerlink" title="2.音频素材"></a>2.音频素材</h3><h3 id="3-动画素材"><a href="#3-动画素材" class="headerlink" title="3.动画素材"></a>3.动画素材</h3><p>根据图片素材所述，首先要将动画添加到相对应的对象中，这里要给对象添加动画管理器，Animator，再使用图片制作出动画，之后对其进行管理</p>
@@ -180,7 +182,19 @@ Hex = Hex = Winter is Coming</title>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Animator ani;<span class="comment">//获取动画，一般写在start函数中</span></span><br><span class="line">        <span class="comment">//角色跳跃</span></span><br><span class="line">    <span class="keyword">if</span> (Input.GetButtonDown(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="comment">/*Vector2 p;</span></span><br><span class="line"><span class="comment">           p.x = rb.velocity.x;</span></span><br><span class="line"><span class="comment">           p.y = jumpForce;</span></span><br><span class="line"><span class="comment">           rb.velocity = p;*/</span></span><br><span class="line">           <span class="keyword">if</span>(coll.IsTouchingLayers(ground))</span><br><span class="line">           &#123;</span><br><span class="line">               rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpForce);</span><br><span class="line">               ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(jumpegg&gt;<span class="number">0</span>)</span><br><span class="line">           &#123;</span><br><span class="line">               rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpForce);</span><br><span class="line">               ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">               jumpegg--;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里的Setbool就是比较常用的状态标记，仅展示了跳跃相关动画代码</p>
-<h2 id="2-2D地图绘制与图层问题"><a href="#2-2D地图绘制与图层问题" class="headerlink" title="2.2D地图绘制与图层问题"></a>2.2D地图绘制与图层问题</h2><h2 id="3-镜头控制与使用"><a href="#3-镜头控制与使用" class="headerlink" title="3.镜头控制与使用"></a>3.镜头控制与使用</h2><h2 id="4-主角定义与创建"><a href="#4-主角定义与创建" class="headerlink" title="4.主角定义与创建"></a>4.主角定义与创建</h2><h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><h2 id="6-碰撞体问题"><a href="#6-碰撞体问题" class="headerlink" title="6.碰撞体问题"></a>6.碰撞体问题</h2><h2 id="7-物体layer"><a href="#7-物体layer" class="headerlink" title="7.物体layer"></a>7.物体layer</h2><h2 id="8-个人扩充内容与实现"><a href="#8-个人扩充内容与实现" class="headerlink" title="8.个人扩充内容与实现"></a>8.个人扩充内容与实现</h2>
+<h2 id="2-2D地图绘制与图层问题"><a href="#2-2D地图绘制与图层问题" class="headerlink" title="2.2D地图绘制与图层问题"></a>2.2D地图绘制与图层问题</h2><p>本项目中绘制地图使用的是Tilemap，首先创建一个对象</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102310009.png" alt="image-20221128102310009"></p>
+<p>之后会出现一个Grid，之后就可以使用Tile Palette功能，创建一个画笔库，例如这里创建的Background，注意这里一定要记得改变图片的pixels per unit，否则图片拖入后会非常小</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102949520.png" alt="image-20221128102949520"></p>
+<p>这样我们就得到了一个画笔库，接着在Grid中创建新的Tilemap</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103944910.png" alt="image-20221128103944910"></p>
+<p>并添加碰撞体，确保角色可以与地形接触，产生碰撞效果</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103915671.png" alt="image-20221128103915671"><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104013254.png" alt="image-20221128104013254"><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104032627.png" alt="image-20221128104032627"></p>
+<p>选取若干个unit，并画到background的unit中</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103311831.png" alt="image-20221128103311831"></p>
+<p>注意这里只是一个个单个的地形资源，像树，房子，灌木丛，海面背景等较大部分则应该直接拖入图片，当作背景或添加碰撞效果，当然也可以切割后自定义成多种形状或大小</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104607179.png" alt="image-20221128104607179"></p>
+<h2 id="3-镜头控制与使用"><a href="#3-镜头控制与使用" class="headerlink" title="3.镜头控制与使用"></a>3.镜头控制与使用</h2><h2 id="4-主角定义与创建"><a href="#4-主角定义与创建" class="headerlink" title="4.主角定义与创建"></a>4.主角定义与创建</h2><h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><h2 id="6-碰撞体问题"><a href="#6-碰撞体问题" class="headerlink" title="6.碰撞体问题"></a>6.碰撞体问题</h2><h2 id="7-物体layer"><a href="#7-物体layer" class="headerlink" title="7.物体layer"></a>7.物体layer</h2><h2 id="8-个人扩充内容与实现"><a href="#8-个人扩充内容与实现" class="headerlink" title="8.个人扩充内容与实现"></a>8.个人扩充内容与实现</h2>
       <div class="tags">
           <a href="/tags/C-Unity2D/" rel="tag"><i class="ic i-tag"></i> C#,Unity2D</a>
       </div>
@@ -194,7 +208,7 @@ Hex = Hex = Winter is Coming</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-11-28 11:13:25" itemprop="dateModified" datetime="2022-11-28T11:13:25+09:00">2022-11-28</time>
+    <time title="Modified: 2022-11-28 11:46:26" itemprop="dateModified" datetime="2022-11-28T11:46:26+09:00">2022-11-28</time>
   </span>
 </div>
 
@@ -249,7 +263,7 @@ Hex = Hex = Winter is Coming</title>
     <div class="item left">
       
 
-  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipew8gmvyj20zk0m87wh.jpg" title="C#学习笔记">
+  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetlbztpj20zk0m84qp.jpg" title="C#学习笔记">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Csharp Learning</span>
   <h3>C#学习笔记</h3>
@@ -379,27 +393,7 @@ Hex = Hex = Winter is Coming</title>
 <a href="/categories/Diary/" title="In My diary">My diary</a>
 </div>
 
-    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
-</div>
-
-    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
-</div>
-
-    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#学习笔记">C#学习笔记</a></span>
+    <span><a href="/2022/11/23/Diary/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
@@ -416,19 +410,20 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Diary/" title="In My diary">My diary</a>
+<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
 </div>
 
-    <span><a href="/2022/11/23/Diary/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#学习笔记">C#学习笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Diary/" title="In My diary">My diary</a>
 </div>
 
-    <span><a href="/2022/11/22/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
   </li>
 
       
@@ -449,6 +444,25 @@ Hex = Hex = Winter is Coming</title>
 </div>
 
     <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/11/22/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
   </ul>
