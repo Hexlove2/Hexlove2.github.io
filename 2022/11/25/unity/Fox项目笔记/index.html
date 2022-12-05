@@ -102,12 +102,12 @@ Hex = Hex = Winter is Coming</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipew28b65j20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipevarprfj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
-          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicis081o9j20zk0m8dmr.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclxxcb6rj20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclimtf7dj20zk0m8qav.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
         </ul>
       </div>
     </header>
@@ -194,7 +194,41 @@ Hex = Hex = Winter is Coming</title>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103311831.png" alt="image-20221128103311831"></p>
 <p>注意这里只是一个个单个的地形资源，像树，房子，灌木丛，海面背景等较大部分则应该直接拖入图片，当作背景或添加碰撞效果，当然也可以切割后自定义成多种形状或大小</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104607179.png" alt="image-20221128104607179"></p>
-<h2 id="3-镜头控制与使用"><a href="#3-镜头控制与使用" class="headerlink" title="3.镜头控制与使用"></a>3.镜头控制与使用</h2><h2 id="4-主角定义与创建"><a href="#4-主角定义与创建" class="headerlink" title="4.主角定义与创建"></a>4.主角定义与创建</h2><h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><h2 id="6-碰撞体问题"><a href="#6-碰撞体问题" class="headerlink" title="6.碰撞体问题"></a>6.碰撞体问题</h2><h2 id="7-物体layer"><a href="#7-物体layer" class="headerlink" title="7.物体layer"></a>7.物体layer</h2><h2 id="8-个人扩充内容与实现"><a href="#8-个人扩充内容与实现" class="headerlink" title="8.个人扩充内容与实现"></a>8.个人扩充内容与实现</h2>
+<h2 id="3-镜头控制与使用"><a href="#3-镜头控制与使用" class="headerlink" title="3.镜头控制与使用"></a>3.镜头控制与使用</h2><p>最简单粗暴的方式为，为主镜头添加一个脚本，再public一个Transform，放入角色，使得主镜头Main camera的position与角色保持同步</p>
+<p>这种方式较为繁琐，且难以实现一些更复杂的跟随效果</p>
+<p>因此，需要在Unity中添加一个package，专门用于镜头控制</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129151821344.png" alt="image-20221129151821344"></p>
+<p>安装完成后，在game Object中可以找到，添加一个2d camera</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129151959488.png" alt="image-20221129151959488"></p>
+<p>之后原来的camera会被重新定义</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152238038.png" alt="image-20221129152238038"></p>
+<p>这里的follow，也就是跟随的目标，拖入player即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152451254.png" alt="image-20221129152451254"></p>
+<p>这里的Dead Zone可以设置在某一范围内不会移动镜头，具体可以按需求调整</p>
+<p>也可以通过修改Screen的X和Y来固定角色的大致区域，例如固定角色必须在左下角等</p>
+<p>但目前还存在着跳出地图边界的问题，因此需要添加一个摄像头的碰撞体</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152941423.png" alt="image-20221129152941423"></p>
+<p>因此要添加一个CinemachineConfiner，这样就可以定义碰撞体了</p>
+<p>先选择设置好的背景，再给它添加一个碰撞体</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153222262.png" alt="image-20221129153222262"></p>
+<p>建议选择polygon，多边形</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153258214.png" alt="image-20221129153258214"></p>
+<p>点击edit collider即可定义碰撞体的范围</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153407790.png" alt="image-20221129153407790"></p>
+<p>可以看到定义完成之后会出现一个绿框</p>
+<p>之后再将background拖入其中</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153826950.png" alt="image-20221129153826950"></p>
+<p>注意还剩一步</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129154007158.png" alt="image-20221129154007158"></p>
+<p>完成之后要将background设置为is trigger</p>
+<h2 id="4-主角定义与创建"><a href="#4-主角定义与创建" class="headerlink" title="4.主角定义与创建"></a>4.主角定义与创建</h2><p>接下来针对player的定义与设置进行角色的设计分析</p>
+<p>首先，创建一个sprite类</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173045863.png" alt="image-20221129173045863"></p>
+<p>接着放入角色图片</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173133841.png" alt="image-20221129173133841"></p>
+<p>注意这里的sorting layer，处理好前中后景的层次顺序</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173304874.png" alt="image-20221129173304874"></p>
+<h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><h2 id="6-碰撞体问题"><a href="#6-碰撞体问题" class="headerlink" title="6.碰撞体问题"></a>6.碰撞体问题</h2><h2 id="7-物体layer"><a href="#7-物体layer" class="headerlink" title="7.物体layer"></a>7.物体layer</h2><h2 id="8-个人扩充内容与实现"><a href="#8-个人扩充内容与实现" class="headerlink" title="8.个人扩充内容与实现"></a>8.个人扩充内容与实现</h2>
       <div class="tags">
           <a href="/tags/C-Unity2D/" rel="tag"><i class="ic i-tag"></i> C#,Unity2D</a>
       </div>
@@ -208,7 +242,7 @@ Hex = Hex = Winter is Coming</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-11-28 11:46:26" itemprop="dateModified" datetime="2022-11-28T11:46:26+09:00">2022-11-28</time>
+    <time title="Modified: 2022-11-29 22:21:59" itemprop="dateModified" datetime="2022-11-29T22:21:59+09:00">2022-11-29</time>
   </span>
 </div>
 
@@ -263,7 +297,7 @@ Hex = Hex = Winter is Coming</title>
     <div class="item left">
       
 
-  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu1usa7j20zk0m8b29.jpg" title="C#学习笔记">
+  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciukx8a7j20zk0m8aio.jpg" title="C#学习笔记">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Csharp Learning</span>
   <h3>C#学习笔记</h3>
@@ -390,40 +424,10 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Diary/" title="In My diary">My diary</a>
-</div>
-
-    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
 </div>
 
     <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
-</div>
-
-    <span><a href="/2022/11/23/work/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
-</div>
-
-    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#学习笔记">C#学习笔记</a></span>
   </li>
 
       
@@ -440,10 +444,20 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/unity/" title="In Unity">Unity</a>
+<a href="/categories/Diary/" title="In My diary">My diary</a>
 </div>
 
-    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/11/23/work/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
   </li>
 
       
@@ -463,6 +477,26 @@ Hex = Hex = Winter is Coming</title>
 </div>
 
     <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
+</div>
+
+    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#学习笔记">C#学习笔记</a></span>
   </li>
 
   </ul>
