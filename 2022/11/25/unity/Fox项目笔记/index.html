@@ -102,12 +102,12 @@ Hex = Hex = Winter is Coming</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexe4oykj20zk0m87ji.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
           <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeyonbf9j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclize41wj20zk0m87gk.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -228,7 +228,53 @@ Hex = Hex = Winter is Coming</title>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173133841.png" alt="image-20221129173133841"></p>
 <p>注意这里的sorting layer，处理好前中后景的层次顺序</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173304874.png" alt="image-20221129173304874"></p>
-<h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><h2 id="6-碰撞体问题"><a href="#6-碰撞体问题" class="headerlink" title="6.碰撞体问题"></a>6.碰撞体问题</h2><h2 id="7-物体layer"><a href="#7-物体layer" class="headerlink" title="7.物体layer"></a>7.物体layer</h2><h2 id="8-个人扩充内容与实现"><a href="#8-个人扩充内容与实现" class="headerlink" title="8.个人扩充内容与实现"></a>8.个人扩充内容与实现</h2>
+<p>之后添加脚本文件和碰撞体，刚体组件，一般对于这种2D游戏来说，角色可以设计为上半身正方形下半身圆形的碰撞体，否则可能会卡地面。</p>
+<h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><p>首先仿照角色的定义与创建，并创建对应的动画，如下所示</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212195723779.png" alt="image-20221212195723779"></p>
+<p>添加Animator并创建动画，如下</p>
+<img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212200407575.png" alt="image-20221212200407575" style="zoom:80%;" />
+
+<p>先放到一边</p>
+<p>再给角色添加脚本函数，让角色可以踩死敌人</p>
+<p>如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (col.gameObject.tag == <span class="string">&quot;Enemies&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;fall&quot;</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                Destroy(col.gameObject);</span><br><span class="line">                rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpforce);</span><br><span class="line">                ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">                ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//角色受伤</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里也可以顺便定义角色受伤的脚本，因为一旦碰到了敌人，要么就是踩死，要么就一定会受伤</p>
+<p>这里关于角色受伤的部分要注意一个问题，如果是直接更改角色的速度，那么则这段时间内不能执行movement()函数，否则会重置速度，因此，修改代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   	    <span class="keyword">private</span> <span class="built_in">bool</span> IsHurt;</span><br><span class="line"> 		<span class="comment">//下面这部分添加在switchAni函数中</span></span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (IsHurt)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">if</span> (Mathf.Abs(rb.velocity.x) &lt; <span class="number">0.1f</span>)</span><br><span class="line">             &#123;</span><br><span class="line">                 ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">                 ani.SetBool(<span class="string">&quot;idle&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">                 IsHurt = <span class="literal">false</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"><span class="comment">//下面这部分即为上面的代码中的角色受伤部分</span></span><br><span class="line">         <span class="comment">//角色受伤</span></span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &lt; col.gameObject.transform.position.x) </span><br><span class="line">         &#123;</span><br><span class="line">             ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">             IsHurt = <span class="literal">true</span>;</span><br><span class="line">             rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">-10</span>, rb.velocity.y);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &gt; col.gameObject.transform.position.x) </span><br><span class="line">         &#123;</span><br><span class="line">             ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">             IsHurt = <span class="literal">true</span>;</span><br><span class="line">             rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">10</span>, rb.velocity.y);</span><br><span class="line">         &#125;  </span><br></pre></td></tr></table></figure>
+
+<p>下面要实现青蛙的相关代码，让其在两个固定点之间来回跳动，可以给青蛙添加两个子类点，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212220727116.png" alt="image-20221212220727116"></p>
+<p>思路是，刚开始时就获取到两个点的绝对坐标，将两个transform拖入其中，后面直接销毁即可</p>
+<p>代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">    ani = GetComponent&lt;Animator&gt;();</span><br><span class="line">    leftx = leftpoint.position.x;</span><br><span class="line">    rightx = rightpoint.position.x;</span><br><span class="line">    Destroy(leftpoint.gameObject);</span><br><span class="line">    Destroy(rightpoint.gameObject);</span><br><span class="line">    Faceleft = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Faceleft)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(-Speed, rb.velocity.y);</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &lt;= leftx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(Speed, rb.velocity.y);</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &gt;= rightx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里还未添加动画，下面是动画部分</p>
+<h2 id="6-可收集物品"><a href="#6-可收集物品" class="headerlink" title="6.可收集物品"></a>6.可收集物品</h2><p>这里说明一下如何制作一个收集品，例如樱桃</p>
+<p>首先，创建出樱桃对象，并添加好动画，再添加碰撞体，设置为 is trigger</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212125614547.png" alt="image-20221212125614547"></p>
+<p>接下来就要写代码部分了，如果角色碰到了樱桃，则销毁该对象，并且UI中的樱桃数量加1</p>
+<p>添加樱桃的tag</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212130620832.png" alt="image-20221212130620832"></p>
+<p>下面进入控制角色的代码中</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先定义cherry</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> Cherry;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用UnityEngine的函数OnTriggerEnter2D</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (col.tag == <span class="string">&quot;Collection&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Cherry++;</span><br><span class="line">        Destroy(col.gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义完成，将其设置为prefab当成模板，拖入文件夹，后续若要更改樱桃就可以直接改预制体prefab</p>
+<h2 id="7-碰撞体问题"><a href="#7-碰撞体问题" class="headerlink" title="7.碰撞体问题"></a>7.碰撞体问题</h2><h2 id="8-物体layer"><a href="#8-物体layer" class="headerlink" title="8.物体layer"></a>8.物体layer</h2><h2 id="9-UI制作"><a href="#9-UI制作" class="headerlink" title="9.UI制作"></a>9.UI制作</h2><p>首先，在制作UI之前要先创建一个Canvas画布，UI相关的部分均会在画布中展示，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212190808089.png" alt="image-20221212190808089"></p>
+<p>这时候会生成一个Canvas和一个Eventsystem，接着在这个Canvas中继续添加UI，例如实现左上角实时显示樱桃收集数量，则可以添加Text，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191455772.png" alt="image-20221212191455772"></p>
+<p>接着，将Text移动到镜头的某个位置，如下图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191540643.png" alt="image-20221212191540643"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191549363.png" alt="image-20221212191549363"></p>
+<p>现在想要实时更新Cherry的收集数量，只需要将右边的文本信息实时同步改成定义的樱桃数量即可，脚本如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line">	<span class="keyword">public</span> Text CherryNumber;       </span><br><span class="line"><span class="keyword">if</span> (col.tag == <span class="string">&quot;Collection&quot;</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           Cherry++;</span><br><span class="line">           CherryNumber.text = Cherry.ToString(); <span class="comment">//更新数量信息</span></span><br><span class="line">           jumpegg++;</span><br><span class="line">           Destroy(col.gameObject);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="10-个人扩充内容与实现"><a href="#10-个人扩充内容与实现" class="headerlink" title="10.个人扩充内容与实现"></a>10.个人扩充内容与实现</h2>
       <div class="tags">
           <a href="/tags/C-Unity2D/" rel="tag"><i class="ic i-tag"></i> C#,Unity2D</a>
       </div>
@@ -242,7 +288,7 @@ Hex = Hex = Winter is Coming</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-11-29 22:21:59" itemprop="dateModified" datetime="2022-11-29T22:21:59+09:00">2022-11-29</time>
+    <time title="Modified: 2022-12-13 00:17:22" itemprop="dateModified" datetime="2022-12-13T00:17:22+09:00">2022-12-13</time>
   </span>
 </div>
 
@@ -297,17 +343,17 @@ Hex = Hex = Winter is Coming</title>
     <div class="item left">
       
 
-  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclx29mstj20zk0m8hdt.jpg" title="C#学习笔记">
+  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclwrdwyaj20zk0m8are.jpg" title="C#初级笔记">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Csharp Learning</span>
-  <h3>C#学习笔记</h3>
+  <h3>C#初级笔记</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2022/12/06/unity/Unity+Git/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclil3m4ej20zk0m8tn8.jpg" title="Unity+Git">
+  <a href="/2022/12/06/unity/Unity+Git/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciukx8a7j20zk0m8aio.jpg" title="Unity+Git">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Unity</span>
   <h3>Unity+Git</h3>
@@ -329,7 +375,7 @@ Hex = Hex = Winter is Coming</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Fox项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B4%A0%E6%9D%90%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.素材导入与处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.图片素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9F%B3%E9%A2%91%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.音频素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A8%E7%94%BB%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.动画素材</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2D%E5%9C%B0%E5%9B%BE%E7%BB%98%E5%88%B6%E4%B8%8E%E5%9B%BE%E5%B1%82%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">2.2D地图绘制与图层问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%95%9C%E5%A4%B4%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3.镜头控制与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BB%E8%A7%92%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%88%9B%E5%BB%BA"><span class="toc-number">1.4.</span> <span class="toc-text">4.主角定义与创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%8C%E5%AF%B9%E7%94%9F%E7%89%A9%E7%94%9F%E6%88%90"><span class="toc-number">1.5.</span> <span class="toc-text">5.敌对生物生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%A2%B0%E6%92%9E%E4%BD%93%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">6.碰撞体问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%89%A9%E4%BD%93layer"><span class="toc-number">1.7.</span> <span class="toc-text">7.物体layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E4%B8%AA%E4%BA%BA%E6%89%A9%E5%85%85%E5%86%85%E5%AE%B9%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.8.</span> <span class="toc-text">8.个人扩充内容与实现</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Fox项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B4%A0%E6%9D%90%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.素材导入与处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.图片素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9F%B3%E9%A2%91%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.音频素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A8%E7%94%BB%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.动画素材</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2D%E5%9C%B0%E5%9B%BE%E7%BB%98%E5%88%B6%E4%B8%8E%E5%9B%BE%E5%B1%82%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">2.2D地图绘制与图层问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%95%9C%E5%A4%B4%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3.镜头控制与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BB%E8%A7%92%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%88%9B%E5%BB%BA"><span class="toc-number">1.4.</span> <span class="toc-text">4.主角定义与创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%8C%E5%AF%B9%E7%94%9F%E7%89%A9%E7%94%9F%E6%88%90"><span class="toc-number">1.5.</span> <span class="toc-text">5.敌对生物生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%AF%E6%94%B6%E9%9B%86%E7%89%A9%E5%93%81"><span class="toc-number">1.6.</span> <span class="toc-text">6.可收集物品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%A2%B0%E6%92%9E%E4%BD%93%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.</span> <span class="toc-text">7.碰撞体问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%89%A9%E4%BD%93layer"><span class="toc-number">1.8.</span> <span class="toc-text">8.物体layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-UI%E5%88%B6%E4%BD%9C"><span class="toc-number">1.9.</span> <span class="toc-text">9.UI制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E4%B8%AA%E4%BA%BA%E6%89%A9%E5%85%85%E5%86%85%E5%AE%B9%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.10.</span> <span class="toc-text">10.个人扩充内容与实现</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -442,67 +488,7 @@ Hex = Hex = Winter is Coming</title>
 <a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
 </div>
 
-    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#学习笔记">C#学习笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/unity/" title="In Unity">Unity</a>
-</div>
-
-    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Diary/" title="In My diary">My diary</a>
-</div>
-
-    <span><a href="/2022/11/23/Diary/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Diary/" title="In My diary">My diary</a>
-</div>
-
-    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
-</div>
-
-    <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
-</div>
-
-    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/unity/" title="In Unity">Unity</a>
-</div>
-
-    <span><a href="/2022/12/06/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+    <span><a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
   </li>
 
       
@@ -519,9 +505,69 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Diary/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/06/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Diary/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/11/23/Diary/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
     <span><a href="/2022/11/22/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
+</div>
+
+    <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
   </li>
 
   </ul>
