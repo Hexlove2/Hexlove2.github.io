@@ -102,12 +102,12 @@ Hex = Hex = Winter is Coming</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4fomxoj20zk0m8axp.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj9410cj20zk0m8h12.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesx5fdwj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitcxhpij20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -280,10 +280,30 @@ Hex = Hex = Winter is Coming</title>
 <p>完整代码如下</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Movement();</span></span><br><span class="line">    SwitchAni();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Faceleft)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &lt;= leftx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (coll.IsTouchingLayers(Ground)&amp;&amp; Faceleft)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(-Speed, Jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &gt;= rightx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (coll.IsTouchingLayers(Ground) &amp;&amp; !Faceleft)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(Speed, Jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SwitchAni</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;jumping&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (rb.velocity.y &lt; <span class="number">0.1f</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;falling&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (coll.IsTouchingLayers(Ground) &amp;&amp; rb.velocity.y &lt;= <span class="number">0.1f</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;falling&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>同理可以完成老鹰的部分，因为没有动画上的变化，且路线上无障碍物，因此比较容易</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Facedown)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">0</span>, -Speed);</span><br><span class="line">        <span class="keyword">if</span> (rb.position.y &lt; bottomy)</span><br><span class="line">        &#123;</span><br><span class="line">            Facedown = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">0</span>, Speed);</span><br><span class="line">        <span class="keyword">if</span> (rb.position.y &gt; topy)</span><br><span class="line">        &#123;</span><br><span class="line">            Facedown = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>添加死亡动画</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215121053815.png" alt="image-20221215121053815"></p>
+<p>如何在消灭敌人的同时让敌人改变动画呢？</p>
+<p>也就是说，在角色的消灭相关代码中，生成一个敌人的实体，并将碰撞的敌人赋值到代码中，由于是引用类型，共享同一地址，即可直接使用类中的函数，如下</p>
+<p>这里有一点很重要，就是定义一个<strong>trigger类型</strong>的判断条件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215123729916.png" alt="image-20221215123729916"></p>
+<p>注意这是一个trigger，如果定义为bool，会出现角色死亡后不断显示爆炸效果，并无法销毁gameobject的现象</p>
+<p>这样就可以实现，在碰到敌人后，调用实体中的函数改变动画，接着在动画的最后一帧添加帧事件Death</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JumpOn</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    ani.SetTrigger(<span class="string">&quot;death&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Death</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    Destroy(gameObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>为了让更多种类的敌人均能调用此函数，因此，我将其包装在了单独的Enemy类中，利用重写函数的特性</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> Animator ani;</span><br><span class="line">    <span class="comment">//虚函数实现重写</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        ani = GetComponent&lt;Animator&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JumpOn</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetTrigger(<span class="string">&quot;death&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Death</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Destroy(gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<p>接着让其他Enemy继承这个类</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy_Eagle</span> : <span class="title">Enemy</span></span><br><span class="line">   <span class="title">public</span> <span class="keyword">class</span> <span class="title">Enemy_Frog</span> : <span class="title">Enemy</span></span><br></pre></td></tr></table></figure>
 
+<p>这样就可以在消灭敌人时不需要生成对应种类的敌人，如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enemy enemy = col.gameObject.GetComponent&lt;Enemy&gt;();</span><br><span class="line">enemy.JumpOn();</span><br></pre></td></tr></table></figure>
+
+<p>与此同时会出现一个新的问题，那就是如果在消灭敌人的同时死亡动画未播放完成就又踩到了敌人可能会重复播放死亡动画，需要将死亡动画的Loop time去掉</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215132005215.png" alt="image-20221215132005215"></p>
 <h2 id="6-可收集物品"><a href="#6-可收集物品" class="headerlink" title="6.可收集物品"></a>6.可收集物品</h2><p>这里说明一下如何制作一个收集品，例如樱桃</p>
 <p>首先，创建出樱桃对象，并添加好动画，再添加碰撞体，设置为 is trigger</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212125614547.png" alt="image-20221212125614547"></p>
@@ -322,7 +342,7 @@ Hex = Hex = Winter is Coming</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2022-12-14 23:37:55" itemprop="dateModified" datetime="2022-12-14T23:37:55+09:00">2022-12-14</time>
+    <time title="Modified: 2022-12-15 14:20:11" itemprop="dateModified" datetime="2022-12-15T14:20:11+09:00">2022-12-15</time>
   </span>
 </div>
 
@@ -377,7 +397,7 @@ Hex = Hex = Winter is Coming</title>
     <div class="item left">
       
 
-  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeudstjqj20zk0m8k3r.jpg" title="C#初级笔记">
+  <a href="/2022/11/25/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitht3xtj20zk0m8k5v.jpg" title="C#初级笔记">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Csharp Learning</span>
   <h3>C#初级笔记</h3>
@@ -387,7 +407,7 @@ Hex = Hex = Winter is Coming</title>
     <div class="item right">
       
 
-  <a href="/2022/12/06/unity/Unity+Git/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicliierfjj20zk0m8npd.jpg" title="Unity+Git">
+  <a href="/2022/12/06/unity/Unity+Git/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipewkhf1zj20zk0m81kx.jpg" title="Unity+Git">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Unity</span>
   <h3>Unity+Git</h3>
@@ -519,9 +539,40 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
 </div>
 
-    <span><a href="/2022/11/22/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Diary/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
+</div>
+
+    <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/06/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
   </li>
 
       
@@ -541,7 +592,16 @@ Hex = Hex = Winter is Coming</title>
 <a href="/categories/unity/" title="In Unity">Unity</a>
 </div>
 
-    <span><a href="/2022/12/06/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/11/22/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -558,50 +618,10 @@ Hex = Hex = Winter is Coming</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
-</div>
-
-    <span><a href="/2022/11/23/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
-</div>
-
-    <span><a href="/2022/11/24/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/unity/" title="In Unity">Unity</a>
-</div>
-
-    <span><a href="/2022/11/25/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Diary/" title="In My diary">My diary</a>
 </div>
 
     <span><a href="/2022/11/23/Diary/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Diary/" title="In My diary">My diary</a>
-</div>
-
-    <span><a href="/2022/11/22/Diary/My%20diary/" title="First Diary">First Diary</a></span>
   </li>
 
   </ul>
