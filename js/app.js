@@ -419,8 +419,8 @@ const mediaPlayer = function(t, config) {
         d = "none"
         this.pause()
       }
-      for(var el in buttons.el) {
-        buttons.el[el].display(d)
+      for(var el in checkboxs.el) {
+        checkboxs.el[el].display(d)
       }
       return this
     },
@@ -1058,7 +1058,7 @@ const mediaPlayer = function(t, config) {
     }
   }
 
-  var buttons = {
+  var checkboxs = {
     el: {},
     create: function() {
       if(!t.player.options.btns)
@@ -1089,8 +1089,8 @@ const mediaPlayer = function(t, config) {
     t.player.options = Object.assign(option, config);
     t.player.options.mode = store.get('_PlayerMode') || t.player.options.mode
 
-    // 初始化button、controls以及click事件
-    buttons.create()
+    // 初始化checkbox、controls以及click事件
+    checkboxs.create()
 
     // 初始化audio or video
     source = t.createChild(t.player.options.type, events);
@@ -1886,7 +1886,7 @@ const postBeauty = function () {
     caption && caption.addEventListener('click', fullscreenHandle);
 
     if(code_container && code_container.find("tr").length > 15) {
-      
+
       code_container.style.maxHeight = "300px";
       code_container.insertAdjacentHTML('beforeend', '<div class="show-btn"><i class="ic i-angle-down"></i></div>');
       var showBtn = code_container.child('.show-btn');
@@ -1917,7 +1917,7 @@ const postBeauty = function () {
     element.style.maxWidth = ''
   });
 
-  $.each('.reward button', function (element) {
+  $.each('.reward checkbox', function (element) {
     element.addEventListener('click', function (event) {
       event.preventDefault();
       var qr = $('#qr')
