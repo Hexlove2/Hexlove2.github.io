@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table
+        {
+            margin:auto;
+        }
+        td
+        {
+            text-align: center;
+        }
+        .lixing
+        {
+            color:dodgerblue;
+            font-size: larger;
+        }
+        .hundun
+        {
+            color:rebeccapurple;
+            font-size: larger;
+        }
+        .ganxing
+        {
+            color:orangered;
+            font-size: larger;
+        }
+        h1
+        {
+            text-align: center;
+        }
+        .type
+        {
+            text-align: center;
+        }
+        .type2
+        {
+            text-align: center;
+            font-size: larger;
+        }
+        .check
+        {
+            font-size: larger;
+        }
+        div
+        {
+            text-align: center;
+            font-size: larger;
+        }
+        #ganxing2
+        {
+            color:orangered;
+            font-size: larger;
+        }
+        #lixing2
+        {
+            color:dodgerblue;
+            font-size: larger;
+        }
+    </style>
+    <script src="javascript/GetScore.js"></script>
+</head>
+<body>
+
+    <h1>
+        得分计算器
+    </h1>
+        <p class="type">
+            目标类型：
+            <input type="radio" name="typeA" id="LA" onclick="getTypeA('LA')">
+            理性
+            <input type="radio" name="typeA" id="HA" onclick="getTypeA('HA')">
+            混沌
+            <input type="radio" name="typeA" id="GA" onclick="getTypeA('GA')">
+            感性
+        </p>
+        <p class="type">
+            结算类型：
+            <input type="radio" name="typeB" id="LB" onclick="getTypeB('LB')">
+            理性
+            <input type="radio" name="typeB" id="HB" onclick="getTypeB('HB')">
+            混沌
+            <input type="radio" name="typeB" id="GB" onclick="getTypeB('GB')">
+            感性
+        </p>
+    <p class="type2">
+        目标:
+    </p>
+    <table width="800px" height="200" border="3" cellspacing="0">
+        <tr class="lixing">
+            <td>
+                理性类
+            </td>
+            <td>
+                编程
+                <input type="checkbox"  onclick="getLcount('LM[0]')" >
+            </td>
+            <td>
+                理论学习
+                <input type="checkbox" value="" onclick="getLcount('LM[1]')">
+            </td>
+            <td>
+                推理活动
+                <input type="checkbox" value="" onclick="getLcount('LM[2]')">
+            </td>
+            <td>
+                写技术博客
+                <input type="checkbox" value="" onclick="getLcount('LM[3]')">
+            </td>
+        </tr>
+
+
+
+        <tr class="hundun">
+            <td>
+                混沌类
+            </td>
+            <td>
+                看电影
+                <input type="checkbox" value="" onclick="getHcount('HM[0]')">
+            </td>
+            <td>
+                逛街
+                <input type="checkbox" value="" onclick="getHcount('HM[1]')">
+            </td>
+            <td>
+                玩独立游戏
+                <input type="checkbox" value="" onclick="getHcount('HM[2]')">
+            </td>
+            <td>
+                健身
+                <input type="checkbox" value="" onclick="getHcount('HM[3]')">
+            </td>
+        </tr>
+
+
+
+
+        <tr class="ganxing">
+            <td>
+                感性类
+            </td>
+            <td>
+                音乐
+                <input type="checkbox" value="" onclick="getGcount('GM[0]')">
+            </td>
+            <td>
+                美术
+                <input type="checkbox" value="" onclick="getGcount('GM[1]')">
+            </td>
+            <td>
+                社交活动
+                <input type="checkbox" value="" onclick="getGcount('GM[2]')">
+            </td>
+            <td>
+                文学
+                <input type="checkbox" value="" onclick="getGcount('GM[3]')">
+            </td>
+        </tr>
+
+    </table>
+    <br>
+    <p class="type2">
+        结算:
+    </p>
+    <table width="800px" height="200" border="3" cellspacing="0">
+        <tr class="lixing">
+            <td>
+                理性类
+            </td>
+            <td>
+                编程
+                <input type="checkbox"  onclick="getLcount('LMF[0]')" >
+            </td>
+            <td>
+                理论学习
+                <input type="checkbox" value="" onclick="getLcount('LMF[1]')">
+            </td>
+            <td>
+                推理活动
+                <input type="checkbox" value="" onclick="getLcount('LMF[2]')">
+            </td>
+            <td>
+                写技术博客
+                <input type="checkbox" value="" onclick="getLcount('LMF[3]')">
+            </td>
+        </tr>
+
+
+
+        <tr class="hundun">
+            <td>
+                混沌类
+            </td>
+            <td>
+                看电影
+                <input type="checkbox" value="" onclick="getHcount('HMF[0]')">
+            </td>
+            <td>
+                逛街
+                <input type="checkbox" value="" onclick="getHcount('HMF[1]')">
+            </td>
+            <td>
+                玩独立游戏
+                <input type="checkbox" value="" onclick="getHcount('HMF[2]')">
+            </td>
+            <td>
+                健身
+                <input type="checkbox" value="" onclick="getHcount('HMF[3]')">
+            </td>
+        </tr>
+
+
+
+
+        <tr class="ganxing">
+            <td>
+                感性类
+            </td>
+            <td>
+                音乐
+                <input type="checkbox" value="" onclick="getGcount('GMF[0]')">
+            </td>
+            <td>
+                美术
+                <input type="checkbox" value="" onclick="getGcount('GMF[1]')">
+            </td>
+            <td>
+                社交活动
+                <input type="checkbox" value="" onclick="getGcount('GMF[2]')">
+            </td>
+            <td>
+                文学
+                <input type="checkbox" value="" onclick="getGcount('GMF[3]')">
+            </td>
+        </tr>
+
+    </table>
+     <p class="type">
+        <input type="button" value="查看得分" class="check" onclick="GetPoint()">
+     </p>
+    <p class="type">
+        <br>
+        得分情况
+        <div id="lixing2">
+        理性分：
+        </div>
+        <div id="ganxing2">
+        感性分：
+         </div>
+    </p>
+
+
+</body>
+</html>
