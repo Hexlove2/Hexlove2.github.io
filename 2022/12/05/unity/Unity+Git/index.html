@@ -1,0 +1,569 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hex" href="http://hexlove2.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hex" href="http://hexlove2.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hex" href="http://hexlove2.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C#,Unity2D,Git" />
+
+
+<link rel="canonical" href="http://hexlove2.github.io/2022/12/05/unity/Unity+Git/">
+
+
+
+  <title>
+Unity+Git - Unity |
+Hex = Hex = Looking for freedom of mind</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Unity+Git
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-12-06 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-06T00:00:00+09:00">2022-12-06</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hex</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/8.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/18.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/unity/" itemprop="item" rel="index" title="In Unity"><span itemprop="name">Unity</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2022/12/05/unity/Unity+Git/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunday">
+    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hex">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Unity-Git"><a href="#Unity-Git" class="headerlink" title="Unity+Git"></a>Unity+Git</h1><h2 id="1-使用原因"><a href="#1-使用原因" class="headerlink" title="1.使用原因"></a>1.使用原因</h2><p>最初使用的原因是，平常在家是用Windows开发，有时候出门只能带mac，需要两边同步，在测试过程中不小心把项目弄崩溃了，好家伙没备份直接一锅端掉。此外，以后在涉及多人协同开发时也很有用。</p>
+<h2 id="2-仓库选择"><a href="#2-仓库选择" class="headerlink" title="2.仓库选择"></a>2.仓库选择</h2><p>Github，较为稳定，且不会出现什么特别情况，但需要科学上网，胜在安全性，像之前拿gitee作图床结果突然就被锁了。</p>
+<h2 id="3-使用方式"><a href="#3-使用方式" class="headerlink" title="3.使用方式"></a>3.使用方式</h2><h3 id="方法1-推荐-手动添加-gitignore"><a href="#方法1-推荐-手动添加-gitignore" class="headerlink" title="方法1(推荐).手动添加.gitignore"></a>方法1(推荐).手动添加.gitignore</h3><p>首先正常git bush后初始化，git init</p>
+<p>接着使用命令直接生成.gitignore文件，如下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//git bush界面</span><br><span class="line">touch .gitignore</span><br></pre></td></tr></table></figure>
+
+<p>之后使用notepad等打开，拷贝以下内容放入.gitignore文件中即可</p>
+<p>此时使用GitHub Desktop直接打开项目文件夹</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This .gitignore file should be placed at the root of your Unity project directory</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="string">/[Ll]ibrary/</span></span><br><span class="line"><span class="string">/[Tt]emp/</span></span><br><span class="line"><span class="string">/[Oo]bj/</span></span><br><span class="line"><span class="string">/[Bb]uild/</span></span><br><span class="line"><span class="string">/[Bb]uilds/</span></span><br><span class="line"><span class="string">/[Ll]ogs/</span></span><br><span class="line"><span class="string">/[Uu]ser[Ss]ettings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># MemoryCaptures can get excessive in size.</span></span><br><span class="line"><span class="comment"># They also could contain extremely sensitive data</span></span><br><span class="line"><span class="string">/[Mm]emoryCaptures/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Recordings can get excessive in size</span></span><br><span class="line"><span class="string">/[Rr]ecordings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment this line if you wish to ignore the asset store tools plugin</span></span><br><span class="line"><span class="comment"># /[Aa]ssets/AssetStoreTools*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Autogenerated Jetbrains Rider plugin</span></span><br><span class="line"><span class="string">/[Aa]ssets/Plugins/Editor/JetBrains*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Visual Studio cache directory</span></span><br><span class="line"><span class="string">.vs/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Gradle cache directory</span></span><br><span class="line"><span class="string">.gradle/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Autogenerated VS/MD/Consulo solution and project files</span></span><br><span class="line"><span class="string">ExportedObj/</span></span><br><span class="line"><span class="string">.consulo/</span></span><br><span class="line"><span class="string">*.csproj</span></span><br><span class="line"><span class="string">*.unityproj</span></span><br><span class="line"><span class="string">*.sln</span></span><br><span class="line"><span class="string">*.suo</span></span><br><span class="line"><span class="string">*.tmp</span></span><br><span class="line"><span class="string">*.user</span></span><br><span class="line"><span class="string">*.userprefs</span></span><br><span class="line"><span class="string">*.pidb</span></span><br><span class="line"><span class="string">*.booproj</span></span><br><span class="line"><span class="string">*.svd</span></span><br><span class="line"><span class="string">*.pdb</span></span><br><span class="line"><span class="string">*.mdb</span></span><br><span class="line"><span class="string">*.opendb</span></span><br><span class="line"><span class="string">*.VC.db</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Unity3D generated meta files</span></span><br><span class="line"><span class="string">*.pidb.meta</span></span><br><span class="line"><span class="string">*.pdb.meta</span></span><br><span class="line"><span class="string">*.mdb.meta</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Unity3D generated file on crash reports</span></span><br><span class="line"><span class="string">sysinfo.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Builds</span></span><br><span class="line"><span class="string">*.apk</span></span><br><span class="line"><span class="string">*.aab</span></span><br><span class="line"><span class="string">*.unitypackage</span></span><br><span class="line"><span class="string">*.app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Crashlytics generated file</span></span><br><span class="line"><span class="string">crashlytics-build.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Packed Addressables</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Temporary auto-generated Android Assets</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Ss]treamingAssets/aa.meta</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Ss]treamingAssets/aa/*</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法2-Github-Desktop自动生成"><a href="#方法2-Github-Desktop自动生成" class="headerlink" title="方法2.Github Desktop自动生成"></a>方法2.Github Desktop自动生成</h3><p>此方法更加方便快捷，但需要先指定好一个空文件夹</p>
+<p>打开GitHub Desktop并创建新仓库</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221206150820679.png" alt="image-20221206150820679"></p>
+<p>接着输入本地仓库名，并选择之前选定的空文件夹，并选中unity，如下图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221206152639673.png" alt="image-20221206152639673"></p>
+<p>这样就得到了这些文件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221206152734160.png" alt="image-20221206152734160"></p>
+<p>将文件拷贝到自己的项目中即可</p>
+<p>最后使用<strong>GitHub Desktop</strong>直接打开项目文件夹即可</p>
+<h2 id="4-后续"><a href="#4-后续" class="headerlink" title="4.后续"></a>4.后续</h2><p>直接使用<strong>GitHub Desktop</strong>进行个人项目管理即可，非常方便</p>
+<h2 id="5-注意事项"><a href="#5-注意事项" class="headerlink" title="5.注意事项"></a>5.注意事项</h2><p>1.Github网络可能会不稳定，也可以选择gitee</p>
+<p>2.unity中好像是有GitHub插件的，但我更喜欢软件一点</p>
+<p>3.觉得麻烦可以选择unity主推的PlasticSCM，契合度更高，在编辑器中直接可以使用</p>
+<p>4.<strong>最好</strong>都使用相同的unity版本，尤其是跨系统，例如我在Windows上使用的是2021.3.11.f1c2，mac上的2021.3.11.f1居然都无法打开报错，无奈均改成2021.3.15.f1c1</p>
+
+      <div class="tags">
+          <a href="/tags/C-Unity2D-Git/" rel="tag"><i class="ic i-tag"></i> C#,Unity2D,Git</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-06-17 14:31:56" itemprop="dateModified" datetime="2024-06-17T14:31:56+09:00">2024-06-17</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <checkbox><i class="ic i-heartbeat"></i> Donate</checkbox>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunday WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunday Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunday PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunday <i class="ic i-at"><em>@</em></i>Hex
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://hexlove2.github.io/2022/12/05/unity/Unity+Git/" title="Unity+Git">http://hexlove2.github.io/2022/12/05/unity/Unity+Git/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/11/19/journey/My%20diary/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;4.jpg" title="First Diary">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> My diary</span>
+  <h3>First Diary</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;2.jpg" title="Fox项目笔记">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Unity</span>
+  <h3>Fox项目笔记</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity-Git"><span class="toc-number">1.</span> <span class="toc-text">Unity+Git</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%9B%A0"><span class="toc-number">1.1.</span> <span class="toc-text">1.使用原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%93%E5%BA%93%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.</span> <span class="toc-text">2.仓库选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">3.使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%951-%E6%8E%A8%E8%8D%90-%E6%89%8B%E5%8A%A8%E6%B7%BB%E5%8A%A0-gitignore"><span class="toc-number">1.3.1.</span> <span class="toc-text">方法1(推荐).手动添加.gitignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%952-Github-Desktop%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">方法2.Github Desktop自动生成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%8E%E7%BB%AD"><span class="toc-number">1.4.</span> <span class="toc-text">4.后续</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">1.5.</span> <span class="toc-text">5.注意事项</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li class="active"><a href="/2022/12/05/unity/Unity+Git/" rel="bookmark" title="Unity+Git">Unity+Git</a></li><li><a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Fox项目笔记">Fox项目笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunday"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunday</p>
+  <div class="description" itemprop="description">Looking for freedom of mind</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">10</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUy" title="https:&#x2F;&#x2F;github.com&#x2F;Hexlove2"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTMxMzY0NTk5Ng==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;313645996"><i class="ic i-cloud-music"></i></span>
+      <a href="/hexlove@163.com" title="hexlove@163.com" class="item email"><i class="ic i-envelope"></i></a>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/Diary/" rel="section"><i class="ic i-moon"></i>Diary</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-expand"></i>Art</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/movie/" rel="section"><i class="ic i-creative-commons"></i>Movie</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/paint/" rel="section"><i class="ic i-sun"></i>Paint</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-sakura"></i>Demo</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/HTML/index.html" rel="section"><i class="ic i-flag"></i>得分计算器</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/11/19/journey/My%20diary/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/10/29/journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2024/02/29/journey/Thread/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/11/19/journey/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
+</div>
+
+    <span><a href="/2022/05/31/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
+</div>
+
+    <span><a href="/2023/01/09/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/08/14/work/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/08/31/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/05/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunday @ Hex</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/05/unity/Unity+Git/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

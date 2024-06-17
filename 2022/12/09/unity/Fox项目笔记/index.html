@@ -1,0 +1,826 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hex" href="http://hexlove2.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hex" href="http://hexlove2.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hex" href="http://hexlove2.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C#,Unity2D" />
+
+
+<link rel="canonical" href="http://hexlove2.github.io/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">
+
+
+
+  <title>
+Fox项目笔记 - Unity |
+Hex = Hex = Looking for freedom of mind</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Fox项目笔记
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-12-10 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-10T00:00:00+09:00">2022-12-10</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hex</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/2.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/19.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/16.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/18.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/unity/" itemprop="item" rel="index" title="In Unity"><span itemprop="name">Unity</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunday">
+    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hex">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Fox项目笔记"><a href="#Fox项目笔记" class="headerlink" title="Fox项目笔记"></a>Fox项目笔记</h1><p>注：以下内容应在已有一定策划内容与素材的情况下完成，本文中的内容是参考学习了up主 的内容，并在一定基础上扩充一些内容，整理成笔记。</p>
+<p><code>C# Unity2D</code></p>
+<p>核心知识点</p>
+<p>[TOC]</p>
+<h2 id="1-素材导入与处理"><a href="#1-素材导入与处理" class="headerlink" title="1.素材导入与处理"></a>1.素材导入与处理</h2><h3 id="1-图片素材"><a href="#1-图片素材" class="headerlink" title="1.图片素材"></a>1.图片素材</h3><p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128014544339.png" alt="image-20221128014544339"></p>
+<p>图片素材，一般都是放在Sprites文件夹中，在使用的一定要注意修改图片的每单位像素点数，这个值越大，在场景中显示就会越小，显示大小计算方式为：</p>
+<p>​                                                                                                                     <strong>图片像素&#x2F;pixels per Unit</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128015249617.png" alt="image-20221128015249617"></p>
+<p>若图片为动作设计图片帧，则应先选中某一对象，再将整组图片拖入其中。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128015723046.png" alt="image-20221128015723046"></p>
+<p>一般也会用于某一物体的静态样式，更方便的构造碰撞体以及实现可视化，直接拖入即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128015910292.png" alt="image-20221128015910292"></p>
+<p>这里还要再说明图片素材的一点是</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128100708605.png" alt="image-20221128100708605"></p>
+<p>一般来说，一些图片资源会放在一张图片中，这时就需要使用到插件去自动分割出这些素材，切割成单独的部分，使用的插件为sprite edit</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102811521.png" alt="image-20221128102811521"></p>
+<p>点击Slice即可自动切割，如下所示</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128100941408.png" alt="image-20221128100941408"></p>
+<p>这里每个图片都是16×16像素，因此一般设置<strong>pixels per unit</strong>为16</p>
+<h3 id="2-音频素材"><a href="#2-音频素材" class="headerlink" title="2.音频素材"></a>2.音频素材</h3><p><strong>1.如何添加？</strong></p>
+<p>就目前情况来看，音频素材比图片素材更难获取，因此基本都是要通过unity的官方资源库获取较为完整的素材，需要在网页上登录Unity Asset Store，再选择好素材后，添加到我的资源中，接着在editor中直接下载导入就可以了，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220161633609.png" alt="image-20221220161633609"></p>
+<p><strong>2.如何使用？</strong></p>
+<p>一般来说，音频素材可粗分为bgm和特殊音效，而Unity中又可分为主要的三个部分</p>
+<p><strong>Audio Listener  Audio Source  Audio Clips</strong></p>
+<p>首先可以给跟随的对象添加一个音源，因为主摄像头自带Audio Listener，这样就会一直听到BGM</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220162056734.png" alt="image-20221220162056734"></p>
+<p>接着直接拖入其中即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220162500877.png" alt="image-20221220162500877"></p>
+<p>接着需要设置一些基本参数，例如循环播放，游戏时自动唤醒等</p>
+<p>下面是一些音效设置，例如敌人的死亡音效</p>
+<p>和上面的步骤相同，添加完音源后，在代码中public一个音源，这样就可以控制在特定情况下的爆炸效果了</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220165858963.png" alt="image-20221220165858963"></p>
+<h3 id="3-动画素材"><a href="#3-动画素材" class="headerlink" title="3.动画素材"></a>3.动画素材</h3><p>根据图片素材所述，首先要将动画添加到相对应的对象中，这里要给对象添加动画管理器，Animator，再使用图片制作出动画，之后对其进行管理</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128095129488.png" alt="image-20221128095129488"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128095310641.png" alt="image-20221128095310641"></p>
+<p>红框中的内容为状态标记，可在代码中调用，用来切换动画，首先要在不同动画间添加切换功能</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128095625000.png" alt="image-20221128095625000"></p>
+<p>之后定义这个切换条件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128095733072.png" alt="image-20221128095733072"></p>
+<p>接下来是代码中的使用，需要先获取到该对象的Animator，如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Animator ani;<span class="comment">//获取动画，一般写在start函数中</span></span><br><span class="line">        <span class="comment">//角色跳跃</span></span><br><span class="line">    <span class="keyword">if</span> (Input.GetcheckboxDown(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="comment">/*Vector2 p;</span></span><br><span class="line"><span class="comment">           p.x = rb.velocity.x;</span></span><br><span class="line"><span class="comment">           p.y = jumpForce;</span></span><br><span class="line"><span class="comment">           rb.velocity = p;*/</span></span><br><span class="line">           <span class="keyword">if</span>(coll.IsTouchingLayers(ground))</span><br><span class="line">           &#123;</span><br><span class="line">               rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpForce);</span><br><span class="line">               ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(jumpegg&gt;<span class="number">0</span>)</span><br><span class="line">           &#123;</span><br><span class="line">               rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpForce);</span><br><span class="line">               ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">               jumpegg--;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里的Setbool就是比较常用的状态标记，仅展示了跳跃相关动画代码</p>
+<h2 id="2-2D地图绘制与图层问题"><a href="#2-2D地图绘制与图层问题" class="headerlink" title="2.2D地图绘制与图层问题"></a>2.2D地图绘制与图层问题</h2><p>本项目中绘制地图使用的是Tilemap，首先创建一个对象</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102310009.png" alt="image-20221128102310009"></p>
+<p>之后会出现一个Grid，之后就可以使用Tile Palette功能，创建一个画笔库，例如这里创建的Background，注意这里一定要记得改变图片的pixels per unit，否则图片拖入后会非常小</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128102949520.png" alt="image-20221128102949520"></p>
+<p>这样我们就得到了一个画笔库，接着在Grid中创建新的Tilemap</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103944910.png" alt="image-20221128103944910"></p>
+<p>并添加碰撞体，确保角色可以与地形接触，产生碰撞效果</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103915671.png" alt="image-20221128103915671"><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104013254.png" alt="image-20221128104013254"><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104032627.png" alt="image-20221128104032627"></p>
+<p>选取若干个unit，并画到background的unit中</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128103311831.png" alt="image-20221128103311831"></p>
+<p>注意这里只是一个个单个的地形资源，像树，房子，灌木丛，海面背景等较大部分则应该直接拖入图片，当作背景或添加碰撞效果，当然也可以切割后自定义成多种形状或大小</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128104607179.png" alt="image-20221128104607179"></p>
+<h2 id="3-镜头控制与使用"><a href="#3-镜头控制与使用" class="headerlink" title="3.镜头控制与使用"></a>3.镜头控制与使用</h2><p>最简单粗暴的方式为，为主镜头添加一个脚本，再public一个Transform，放入角色，使得主镜头Main camera的position与角色保持同步</p>
+<p>这种方式较为繁琐，且难以实现一些更复杂的跟随效果</p>
+<p>因此，需要在Unity中添加一个package，专门用于镜头控制</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129151821344.png" alt="image-20221129151821344"></p>
+<p>安装完成后，在game Object中可以找到，添加一个2d camera</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129151959488.png" alt="image-20221129151959488"></p>
+<p>之后原来的camera会被重新定义</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152238038.png" alt="image-20221129152238038"></p>
+<p>这里的follow，也就是跟随的目标，拖入player即可</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152451254.png" alt="image-20221129152451254"></p>
+<p>这里的Dead Zone可以设置在某一范围内不会移动镜头，具体可以按需求调整</p>
+<p>也可以通过修改Screen的X和Y来固定角色的大致区域，例如固定角色必须在左下角等</p>
+<p>但目前还存在着跳出地图边界的问题，因此需要添加一个摄像头的碰撞体</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129152941423.png" alt="image-20221129152941423"></p>
+<p>因此要添加一个CinemachineConfiner，这样就可以定义碰撞体了</p>
+<p>先选择设置好的背景，再给它添加一个碰撞体</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153222262.png" alt="image-20221129153222262"></p>
+<p>建议选择polygon，多边形</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153258214.png" alt="image-20221129153258214"></p>
+<p>点击edit collider即可定义碰撞体的范围</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153407790.png" alt="image-20221129153407790"></p>
+<p>可以看到定义完成之后会出现一个绿框</p>
+<p>之后再将background拖入其中</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129153826950.png" alt="image-20221129153826950"></p>
+<p>注意还剩一步</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129154007158.png" alt="image-20221129154007158"></p>
+<p>完成之后要将background设置为is trigger</p>
+<h2 id="4-主角定义与创建"><a href="#4-主角定义与创建" class="headerlink" title="4.主角定义与创建"></a>4.主角定义与创建</h2><p>接下来针对player的定义与设置进行角色的设计分析</p>
+<p>首先，创建一个sprite类</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173045863.png" alt="image-20221129173045863"></p>
+<p>接着放入角色图片</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173133841.png" alt="image-20221129173133841"></p>
+<p>注意这里的sorting layer，处理好前中后景的层次顺序</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221129173304874.png" alt="image-20221129173304874"></p>
+<p>之后添加脚本文件和碰撞体，刚体组件，一般对于这种2D游戏来说，角色可以设计为上半身正方形下半身圆形的碰撞体，否则可能会卡地面。</p>
+<p>主要脚本部分就是实现移动和动画切换，</p>
+<p>脚本配置如下图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214223546686.png" alt="image-20221214223546686"></p>
+<p>完整代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Start is called before the first frame update</span></span><br><span class="line"><span class="keyword">private</span> Rigidbody2D rb;</span><br><span class="line"><span class="keyword">private</span> Animator ani;</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">int</span> jumpegg;</span><br><span class="line"><span class="keyword">private</span> <span class="built_in">bool</span> IsHurt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> Text CherryNumber;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> Cherry;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">float</span> speed;</span><br><span class="line"><span class="keyword">public</span> <span class="built_in">float</span> jumpforce;</span><br><span class="line"><span class="keyword">public</span> LayerMask ground;</span><br><span class="line"><span class="keyword">public</span> Collider2D coll;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">    ani = GetComponent&lt;Animator&gt;();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Update is called once per frame</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (!IsHurt)</span><br><span class="line">    &#123;</span><br><span class="line">        Movement(); </span><br><span class="line">    &#125;</span><br><span class="line">    SwitchAnim();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">float</span> horizontalmove = Input.GetAxis(<span class="string">&quot;Horizontal&quot;</span>);</span><br><span class="line">    <span class="built_in">float</span> facedirection = Input.GetAxisRaw(<span class="string">&quot;Horizontal&quot;</span>);</span><br><span class="line">    <span class="comment">//移动</span></span><br><span class="line">    <span class="keyword">if</span> (horizontalmove != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(horizontalmove * speed , rb.velocity.y);</span><br><span class="line">        ani.SetFloat(<span class="string">&quot;running&quot;</span>,Mathf.Abs(facedirection));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//转向</span></span><br><span class="line">    <span class="keyword">if</span> (facedirection != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        transform.localScale = <span class="keyword">new</span> Vector3(facedirection, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//跳跃</span></span><br><span class="line">    <span class="keyword">if</span> (Input.GetcheckboxDown(<span class="string">&quot;Jump&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (coll.IsTouchingLayers(ground))</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (jumpegg &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">            jumpegg--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SwitchAnim</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;jump&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (rb.velocity.y &lt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (IsHurt)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Mathf.Abs(rb.velocity.x) &lt; <span class="number">0.1f</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;idle&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">            ani.SetFloat(<span class="string">&quot;running&quot;</span>,<span class="number">0</span>);</span><br><span class="line">            IsHurt = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (coll.IsTouchingLayers(ground))</span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">        jumpegg = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (rb.velocity.y &lt; <span class="number">0.1f</span> &amp;&amp; !coll.IsTouchingLayers(ground))</span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">        ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//物品收集代码</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (col.tag == <span class="string">&quot;Collection&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Cherry++;</span><br><span class="line">        CherryNumber.text = Cherry.ToString();</span><br><span class="line">        jumpegg++;</span><br><span class="line">        Destroy(col.gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//后续添加吃宝石代码</span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    if (col.tag == &quot;Collection&quot;)</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">        Cherry++;</span></span><br><span class="line"><span class="comment">        CherryNumber.text = Cherry.ToString();</span></span><br><span class="line"><span class="comment">        jumpegg++;</span></span><br><span class="line"><span class="comment">        Destroy(col.gameObject);</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//消灭敌人</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (col.gameObject.tag == <span class="string">&quot;Enemies&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;fall&quot;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            Destroy(col.gameObject);</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//角色受伤</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &lt; col.gameObject.transform.position.x) </span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">            IsHurt = <span class="literal">true</span>;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">-15</span>, rb.velocity.y);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &gt; col.gameObject.transform.position.x) </span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">            IsHurt = <span class="literal">true</span>;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">15</span>, rb.velocity.y);</span><br><span class="line">        &#125;        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面说一下关于主角蹲下的部分</p>
+<p>首先要在编译器设置里面设置一个蹲下的按键，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221100405302.png" alt="image-20221221100405302"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221100459843.png" alt="image-20221221100459843"></p>
+<p>这里没有下蹲，可以复制某个改成下蹲</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221100629050.png" alt="image-20221221100629050"></p>
+<p>接着在下蹲的时候改变动画，并关闭上半身的box碰撞体，并且如果蹲下后上面有碰撞体就不能起立，这个可以通过区域检测，代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Crouch</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//collision detect</span></span><br><span class="line">    <span class="keyword">if</span> (!Physics2D.OverlapCircle(transform.position,<span class="number">0.2f</span>,ground))</span><br><span class="line">    &#123;            </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (Input.GetButton(<span class="string">&quot;Crouch&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        BoxColl.enabled = <span class="literal">false</span>;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;crouch&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        BoxColl.enabled = <span class="literal">true</span>;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;crouch&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="5-敌对生物生成"><a href="#5-敌对生物生成" class="headerlink" title="5.敌对生物生成"></a>5.敌对生物生成</h2><p>首先仿照角色的定义与创建，并创建对应的动画，如下所示</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212195723779.png" alt="image-20221212195723779"></p>
+<p>添加Animator并创建动画，如下</p>
+<img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212200407575.png" alt="image-20221212200407575" style="zoom:80%;" />
+
+<p>先放到一边</p>
+<p>再给角色添加脚本函数，让角色可以踩死敌人</p>
+<p>如下：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnCollisionEnter2D</span>(<span class="params">Collision2D col</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (col.gameObject.tag == <span class="string">&quot;Enemies&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;fall&quot;</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                Destroy(col.gameObject);</span><br><span class="line">                rb.velocity = <span class="keyword">new</span> Vector2(rb.velocity.x, jumpforce);</span><br><span class="line">                ani.SetBool(<span class="string">&quot;jump&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">                ani.SetBool(<span class="string">&quot;fall&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//角色受伤</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里也可以顺便定义角色受伤的脚本，因为一旦碰到了敌人，要么就是踩死，要么就一定会受伤</p>
+<p>这里关于角色受伤的部分要注意一个问题，如果是直接更改角色的速度，那么则这段时间内不能执行movement()函数，否则会重置速度，因此，修改代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">   	    <span class="keyword">private</span> <span class="built_in">bool</span> IsHurt;</span><br><span class="line"> 		<span class="comment">//下面这部分添加在switchAni函数中</span></span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (IsHurt)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="keyword">if</span> (Mathf.Abs(rb.velocity.x) &lt; <span class="number">0.1f</span>)</span><br><span class="line">             &#123;</span><br><span class="line">                 ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">                 ani.SetBool(<span class="string">&quot;idle&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">                 IsHurt = <span class="literal">false</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"><span class="comment">//下面这部分即为上面的代码中的角色受伤部分</span></span><br><span class="line">         <span class="comment">//角色受伤</span></span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &lt; col.gameObject.transform.position.x) </span><br><span class="line">         &#123;</span><br><span class="line">             ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">             IsHurt = <span class="literal">true</span>;</span><br><span class="line">             rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">-10</span>, rb.velocity.y);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span> (transform.position.x &gt; col.gameObject.transform.position.x) </span><br><span class="line">         &#123;</span><br><span class="line">             ani.SetBool(<span class="string">&quot;hurt&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">             IsHurt = <span class="literal">true</span>;</span><br><span class="line">             rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">10</span>, rb.velocity.y);</span><br><span class="line">         &#125;  </span><br></pre></td></tr></table></figure>
+
+<p>下面要实现青蛙的相关代码，让其在两个固定点之间来回跳动，可以给青蛙添加两个子类点，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212220727116.png" alt="image-20221212220727116"></p>
+<p>思路是，刚开始时就获取到两个点的绝对坐标，将两个transform拖入其中，后面直接销毁即可</p>
+<p>代码如下(非完整版，待优化)</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    rb = GetComponent&lt;Rigidbody2D&gt;();</span><br><span class="line">    ani = GetComponent&lt;Animator&gt;();</span><br><span class="line">    leftx = leftpoint.position.x;</span><br><span class="line">    rightx = rightpoint.position.x;</span><br><span class="line">    Destroy(leftpoint.gameObject);</span><br><span class="line">    Destroy(rightpoint.gameObject);</span><br><span class="line">    Faceleft = <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Faceleft)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(-Speed, rb.velocity.y);</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &lt;= leftx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(Speed, rb.velocity.y);</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &gt;= rightx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里还未添加动画，下面是动画部分</p>
+<p>这里要用到一个新的概念，动画事件</p>
+<p>也就是说，当对象完成某一动画之后，自动执行命令切换动画</p>
+<p>那为什么在上面的创建人物的过程中没有用到呢，是因为上面的角色定义的是主角，受到玩家控制，不断有输入信息，而对于敌对生物的AI，就需要一套流程和算法，那么就可以为动画添加事件，例如在动画结束后自动触发某个函数，如下</p>
+<p>思路为：执行一次idle动画，则跳动，落地后继续执行一次idle动画，以此循环</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214205208616.png" alt="image-20221214205208616"></p>
+<p>写好切换条件，并在enemy的脚本中添加修改内容</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//用于检测地面碰撞</span></span><br><span class="line">	<span class="keyword">private</span> Collider2D coll;</span><br><span class="line">   <span class="keyword">public</span> LayerMask Ground;</span><br><span class="line"></span><br><span class="line"><span class="comment">//落地才能起跳</span></span><br><span class="line"><span class="keyword">if</span> (coll.IsTouchingLayers(Ground))</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214210113782.png" alt="image-20221214210113782"></p>
+<p>选择idle动画，点加号在动画末尾添加帧事件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214210216534.png" alt="image-20221214210216534"></p>
+<p>并选择函数movement，此时就不需要在脚本update里调用了</p>
+<p>但update中仍然需要切换动画的函数</p>
+<p>在本次过程中遇到了两个bug，第一个bug是，后仰跳</p>
+<p>解决办法是，先转向，并确定转向与跳跃方向一致时才起跳</p>
+<p>第二个bug是，由于其中检测地面碰撞时，可能在空中撞到空中地形形成的地面，有可能就会导致卡死在jumping动画中，解决办法是，在动画中增加一个解决卡死的过渡条件，强行过渡到idle状态</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214215821508.png" alt="image-20221214215821508"></p>
+<p>完整代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//Movement();</span></span><br><span class="line">    SwitchAni();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Faceleft)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &lt;= leftx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">-1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (coll.IsTouchingLayers(Ground)&amp;&amp; Faceleft)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(-Speed, Jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (transform.position.x &gt;= rightx)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.localScale = <span class="keyword">new</span> Vector3(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">            Faceleft = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (coll.IsTouchingLayers(Ground) &amp;&amp; !Faceleft)</span><br><span class="line">        &#123;</span><br><span class="line">            rb.velocity = <span class="keyword">new</span> Vector2(Speed, Jumpforce);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">SwitchAni</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (ani.GetBool(<span class="string">&quot;jumping&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (rb.velocity.y &lt; <span class="number">0.1f</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            ani.SetBool(<span class="string">&quot;jumping&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">            ani.SetBool(<span class="string">&quot;falling&quot;</span>,<span class="literal">true</span>);</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (coll.IsTouchingLayers(Ground) &amp;&amp; rb.velocity.y &lt;= <span class="number">0.1f</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetBool(<span class="string">&quot;falling&quot;</span>,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>同理可以完成老鹰的部分，因为没有动画上的变化，且路线上无障碍物，因此比较容易</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">Movement</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (Facedown)</span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">0</span>, -Speed);</span><br><span class="line">        <span class="keyword">if</span> (rb.position.y &lt; bottomy)</span><br><span class="line">        &#123;</span><br><span class="line">            Facedown = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        rb.velocity = <span class="keyword">new</span> Vector2(<span class="number">0</span>, Speed);</span><br><span class="line">        <span class="keyword">if</span> (rb.position.y &gt; topy)</span><br><span class="line">        &#123;</span><br><span class="line">            Facedown = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>添加死亡动画</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215121053815.png" alt="image-20221215121053815"></p>
+<p>如何在消灭敌人的同时让敌人改变动画呢？</p>
+<p>也就是说，在角色的消灭相关代码中，生成一个敌人的实体，并将碰撞的敌人赋值到代码中，由于是引用类型，共享同一地址，即可直接使用类中的函数，如下</p>
+<p>这里有一点很重要，就是定义一个<strong>trigger类型</strong>的判断条件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215123729916.png" alt="image-20221215123729916"></p>
+<p>注意这是一个trigger，如果定义为bool，会出现角色死亡后不断显示爆炸效果，并无法销毁gameobject的现象</p>
+<p>这样就可以实现，在碰到敌人后，调用实体中的函数改变动画，接着在动画的最后一帧添加帧事件Death</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JumpOn</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    ani.SetTrigger(<span class="string">&quot;death&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Death</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//禁用碰撞体，防止二次碰撞</span></span><br><span class="line">    GetComponent&lt;Collider2D&gt;().enabled = <span class="literal">false</span>;</span><br><span class="line">    Destroy(gameObject);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了让更多种类的敌人均能调用此函数，因此，我将其包装在了单独的Enemy类中，利用重写函数的特性</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">protected</span> Animator ani;</span><br><span class="line">    <span class="comment">//虚函数实现重写</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        ani = GetComponent&lt;Animator&gt;();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">JumpOn</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        ani.SetTrigger(<span class="string">&quot;death&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Death</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//禁用碰撞体，防止二次碰撞</span></span><br><span class="line">        GetComponent&lt;Collider2D&gt;().enabled = <span class="literal">false</span>;</span><br><span class="line">        Destroy(gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接着让其他Enemy继承这个类</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy_Eagle</span> : <span class="title">Enemy</span></span><br><span class="line">   <span class="title">public</span> <span class="keyword">class</span> <span class="title">Enemy_Frog</span> : <span class="title">Enemy</span></span><br></pre></td></tr></table></figure>
+
+<p>这样就可以在消灭敌人时不需要生成对应种类的敌人，如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enemy enemy = col.gameObject.GetComponent&lt;Enemy&gt;();</span><br><span class="line">enemy.JumpOn();</span><br></pre></td></tr></table></figure>
+
+<p>与此同时会出现一个新的问题，那就是如果在消灭敌人的同时死亡动画未播放完成就又踩到了敌人可能会重复播放死亡动画，需要将死亡动画的Loop time去掉</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215132005215.png" alt="image-20221215132005215"></p>
+<h2 id="6-可收集物品"><a href="#6-可收集物品" class="headerlink" title="6.可收集物品"></a>6.可收集物品</h2><p>这里说明一下如何制作一个收集品，例如樱桃</p>
+<p>首先，创建出樱桃对象，并添加好动画，再添加碰撞体，设置为 is trigger</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212125614547.png" alt="image-20221212125614547"></p>
+<p>接下来就要写代码部分了，如果角色碰到了樱桃，则销毁该对象，并且UI中的樱桃数量加1</p>
+<p>添加樱桃的tag</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212130620832.png" alt="image-20221212130620832"></p>
+<p>下面进入控制角色的代码中</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//首先定义cherry</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">int</span> Cherry;</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用UnityEngine的函数OnTriggerEnter2D</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D col</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (col.tag == <span class="string">&quot;Collection&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        Cherry++;</span><br><span class="line">        Destroy(col.gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义完成，将其设置为prefab当成模板，拖入文件夹，后续若要更改樱桃就可以直接改预制体prefab</p>
+<h2 id="7-碰撞体问题"><a href="#7-碰撞体问题" class="headerlink" title="7.碰撞体问题"></a>7.碰撞体问题</h2><p><strong>1.代码中如何控制碰撞体</strong></p>
+<p>这部分详情可见主角的创建中的趴下的部分，在趴下时会关闭。</p>
+<p><strong>2.碰撞体的一些用法</strong></p>
+<p>常见的当然就是处理game object之间的碰撞问题，当然也可以作为触发器使用，例如，使用Collider作为trigger检测碰撞，判定角色掉落死亡。</p>
+<p>至于为什么不直接判断Y轴是为了可视化更加方便，当然判断y也可以。</p>
+<p>首先添加一个game object，并添加Box Collider。如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221165218175.png" alt="image-20221221165218175"></p>
+<p>当触发后，重置游戏场景，具体可见游戏场景控制部分</p>
+<h2 id="8-物体layer"><a href="#8-物体layer" class="headerlink" title="8.物体layer"></a>8.物体layer</h2><h2 id="9-UI制作"><a href="#9-UI制作" class="headerlink" title="9.UI制作"></a>9.UI制作</h2><h3 id="1-游戏中界面UI"><a href="#1-游戏中界面UI" class="headerlink" title="1.游戏中界面UI"></a>1.游戏中界面UI</h3><p>首先，在制作UI之前要先创建一个Canvas画布，UI相关的部分均会在画布中展示，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212190808089.png" alt="image-20221212190808089"></p>
+<p>这时候会生成一个Canvas和一个Eventsystem，接着在这个Canvas中继续添加UI，例如实现左上角实时显示樱桃收集数量，则可以添加Text，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191455772.png" alt="image-20221212191455772"></p>
+<p>接着，将Text移动到镜头的某个位置，如下图</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191540643.png" alt="image-20221212191540643"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191549363.png" alt="image-20221212191549363"></p>
+<p>现在想要实时更新Cherry的收集数量，只需要将右边的文本信息实时同步改成定义的樱桃数量即可，脚本如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line">	<span class="keyword">public</span> Text CherryNumber;       </span><br><span class="line"><span class="keyword">if</span> (col.tag == <span class="string">&quot;Collection&quot;</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           Cherry++;</span><br><span class="line">           CherryNumber.text = Cherry.ToString(); <span class="comment">//更新数量信息</span></span><br><span class="line">           jumpegg++;</span><br><span class="line">           Destroy(col.gameObject);</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-触发UI"><a href="#2-触发UI" class="headerlink" title="2.触发UI"></a>2.触发UI</h3><p>本次举例为，对话框UI，首先Canvas是整体的UI画布，在Canvas中添加一个Panel</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220223423990.png" alt="image-20221220223423990"></p>
+<p>接着选中一个对齐方式，例如下居中，再设置一个宽高和背景色，得到如下效果</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220223506436.png" alt="image-20221220223506436"></p>
+<p>如果是对话框，可以放到最下面的部分，也可以在调颜色的地方调整不透明度</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220223733834.png" alt="image-20221220223733834"></p>
+<p>接着就可以在这个panel内部添加Text文本框</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220223944835.png" alt="image-20221220223944835"></p>
+<p>这里可以设置颜色字体等，也可以设置居中</p>
+<p>关于字体，可以去资源商店下载一些合适的，例如像素风的字体</p>
+<p>现在假设要实现的效果是，走到这个门口时自动弹出对话框</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220224901424.png" alt="image-20221220224901424"></p>
+<p>第一种方法很简单，就是在这个房子的门上直接加上触发器，第二种是在房子下面新建一个empty，设置一个触发器，这样更加明确，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220225325354.png" alt="image-20221220225325354"></p>
+<p>并设置为一个trigger，添加一个script文件</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220225617432.png" alt="image-20221220225617432"></p>
+<p>这里要把这个UI赋给函数</p>
+<p>这样就能实现人物碰撞后自动触发UI，不碰撞就关闭，相关代码如下</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">public</span> GameObject enterDialog;</span><br><span class="line">   <span class="comment">// Start is called before the first frame update</span></span><br><span class="line"><span class="comment">//进入</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerEnter2D</span>(<span class="params">Collider2D col</span>)</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span> (col.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           enterDialog.SetActive(<span class="literal">true</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//离开</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">OnTriggerExit2D</span>(<span class="params">Collider2D other</span>)</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">if</span> (other.tag == <span class="string">&quot;Player&quot;</span>)</span><br><span class="line">       &#123;</span><br><span class="line">           enterDialog.SetActive(<span class="literal">false</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是这里还有一个可优化的部分，就是UI的出现形式，可以为对话框也添加一个动画</p>
+<p>方式和剪视频很类似，添加关键帧，会自动过渡</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220230724992.png" alt="image-20221220230724992"></p>
+<p>先点击录制</p>
+<p>在设置关键帧</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220231146956.png" alt="image-20221220231146956"></p>
+<p>选择某个时间点，去设置相应的属性值即可</p>
+<p>接着停止录制即可</p>
+<h2 id="10-游戏场景控制"><a href="#10-游戏场景控制" class="headerlink" title="10.游戏场景控制"></a>10.游戏场景控制</h2><p>首先，想要控制游戏场景，就必须要使用一个组件</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine.SceneManagement;</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.处理角色掉落死亡</strong></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Restart</span>()</span></span><br><span class="line">&#123;</span><br><span class="line">    	<span class="comment">//重置游戏</span></span><br><span class="line">        <span class="comment">//这里的用法是，LoadScene可以根据场景的名字来加载场景，但场景的名字很多且不固定</span></span><br><span class="line">        <span class="comment">//因此使用GetActiveScene函数来获取当前的场景，其name就是场景的名字</span></span><br><span class="line">        SceneManager.LoadScene(SceneManager.GetActiveScene().name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但这样只是简单粗暴的重置场景，没有死亡的音效，死亡画面等等，因此可以封装成一个单独的函数，Restart()。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//触发死亡效果</span></span><br><span class="line"><span class="keyword">if</span> (col.tag == <span class="string">&quot;DeadLine&quot;</span>)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//关闭所有音频</span></span><br><span class="line">    GetComponent&lt;AudioSource&gt;().enabled = <span class="literal">false</span>;</span><br><span class="line">    <span class="comment">//启用死亡音频</span></span><br><span class="line">    DeathAudio.Play();</span><br><span class="line">    <span class="comment">//延迟运行某个函数</span></span><br><span class="line">    Invoke(<span class="string">&quot;Restart&quot;</span>,<span class="number">2f</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.切换场景</strong></p>
+<p>简单的实现方式，可以通过场景的编号实现场景加载</p>
+<p>首先，新建一个加载场景的脚本，用于控制场景切换，当然，在这之前，我们要给场景进行编号，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223102839997.png" alt="image-20221223102839997"></p>
+<p>这里就可以看到场景的编号了</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">EnterHouse</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.E))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//加载当前场景的下一个场景编号的场景</span></span><br><span class="line">            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另一方面，我们的目标是在弹出窗口时按E才会加载场景，因此需要在弹出窗口后激活这个脚本，所以要挂在到窗口上，如下。</p>
+<h2 id="11-2D光效"><a href="#11-2D光效" class="headerlink" title="11.2D光效"></a>11.2D光效</h2><p>本次使用的光效插件为：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223103404391.png" alt="image-20221223103404391"></p>
+<p>首先，要使用光效就需要材质，因此，先给对象添加材质</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223105943362.png" alt="image-20221223105943362"></p>
+<p>添加散射光材质</p>
+<p>再新建光效，例如单向光</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223110035734.png" alt="image-20221223110035734"></p>
+<p>但对于控制的角色，材质需要自己去新建一个，因为我们需要的是一个sprite的diffuse材质效果，新建如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223110348846.png" alt="image-20221223110348846"></p>
+<p>选择这里的diffuse</p>
+<p>接着将该材质拖入角色中，并添加点光源</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223110648972.png" alt="image-20221223110648972"></p>
+<p>注意这里的光源一定要放在图层的上面，这样才能照射到地图，可以通过切换到3D视图去调整光影的位置，如下</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223110802453.png" alt="image-20221223110802453"></p>
+<p>或者也可以直接修改点光源的Z坐标</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223110831703.png" alt="image-20221223110831703"></p>
+<p>只要是负数一般就差不多了，例如-1</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223143039838.png" alt="image-20221223143039838"></p>
+<p>这里可以调整光的其他参数，强度范围等</p>
+<h2 id="12-场景移动视觉差效果"><a href="#12-场景移动视觉差效果" class="headerlink" title="12.场景移动视觉差效果"></a>12.场景移动视觉差效果</h2><p>在现实中，对于不同距离的背景，移动时变化的速度是不一样的，例如远处的山，就移动得很慢，近处的树移动的很快，如何制造这种效果呢。</p>
+<p>首先创建脚本，让对象跟随镜头移动，并设置一个Rate，减慢速度</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BackgroundMove</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Transform Cam;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> MoveRate;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">bool</span> LockY;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> StartPointX,StartPointY;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        StartPointX = transform.position.x;</span><br><span class="line">        StartPointY = transform.position.y;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//是否锁定Y轴</span></span><br><span class="line">        <span class="keyword">if</span> (LockY)</span><br><span class="line">        &#123; </span><br><span class="line">            transform.position = <span class="keyword">new</span> Vector2(StartPointX+Cam.position.x*MoveRate,transform.position.y); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            transform.position = <span class="keyword">new</span> Vector2(StartPointX+Cam.position.x*MoveRate,StartPointY+Cam.position.y*MoveRate);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接着将其拖入到对应的背景父级对象即可，可以为不同Z轴层级的对象添加不同的rate，实现交错移动的效果</p>
+<p><strong>这一部分也有package manage工具包</strong></p>
+<h2 id="13-菜单"><a href="#13-菜单" class="headerlink" title="13.菜单"></a>13.菜单</h2><h3 id="1-主菜单"><a href="#1-主菜单" class="headerlink" title="1.主菜单"></a>1.主菜单</h3><p>假设主菜单上有Play和Pause两个部分，首先我们需要创建一个新的场景，Menu</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221229181747331.png" alt="image-20221229181747331"></p>
+<p>接着我们要在这个空的场景中添加UI，先创建一个Panel</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221229181846796.png" alt="image-20221229181846796"></p>
+<p>接着我们选择一张图片当作背景图，拖入panel中，并调整光和透明度</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221229182316686.png" alt="image-20221229182316686"></p>
+<h3 id="2-暂停菜单"><a href="#2-暂停菜单" class="headerlink" title="2.暂停菜单"></a>2.暂停菜单</h3><h2 id="个人扩充内容与实现"><a href="#个人扩充内容与实现" class="headerlink" title="个人扩充内容与实现"></a>个人扩充内容与实现</h2>
+      <div class="tags">
+          <a href="/tags/C-Unity2D/" rel="tag"><i class="ic i-tag"></i> C#,Unity2D</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-06-17 14:32:01" itemprop="dateModified" datetime="2024-06-17T14:32:01+09:00">2024-06-17</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <checkbox><i class="ic i-heartbeat"></i> Donate</checkbox>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunday WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunday Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunday PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunday <i class="ic i-at"><em>@</em></i>Hex
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://hexlove2.github.io/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">http://hexlove2.github.io/2022/12/09/unity/Fox项目笔记/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/12/05/unity/Unity+Git/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;20.jpg" title="Unity+Git">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Unity</span>
+  <h3>Unity+Git</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/01/09/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;8.jpg" title="C#初级笔记">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Csharp Learning</span>
+  <h3>C#初级笔记</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">Fox项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B4%A0%E6%9D%90%E5%AF%BC%E5%85%A5%E4%B8%8E%E5%A4%84%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">1.素材导入与处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.图片素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%9F%B3%E9%A2%91%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.音频素材</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A8%E7%94%BB%E7%B4%A0%E6%9D%90"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.动画素材</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2D%E5%9C%B0%E5%9B%BE%E7%BB%98%E5%88%B6%E4%B8%8E%E5%9B%BE%E5%B1%82%E9%97%AE%E9%A2%98"><span class="toc-number">1.2.</span> <span class="toc-text">2.2D地图绘制与图层问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%95%9C%E5%A4%B4%E6%8E%A7%E5%88%B6%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3.镜头控制与使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%BB%E8%A7%92%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%88%9B%E5%BB%BA"><span class="toc-number">1.4.</span> <span class="toc-text">4.主角定义与创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%95%8C%E5%AF%B9%E7%94%9F%E7%89%A9%E7%94%9F%E6%88%90"><span class="toc-number">1.5.</span> <span class="toc-text">5.敌对生物生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%AF%E6%94%B6%E9%9B%86%E7%89%A9%E5%93%81"><span class="toc-number">1.6.</span> <span class="toc-text">6.可收集物品</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%A2%B0%E6%92%9E%E4%BD%93%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.</span> <span class="toc-text">7.碰撞体问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%89%A9%E4%BD%93layer"><span class="toc-number">1.8.</span> <span class="toc-text">8.物体layer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-UI%E5%88%B6%E4%BD%9C"><span class="toc-number">1.9.</span> <span class="toc-text">9.UI制作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%B8%B8%E6%88%8F%E4%B8%AD%E7%95%8C%E9%9D%A2UI"><span class="toc-number">1.9.1.</span> <span class="toc-text">1.游戏中界面UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A7%A6%E5%8F%91UI"><span class="toc-number">1.9.2.</span> <span class="toc-text">2.触发UI</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E6%B8%B8%E6%88%8F%E5%9C%BA%E6%99%AF%E6%8E%A7%E5%88%B6"><span class="toc-number">1.10.</span> <span class="toc-text">10.游戏场景控制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-2D%E5%85%89%E6%95%88"><span class="toc-number">1.11.</span> <span class="toc-text">11.2D光效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E5%9C%BA%E6%99%AF%E7%A7%BB%E5%8A%A8%E8%A7%86%E8%A7%89%E5%B7%AE%E6%95%88%E6%9E%9C"><span class="toc-number">1.12.</span> <span class="toc-text">12.场景移动视觉差效果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-%E8%8F%9C%E5%8D%95"><span class="toc-number">1.13.</span> <span class="toc-text">13.菜单</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E8%8F%9C%E5%8D%95"><span class="toc-number">1.13.1.</span> <span class="toc-text">1.主菜单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%9A%82%E5%81%9C%E8%8F%9C%E5%8D%95"><span class="toc-number">1.13.2.</span> <span class="toc-text">2.暂停菜单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%89%A9%E5%85%85%E5%86%85%E5%AE%B9%E4%B8%8E%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.14.</span> <span class="toc-text">个人扩充内容与实现</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/12/05/unity/Unity+Git/" rel="bookmark" title="Unity+Git">Unity+Git</a></li><li class="active"><a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Fox项目笔记">Fox项目笔记</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunday"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunday</p>
+  <div class="description" itemprop="description">Looking for freedom of mind</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">10</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">5</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">6</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUy" title="https:&#x2F;&#x2F;github.com&#x2F;Hexlove2"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTMxMzY0NTk5Ng==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;313645996"><i class="ic i-cloud-music"></i></span>
+      <a href="/hexlove@163.com" title="hexlove@163.com" class="item email"><i class="ic i-envelope"></i></a>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/Diary/" rel="section"><i class="ic i-moon"></i>Diary</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-expand"></i>Art</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/movie/" rel="section"><i class="ic i-creative-commons"></i>Movie</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/paint/" rel="section"><i class="ic i-sun"></i>Paint</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-sakura"></i>Demo</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/HTML/index.html" rel="section"><i class="ic i-flag"></i>得分计算器</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/12/05/unity/Unity+Git/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/01/09/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/08/14/work/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/05/unity/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/frontnotes/" title="In Front-End Notes">Front-End Notes</a>
+</div>
+
+    <span><a href="/2022/05/31/frontnotes/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0/" title="Hexo博客搭建笔记">Hexo博客搭建笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/10/29/journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2024/02/29/journey/Thread/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/unity/" title="In Unity">Unity</a>
+</div>
+
+    <span><a href="/2022/12/09/unity/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/csharp/" title="In Csharp Learning">Csharp Learning</a>
+</div>
+
+    <span><a href="/2023/01/09/csharp/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/work/" title="In Working-Notes">Working-Notes</a>
+</div>
+
+    <span><a href="/2022/08/31/work/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/journey/" title="In My diary">My diary</a>
+</div>
+
+    <span><a href="/2022/11/19/journey/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunday @ Hex</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/09/unity/Fox项目笔记/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
