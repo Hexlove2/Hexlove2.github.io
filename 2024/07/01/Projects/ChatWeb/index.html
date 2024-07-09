@@ -102,12 +102,12 @@ Hex = Hex = Looking for freedom of mind</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/9.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/14.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/10.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/22.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/24.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/2.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/11.jpg"></li>
         </ul>
       </div>
     </header>
@@ -209,6 +209,9 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>Here is the main function and other functions.</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;arpa/inet.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mysql.c&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BUF_SIZE 1024</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SMALL_BUF 1024</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">handle_request</span><span class="params">(<span class="type">int</span> client_sock)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">error_handling</span><span class="params">(<span class="type">char</span> *message)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">send_response</span><span class="params">(<span class="type">int</span> clnt_sock, <span class="type">const</span> <span class="type">char</span> *message)</span>;</span><br><span class="line"><span class="type">void</span> <span class="title function_">extract_value</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *json, <span class="type">const</span> <span class="type">char</span> *key, <span class="type">char</span> *value, <span class="type">size_t</span> value_size)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">login_request</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *body, <span class="type">const</span> <span class="type">int</span> sock)</span>;</span><br><span class="line"><span class="type">bool</span> <span class="title function_">register_request</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *body, <span class="type">const</span> <span class="type">int</span> sock)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="type">int</span> serv_sock, clnt_sock;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">serv_adr</span>, <span class="title">clnt_adr</span>;</span></span><br><span class="line">    <span class="type">socklen_t</span> clnt_adr_sz;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(argc!=<span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Usage: %s &lt;port&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    serv_sock=socket(PF_INET, SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span>(serv_sock == <span class="number">-1</span>)</span><br><span class="line">        error_handling(<span class="string">&quot;socket() error&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(&amp;serv_adr, <span class="number">0</span>, <span class="keyword">sizeof</span>(serv_adr));</span><br><span class="line">    serv_adr.sin_family=AF_INET;</span><br><span class="line">    serv_adr.sin_addr.s_addr=htonl(INADDR_ANY);</span><br><span class="line">    serv_adr.sin_port=htons(atoi(argv[<span class="number">1</span>]));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(bind(serv_sock, (<span class="keyword">struct</span> sockaddr*) &amp;serv_adr, <span class="keyword">sizeof</span>(serv_adr))==<span class="number">-1</span>)</span><br><span class="line">        error_handling(<span class="string">&quot;bind() error&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(listen(serv_sock, <span class="number">5</span>)==<span class="number">-1</span>)</span><br><span class="line">        error_handling(<span class="string">&quot;listen() error&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        clnt_adr_sz=<span class="keyword">sizeof</span>(clnt_adr);</span><br><span class="line">        clnt_sock=accept(serv_sock, (<span class="keyword">struct</span> sockaddr*)&amp;clnt_adr, &amp;clnt_adr_sz);</span><br><span class="line">        <span class="keyword">if</span>(clnt_sock==<span class="number">-1</span>)</span><br><span class="line">            error_handling(<span class="string">&quot;accept() error&quot;</span>);</span><br><span class="line"></span><br><span class="line">        handle_request(clnt_sock);</span><br><span class="line">        close(clnt_sock);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    close(serv_sock);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>Now let’s see how the handle_request function works.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">handle_request</span><span class="params">(<span class="type">int</span> clnt_sock)</span> &#123;</span><br><span class="line">    <span class="type">char</span> req_line[SMALL_BUF];</span><br><span class="line">    <span class="type">char</span> method[<span class="number">10</span>];</span><br><span class="line">    <span class="type">char</span> content_length[SMALL_BUF];</span><br><span class="line">    <span class="type">char</span> content_type[SMALL_BUF];</span><br><span class="line">    <span class="type">char</span> header[SMALL_BUF];</span><br><span class="line">    <span class="type">int</span> str_len, length = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Reading the request line</span></span><br><span class="line">    <span class="type">int</span> idx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="type">char</span> c;</span><br><span class="line">        <span class="keyword">if</span> (read(clnt_sock, &amp;c, <span class="number">1</span>) &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        req_line[idx++] = c;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    req_line[idx] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Parsing the HTTP method from the request line</span></span><br><span class="line">    <span class="built_in">sscanf</span>(req_line, <span class="string">&quot;%s&quot;</span>, method);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;********************************************************************* \n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,req_line);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;********************************************************************* \n&quot;</span>);</span><br><span class="line">    <span class="comment">// Handling the OPTIONS request (preflight request for CORS)</span></span><br><span class="line">  	<span class="comment">//beacuse the request sent by front end is json type</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(method, <span class="string">&quot;OPTIONS&quot;</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="type">char</span> response[] =</span><br><span class="line">            <span class="string">&quot;HTTP/1.1 204 No Content\r\n&quot;</span></span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Origin: *\r\n&quot;</span></span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Methods: POST, GET, OPTIONS\r\n&quot;</span></span><br><span class="line">            <span class="string">&quot;Access-Control-Allow-Headers: Content-Type\r\n&quot;</span></span><br><span class="line">            <span class="string">&quot;\r\n&quot;</span>;</span><br><span class="line">        write(clnt_sock, response, <span class="keyword">sizeof</span>(response) - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;CORS SUCCESS \n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// Handling only POST requests</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(method, <span class="string">&quot;POST&quot;</span>) != <span class="number">0</span>) &#123;</span><br><span class="line">        send_response(clnt_sock, <span class="string">&quot;HTTP/1.1 405 Method Not Allowed\r\n\r\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 逐行读取请求头</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="type">char</span> c;</span><br><span class="line">            <span class="keyword">if</span> (read(clnt_sock, &amp;c, <span class="number">1</span>) &lt;= <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">            header[idx++] = c;</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">&#x27;\n&#x27;</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        header[idx] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strcmp</span>(header, <span class="string">&quot;\r\n&quot;</span>) == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Header: %s&quot;</span>, header);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strstr</span>(header, <span class="string">&quot;Content-Length&quot;</span>) != <span class="literal">NULL</span>)</span><br><span class="line">            <span class="built_in">sscanf</span>(header, <span class="string">&quot;Content-Length: %d&quot;</span>, &amp;length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (length == <span class="number">0</span>) &#123;</span><br><span class="line">        send_response(clnt_sock, <span class="string">&quot;HTTP/1.1 411 Length Required\r\n\r\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Reading the body based on Content-Length</span></span><br><span class="line">    <span class="type">char</span> *body = <span class="built_in">malloc</span>(length + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (body == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        send_response(clnt_sock, <span class="string">&quot;HTTP/1.1 500 Internal Server Error\r\n\r\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> total_read = <span class="number">0</span>, n;</span><br><span class="line">    <span class="keyword">while</span> (total_read &lt; length) &#123;</span><br><span class="line">        n = read(clnt_sock, body + total_read, length - total_read);</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        total_read += n;</span><br><span class="line">    &#125;</span><br><span class="line">    body[total_read] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Received Body: %s\n&quot;</span>, body);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Process the received data (e.g., parse JSON, handle login logic, etc.)</span></span><br><span class="line">    <span class="comment">// Placeholder for JSON parsing and login logic</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//login request</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">strstr</span>(req_line,<span class="string">&quot;login&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">     <span class="keyword">if</span>(login_request(body,clnt_sock))</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Login success \n&quot;</span>);        </span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//register request</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">strstr</span>(req_line,<span class="string">&quot;register&quot;</span>))</span><br><span class="line">    &#123;</span><br><span class="line">     <span class="keyword">if</span>(register_request(body,clnt_sock))</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;register success\n&quot;</span>);</span><br><span class="line">     &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Ending............................................................\n&quot;</span>);</span><br><span class="line">    <span class="comment">//fflush(stdout);</span></span><br><span class="line">    <span class="comment">// Sending the response</span></span><br><span class="line">    <span class="comment">// Free the allocated memory for the body</span></span><br><span class="line">    <span class="built_in">free</span>(body);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
 
 <h3 id="2-Chat-Server"><a href="#2-Chat-Server" class="headerlink" title="2.Chat Server"></a>2.Chat Server</h3><h3 id="3-Signaling"><a href="#3-Signaling" class="headerlink" title="3. Signaling"></a>3. Signaling</h3><p>To be continued.</p>
@@ -227,7 +230,7 @@ Hex = Hex = Looking for freedom of mind</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-07-09 01:55:16" itemprop="dateModified" datetime="2024-07-09T01:55:16+09:00">2024-07-09</time>
+    <time title="Modified: 2024-07-09 11:54:16" itemprop="dateModified" datetime="2024-07-09T11:54:16+09:00">2024-07-09</time>
   </span>
 </div>
 
@@ -282,7 +285,7 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item left">
       
 
-  <a href="/2024/02/29/Notes/Socket%20learning/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;18.jpg" title="TCP&#x2F;IP Socket Coding">
+  <a href="/2024/02/29/Notes/Socket%20learning/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;7.jpg" title="TCP&#x2F;IP Socket Coding">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Notes</span>
   <h3>TCP/IP Socket Coding</h3>
@@ -292,7 +295,7 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item right">
       
 
-  <a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;25.jpg" title="Interview Questions">
+  <a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;7.jpg" title="Interview Questions">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Notes</span>
   <h3>Interview Questions</h3>
@@ -436,59 +439,20 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
-</div>
-
-    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
-</div>
-
-    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
     <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
   </li>
 
       
@@ -508,7 +472,37 @@ Hex = Hex = Looking for freedom of mind</title>
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
     <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
   </li>
 
       
@@ -519,6 +513,16 @@ Hex = Hex = Looking for freedom of mind</title>
 </div>
 
     <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/09/Coding/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
   </li>
 
       
