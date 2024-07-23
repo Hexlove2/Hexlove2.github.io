@@ -1,0 +1,557 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hex" href="http://hexlove2.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hex" href="http://hexlove2.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hex" href="http://hexlove2.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="C" />
+
+
+<link rel="canonical" href="http://hexlove2.github.io/2024/07/22/Coding/PjSip_Usage/">
+
+
+
+  <title>
+Usage of PjSip - Coding |
+Hex = Hex = Looking for freedom of mind</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Usage of PjSip
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-07-23 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-07-23T00:00:00+09:00">2024-07-23</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hex</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/2.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/6.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/5.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Coding/" itemprop="item" rel="index" title="In Coding"><span itemprop="name">Coding</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2024/07/22/Coding/PjSip_Usage/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunday">
+    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hex">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="Usage-of-PjSip"><a href="#Usage-of-PjSip" class="headerlink" title="Usage of PjSip"></a>Usage of PjSip</h1><h2 id="1-Preparation"><a href="#1-Preparation" class="headerlink" title="1. Preparation"></a>1. Preparation</h2><h3 id="1-Download-PjSip-from-Github"><a href="#1-Download-PjSip-from-Github" class="headerlink" title="1. Download PjSip from Github"></a>1. Download PjSip from Github</h3><p><strong>Link:</strong> <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Bqc2lwL3BqcHJvamVjdA==">https://github.com/pjsip/pjproject</span></p>
+<h3 id="2-Unzip-to-your-Computer"><a href="#2-Unzip-to-your-Computer" class="headerlink" title="2. Unzip to your Computer"></a>2. Unzip to your Computer</h3><p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/7cdbe01ef066aed3d7d7a9dd93a5198c.png" alt="7cdbe01ef066aed3d7d7a9dd93a5198c"></p>
+<h3 id="3-Open-a-Terminal"><a href="#3-Open-a-Terminal" class="headerlink" title="3. Open a Terminal"></a>3. Open a Terminal</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./configure</span><br><span class="line"></span><br><span class="line">make dep</span><br><span class="line">make</span><br><span class="line"></span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Create-A-Test-file"><a href="#2-Create-A-Test-file" class="headerlink" title="2. Create A Test file"></a>2. Create A Test file</h2><p>I am using vscode and C language here</p>
+<p><strong>Include Path Set:</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Mac&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;$&#123;default&#125;&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;macFrameworkPath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/Users/sunday/Desktop/Code/pjproject-2.14.1/pjlib/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/Users/sunday/Desktop/Code/pjproject-2.14.1/pjlib-util/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/Users/sunday/Desktop/Code/pjproject-2.14.1/pjnath/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/Users/sunday/Desktop/Code/pjproject-2.14.1/pjmedia/include&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/Users/sunday/Desktop/Code/pjproject-2.14.1/pjsip/include&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/usr/bin/clang&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c17&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c++17&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;macos-clang-arm64&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PJDIR = /Users/sunday/Desktop/Code/pjproject-2.14.1</span><br><span class="line"><span class="keyword">include</span> <span class="variable">$(PJDIR)</span>/build.mak</span><br><span class="line"></span><br><span class="line"><span class="section">pjtest: pjtest.o</span></span><br><span class="line">		<span class="variable">$(PJ_CC)</span> -o <span class="variable">$@</span> <span class="variable">$&lt;</span> <span class="variable">$(PJ_LDFLAGS)</span> <span class="variable">$(PJ_LDLIBS)</span></span><br><span class="line"></span><br><span class="line"><span class="section">pjtest.o: pjtest.c</span></span><br><span class="line">		<span class="variable">$(PJ_CC)</span> -c -o <span class="variable">$@</span> <span class="variable">$&lt;</span> <span class="variable">$(PJ_CFLAGS)</span></span><br><span class="line"></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">		rm -f pjtest.o pjtest</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pjsua-lib/pjsua.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Test Success&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Compile-and-Run"><a href="#3-Compile-and-Run" class="headerlink" title="3. Compile and Run"></a>3. Compile and Run</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line">./yourfile</span><br></pre></td></tr></table></figure>
+
+<p><strong>Example:</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pjsua-lib/pjsua.h&gt;</span>  <span class="comment">// 包含PJSIP的主头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span>  <span class="comment">// 包含getcwd函数的头文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> THIS_FILE <span class="string">&quot;APP&quot;</span>  <span class="comment">// 定义日志输出时使用的文件名标识</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当有来电时的回调函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">on_incoming_call</span><span class="params">(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata)</span> &#123;</span><br><span class="line">    pjsua_call_info ci;</span><br><span class="line"></span><br><span class="line">    PJ_UNUSED_ARG(acc_id);  <span class="comment">// 避免编译器警告未使用参数</span></span><br><span class="line">    PJ_UNUSED_ARG(rdata);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取来电的详细信息</span></span><br><span class="line">    pjsua_call_get_info(call_id, &amp;ci);</span><br><span class="line">    PJ_LOG(<span class="number">3</span>, (THIS_FILE, <span class="string">&quot;Incoming call from %.*s!!&quot;</span>,</span><br><span class="line">               (<span class="type">int</span>)ci.remote_info.slen, ci.remote_info.ptr));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在命令行中打印来电提示</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\nIncoming call from %.*s\n&quot;</span>, (<span class="type">int</span>)ci.remote_info.slen, ci.remote_info.ptr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Enter &#x27;a&#x27; to answer the call\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 自动应答来电（可选）</span></span><br><span class="line">    <span class="comment">// pjsua_call_answer(call_id, 200, NULL, NULL);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 呼叫状态变化时的回调函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">on_call_state</span><span class="params">(pjsua_call_id call_id, pjsip_event *e)</span> &#123;</span><br><span class="line">    pjsua_call_info ci;</span><br><span class="line"></span><br><span class="line">    PJ_UNUSED_ARG(e);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取呼叫的详细信息</span></span><br><span class="line">    pjsua_call_get_info(call_id, &amp;ci);</span><br><span class="line">    PJ_LOG(<span class="number">3</span>, (THIS_FILE, <span class="string">&quot;Call %d state=%.*s&quot;</span>, call_id, (<span class="type">int</span>)ci.state_text.slen, ci.state_text.ptr));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 呼叫媒体状态变化时的回调函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">on_call_media_state</span><span class="params">(pjsua_call_id call_id)</span> &#123;</span><br><span class="line">    pjsua_call_info ci;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取呼叫的详细信息</span></span><br><span class="line">    pjsua_call_get_info(call_id, &amp;ci);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果媒体状态为活跃，则连接音频流</span></span><br><span class="line">    <span class="keyword">if</span> (ci.media_status == PJSUA_CALL_MEDIA_ACTIVE) &#123;</span><br><span class="line">        pjsua_conf_connect(ci.conf_slot, <span class="number">0</span>);</span><br><span class="line">        pjsua_conf_connect(<span class="number">0</span>, ci.conf_slot);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印帮助信息</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">print_help</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Available commands:\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; ----------------------\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; |m| - Make new call  |\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; |a| - Answer call    |\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; |h| - Hangup call    |\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; |q| - Quit           |\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot; ----------------------\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (argc &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Usage: %s &lt;port&gt;\n&quot;</span>, argv[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">short</span> port = (<span class="type">unsigned</span> <span class="type">short</span>)atoi(argv[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">    pjsua_acc_id acc_id;</span><br><span class="line">    pjsua_config cfg;</span><br><span class="line">    pjsua_logging_config log_cfg;</span><br><span class="line">    pjsua_transport_config transport_cfg;</span><br><span class="line">    pjsua_acc_config acc_cfg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建PJSUA实例</span></span><br><span class="line">    <span class="type">pj_status_t</span> status = pjsua_create();</span><br><span class="line">    <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 如果创建失败，返回错误码1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化PJSUA配置</span></span><br><span class="line">    pjsua_config_default(&amp;cfg);</span><br><span class="line">    cfg.cb.on_incoming_call = &amp;on_incoming_call;</span><br><span class="line">    cfg.cb.on_call_state = &amp;on_call_state;</span><br><span class="line">    cfg.cb.on_call_media_state = &amp;on_call_media_state;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化日志配置</span></span><br><span class="line">    pjsua_logging_config_default(&amp;log_cfg);</span><br><span class="line">    log_cfg.console_level = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化PJSUA</span></span><br><span class="line">    status = pjsua_init(&amp;cfg, &amp;log_cfg, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">        pjsua_destroy();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 如果初始化失败，销毁实例并返回错误码1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 配置并创建UDP传输</span></span><br><span class="line">    pjsua_transport_config_default(&amp;transport_cfg);</span><br><span class="line">    transport_cfg.port = port;  <span class="comment">// 设置指定的SIP端口</span></span><br><span class="line">    status = pjsua_transport_create(PJSIP_TRANSPORT_UDP, &amp;transport_cfg, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">        pjsua_destroy();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 如果传输创建失败，销毁实例并返回错误码1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个虚拟账户并禁用注册</span></span><br><span class="line">    pjsua_acc_config_default(&amp;acc_cfg);</span><br><span class="line">    acc_cfg.id = pj_str(<span class="string">&quot;sip:localhost&quot;</span>);</span><br><span class="line">    acc_cfg.reg_uri = pj_str(<span class="string">&quot;sip:localhost&quot;</span>);</span><br><span class="line">    acc_cfg.cred_count = <span class="number">0</span>;  <span class="comment">// 无需认证</span></span><br><span class="line">    acc_cfg.register_on_acc_add = PJ_FALSE;  <span class="comment">// 禁用注册</span></span><br><span class="line">    status = pjsua_acc_add(&amp;acc_cfg, PJ_TRUE, &amp;acc_id);</span><br><span class="line">    <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">        pjsua_destroy();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 如果添加账户失败，销毁实例并返回错误码1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 启动PJSUA</span></span><br><span class="line">    status = pjsua_start();</span><br><span class="line">    <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">        pjsua_destroy();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 如果启动失败，销毁实例并返回错误码1</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印当前工作目录</span></span><br><span class="line">    <span class="type">char</span> cwd[<span class="number">1024</span>];</span><br><span class="line">    <span class="keyword">if</span> (getcwd(cwd, <span class="keyword">sizeof</span>(cwd)) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Current working dir: %s\n&quot;</span>, cwd);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        perror(<span class="string">&quot;getcwd() error&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印帮助信息</span></span><br><span class="line">    print_help();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 进入主循环</span></span><br><span class="line">    <span class="type">char</span> input[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;&gt;&gt;&gt; &quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (fgets(input, <span class="keyword">sizeof</span>(input), <span class="built_in">stdin</span>) == <span class="literal">NULL</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (input[<span class="number">0</span>] == <span class="string">&#x27;m&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 处理发起呼叫</span></span><br><span class="line">            <span class="type">char</span> uri[<span class="number">64</span>];</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Enter destination SIP URI: &quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (fgets(uri, <span class="keyword">sizeof</span>(uri), <span class="built_in">stdin</span>) == <span class="literal">NULL</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 去掉新行字符</span></span><br><span class="line">            uri[<span class="built_in">strcspn</span>(uri, <span class="string">&quot;\n&quot;</span>)] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">            <span class="type">pj_str_t</span> dest_uri = pj_str(uri);</span><br><span class="line">            pjsua_call_id call_id;</span><br><span class="line">            status = pjsua_call_make_call(acc_id, &amp;dest_uri, <span class="number">0</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>, &amp;call_id);</span><br><span class="line">            <span class="keyword">if</span> (status != PJ_SUCCESS) &#123;</span><br><span class="line">                PJ_LOG(<span class="number">1</span>, (THIS_FILE, <span class="string">&quot;Error making call&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input[<span class="number">0</span>] == <span class="string">&#x27;a&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 处理应答呼叫</span></span><br><span class="line">            pjsua_call_info ci;</span><br><span class="line">            <span class="keyword">for</span> (pjsua_call_id i = <span class="number">0</span>; i &lt; PJSUA_MAX_CALLS; ++i) &#123;</span><br><span class="line">                <span class="keyword">if</span> (pjsua_call_is_active(i)) &#123;</span><br><span class="line">                    pjsua_call_get_info(i, &amp;ci);</span><br><span class="line">                    <span class="keyword">if</span> (ci.role == PJSIP_ROLE_UAS &amp;&amp; ci.state == PJSIP_INV_STATE_INCOMING) &#123;</span><br><span class="line">                        pjsua_call_answer(i, <span class="number">200</span>, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input[<span class="number">0</span>] == <span class="string">&#x27;h&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 处理挂断呼叫</span></span><br><span class="line">            pjsua_call_hangup_all();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (input[<span class="number">0</span>] == <span class="string">&#x27;q&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 退出程序</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            print_help();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 销毁PJSUA实例</span></span><br><span class="line">    pjsua_destroy();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Terminal A</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./pjtest 5060</span><br><span class="line">m</span><br><span class="line">sip:127.0.0.1:5061</span><br></pre></td></tr></table></figure>
+
+<p><strong>Terminal B</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./pjtest 5061</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+
+<p><strong>Results:</strong></p>
+<p>A:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Current working <span class="built_in">dir</span>: /Users/sunday/Desktop/Code/PjSip/VoiceChat</span><br><span class="line">Available commands:</span><br><span class="line"> ----------------------</span><br><span class="line"> |m| - Make new call  |</span><br><span class="line"> |a| - Answer call    |</span><br><span class="line"> |h| - Hangup call    |</span><br><span class="line"> |q| - Quit           |</span><br><span class="line"> ----------------------</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">h</span><br></pre></td></tr></table></figure>
+
+<p>B:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Current working <span class="built_in">dir</span>: /Users/sunday/Desktop/Code/PjSip/VoiceChat</span><br><span class="line">Available commands:</span><br><span class="line"> ----------------------</span><br><span class="line"> |m| - Make new call  |</span><br><span class="line"> |a| - Answer call    |</span><br><span class="line"> |h| - Hangup call    |</span><br><span class="line"> |q| - Quit           |</span><br><span class="line"> ----------------------</span><br><span class="line">&gt;&gt;&gt; </span><br><span class="line">--end msg--</span><br><span class="line">16:01:42.581                    APP  ..Incoming call from &lt;sip:localhost&gt;!!</span><br><span class="line"></span><br><span class="line">Incoming call from &lt;sip:localhost&gt;</span><br><span class="line">Enter <span class="string">&#x27;a&#x27;</span> to answer the call</span><br><span class="line">h</span><br></pre></td></tr></table></figure>
+
+
+      <div class="tags">
+          <a href="/tags/C/" rel="tag"><i class="ic i-tag"></i> C</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-07-23 17:03:24" itemprop="dateModified" datetime="2024-07-23T17:03:24+09:00">2024-07-23</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <checkbox><i class="ic i-heartbeat"></i> Donate</checkbox>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunday WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunday Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunday PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunday <i class="ic i-at"><em>@</em></i>Hex
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://hexlove2.github.io/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">http://hexlove2.github.io/2024/07/22/Coding/PjSip_Usage/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;12.jpg" title="A Good Girl&#39;s Guide To Murder">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Books</span>
+  <h3>A Good Girl's Guide To Murder</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Usage-of-PjSip"><span class="toc-number">1.</span> <span class="toc-text">Usage of PjSip</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Preparation"><span class="toc-number">1.1.</span> <span class="toc-text">1. Preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Download-PjSip-from-Github"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. Download PjSip from Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Unzip-to-your-Computer"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. Unzip to your Computer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Open-a-Terminal"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. Open a Terminal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Create-A-Test-file"><span class="toc-number">1.2.</span> <span class="toc-text">2. Create A Test file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Compile-and-Run"><span class="toc-number">1.3.</span> <span class="toc-text">3. Compile and Run</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" rel="bookmark" title="Skip plating defect detection problem">Skip plating defect detection problem</a></li><li><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" rel="bookmark" title="缺陷检测方法对比">缺陷检测方法对比</a></li><li><a href="/2022/12/05/Coding/Unity+Git/" rel="bookmark" title="Unity+Git">Unity+Git</a></li><li><a href="/2022/12/09/Coding/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" rel="bookmark" title="Fox项目笔记">Fox项目笔记</a></li><li class="active"><a href="/2024/07/22/Coding/PjSip_Usage/" rel="bookmark" title="Usage of PjSip">Usage of PjSip</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunday"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunday</p>
+  <div class="description" itemprop="description">Looking for freedom of mind</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">14</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">6</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">9</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUy" title="https:&#x2F;&#x2F;github.com&#x2F;Hexlove2"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTMxMzY0NTk5Ng==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;313645996"><i class="ic i-cloud-music"></i></span>
+      <a href="/hexlove@163.com" title="hexlove@163.com" class="item email"><i class="ic i-envelope"></i></a>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-moon"></i>Art</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/paint/" rel="section"><i class="ic i-sun"></i>Paint</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-sakura"></i>Demo</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/HTML/index.html" rel="section"><i class="ic i-flag"></i>Score</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/09/Coding/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Games/" title="In Games">Games</a>
+</div>
+
+    <span><a href="/2024/07/11/Games/Elden%20ring/" title="Elden Ring">Elden Ring</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunday @ Hex</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/07/22/Coding/PjSip_Usage/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
