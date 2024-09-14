@@ -1,0 +1,559 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hex" href="http://hexlove2.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hex" href="http://hexlove2.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hex" href="http://hexlove2.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="book, reading, machine learning" />
+
+
+<link rel="canonical" href="http://hexlove2.github.io/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/">
+
+
+
+  <title>
+Statistical Learning - Notes |
+Hex = Hex = Looking for freedom of mind</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Statistical Learning
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-08-11 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-08-11T00:00:00+09:00">2024-08-11</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hex</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/16.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/8.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/21.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/5.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Notes/" itemprop="item" rel="index" title="In Notes"><span itemprop="name">Notes</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunday">
+    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hex">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <p>[TOC]</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h2><p><strong>Bibliography:</strong> </p>
+<p><em><strong>The Elements of Statistical Learning</strong></em></p>
+<p><em><strong>An Introduction to Statistical Learning: with Applications in Python</strong></em></p>
+<p><strong>Videos:</strong> <em><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1MdnlTSkdqLTg4VSZhbXA7bGlzdD1QTG9ST012b2R2NHJQUDZicmFXb1J0NVVDWFlaNzFHWklR">https://www.youtube.com/watch?v=LvySJGj-88U&amp;list=PLoROMvodv4rPP6braWoRt5UCXYZ71GZIQ</span></em></p>
+<p><strong>Language:  <em>Python 3.12</em></strong></p>
+<p><strong>Others: Jupyter Notebook</strong> </p>
+<h1 id="Statistical-Learning-Notes"><a href="#Statistical-Learning-Notes" class="headerlink" title="Statistical Learning Notes"></a>Statistical Learning Notes</h1><h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><h3 id="1-Bias-Variance-Decomposition"><a href="#1-Bias-Variance-Decomposition" class="headerlink" title="1. Bias-Variance Decomposition"></a>1. Bias-Variance Decomposition</h3><p>$$<br>E \left( y_0 - \hat{f}(x_0) \right)^2 &#x3D; \text{Var}\left(\hat{f}(x_0)\right) + \left[\text{Bias}\left(\hat{f}(x_0)\right)\right]^2 + \text{Var}(\epsilon)<br>$$</p>
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/image-20240811183735581.png" alt="image-20240811183735581"></p>
+<h3 id="2-Classification"><a href="#2-Classification" class="headerlink" title="2. Classification"></a>2. Classification</h3><p><strong>KNN method</strong></p>
+<p>Choose the K wisely, you can see that the error is increasing as K becomes bigger and bigger.</p>
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-08-11%20at%207.12.50%E2%80%AFPM.png" alt="Screenshot 2024-08-11 at 7.12.50 PM"></p>
+<h3 id="3-Python-and-Jupyter-Notebook"><a href="#3-Python-and-Jupyter-Notebook" class="headerlink" title="3. Python and Jupyter Notebook"></a>3. Python and Jupyter Notebook</h3><p><strong>IDE: VSCODE</strong></p>
+<p><strong>Conda Python &#x3D; 3.8.19</strong></p>
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-08-11%20at%208.18.30%E2%80%AFPM.png" alt="Screenshot 2024-08-11 at 8.18.30 PM"></p>
+<h2 id="1-Linear-Methods-for-Regression"><a href="#1-Linear-Methods-for-Regression" class="headerlink" title="1. Linear Methods for Regression"></a>1. Linear Methods for Regression</h2><h3 id="1-1-Simple-Linear-Regression"><a href="#1-1-Simple-Linear-Regression" class="headerlink" title="1.1 Simple Linear Regression"></a>1.1 Simple Linear Regression</h3><h3 id="1-2-Multiple-Linear-Regression"><a href="#1-2-Multiple-Linear-Regression" class="headerlink" title="1.2 Multiple Linear Regression"></a>1.2 Multiple Linear Regression</h3><h4 id="Four-important-questions"><a href="#Four-important-questions" class="headerlink" title="Four important questions:"></a>Four important questions:</h4><p><strong>1. relationship between response and predictors</strong></p>
+<p><strong>2. check the important variables</strong></p>
+<p><strong>3. model fit</strong></p>
+<p><strong>4. predictions</strong></p>
+<h2 id="Terminology"><a href="#Terminology" class="headerlink" title="Terminology"></a>Terminology</h2><p><strong>supervised learning</strong>  监督学习	<strong>Quantitative</strong> 定量 <strong>Qualitative</strong> 定性 <strong>Discrete Variables</strong> 离散变量 <strong>Regression</strong> 回归</p>
+<p><strong>Function Approximation</strong> 函数逼近 <strong>Ordered Categorical</strong> 有序分类 <strong>Dummy Variables</strong> 虚拟变量 <strong>intercept</strong> 截距</p>
+<p><strong>bias</strong> 偏置 <strong>Hyperplane</strong> 超平面 <strong>least squares</strong>  最小二乘法 <strong>Residuals</strong> 残差 <strong>Correlation Matrix</strong> 相关系数矩阵</p>
+<h2 id="Mathematical-Formulas"><a href="#Mathematical-Formulas" class="headerlink" title="Mathematical Formulas"></a>Mathematical Formulas</h2><p><strong>1. Scalar Derivative with respect to a Vector</strong><br>$$<br>\frac{\partial (\mathbf{a}^T \mathbf{x})}{\partial \mathbf{x}} &#x3D; \mathbf{a}<br>$$<br><strong>2. Quadratic Form Derivative with respect to a Vector</strong><br>$$<br>\frac{\partial (\mathbf{x}^T \mathbf{A} \mathbf{x})}{\partial \mathbf{x}} &#x3D; (\mathbf{A} + \mathbf{A}^T) \mathbf{x}<br>$$<br><strong>3. Linear Form Derivative with respect to a Vector</strong><br>$$<br>\frac{\partial (\mathbf{b}^T \mathbf{x})}{\partial \mathbf{x}} &#x3D; \mathbf{b}<br>$$<br><strong>4. Trace Derivative with respect to a Matrix</strong><br>$$<br>\frac{\partial \mathrm{tr}(\mathbf{A}\mathbf{X})}{\partial \mathbf{X}} &#x3D; \mathbf{A}^T<br>$$<br><strong>5. Quadratic Form Derivative with respect to a Matrix</strong><br>$$<br>\frac{\partial (\mathbf{x}^T \mathbf{A} \mathbf{x})}{\partial \mathbf{A}} &#x3D; \mathbf{x} \mathbf{x}^T<br>$$<br><strong>6. Frobenius Norm Derivative</strong><br>$$<br>\frac{\partial |\mathbf{X}|_F^2}{\partial \mathbf{X}} &#x3D; 2\mathbf{X}<br>$$<br><strong>7. Diagonal Matrix Derivative with respect to a Vector</strong><br>$$<br>\frac{\partial (\mathbf{x}^T \mathrm{diag}(\mathbf{a}) \mathbf{x})}{\partial \mathbf{x}} &#x3D; 2 \mathrm{diag}(\mathbf{a}) \mathbf{x}<br>$$<br><strong>8. Matrix Product Derivative with respect to a Matrix</strong><br>$$<br>\frac{\partial (\mathbf{X}\mathbf{A})}{\partial \mathbf{X}} &#x3D; \mathbf{A}^T<br>$$<br><strong>9. Cross-Entropy Loss Derivative with respect to the Input</strong><br>$$<br>\frac{\partial \text{Cross Entropy}(y, \hat{y})}{\partial \hat{y}} &#x3D; -\frac{y}{\hat{y}} + \frac{1 - y}{1 - \hat{y}}<br>$$<br><strong>10. Softmax Derivative with respect to the Input</strong><br>$$<br>\frac{\partial \sigma(\mathbf{z})_i}{\partial z_j} &#x3D; \sigma(\mathbf{z})i (\delta{ij} - \sigma(\mathbf{z})_j)<br>$$</p>
+
+      <div class="tags">
+          <a href="/tags/book-reading-machine-learning/" rel="tag"><i class="ic i-tag"></i> book, reading, machine learning</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-08-13 11:51:53" itemprop="dateModified" datetime="2024-08-13T11:51:53+09:00">2024-08-13</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <checkbox><i class="ic i-heartbeat"></i> Donate</checkbox>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunday WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunday Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunday PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunday <i class="ic i-at"><em>@</em></i>Hex
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://hexlove2.github.io/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">http://hexlove2.github.io/2024/08/10/Notes/The Elements of Statistical Learning/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/07/22/Coding/PjSip_Usage/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;21.jpg" title="Usage of PjSip">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Coding</span>
+  <h3>Usage of PjSip</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/09/05/Coding/Imageprocess/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;14.jpg" title="Image Processing Algorithm(Raw Data)">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> Coding</span>
+  <h3>Image Processing Algorithm(Raw Data)</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">1.</span> <span class="toc-text">References:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Statistical-Learning-Notes"><span class="toc-number"></span> <span class="toc-text">Statistical Learning Notes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Overview"><span class="toc-number">1.</span> <span class="toc-text">Overview</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Bias-Variance-Decomposition"><span class="toc-number">1.1.</span> <span class="toc-text">1. Bias-Variance Decomposition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Classification"><span class="toc-number">1.2.</span> <span class="toc-text">2. Classification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Python-and-Jupyter-Notebook"><span class="toc-number">1.3.</span> <span class="toc-text">3. Python and Jupyter Notebook</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Linear-Methods-for-Regression"><span class="toc-number">2.</span> <span class="toc-text">1. Linear Methods for Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-Simple-Linear-Regression"><span class="toc-number">2.1.</span> <span class="toc-text">1.1 Simple Linear Regression</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-Multiple-Linear-Regression"><span class="toc-number">2.2.</span> <span class="toc-text">1.2 Multiple Linear Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Four-important-questions"><span class="toc-number">2.2.1.</span> <span class="toc-text">Four important questions:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminology"><span class="toc-number">3.</span> <span class="toc-text">Terminology</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mathematical-Formulas"><span class="toc-number">4.</span> <span class="toc-text">Mathematical Formulas</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="bookmark" title="C#初级笔记">C#初级笔记</a></li><li><a href="/2024/02/29/Notes/Socket%20learning/" rel="bookmark" title="TCP/IP Socket Coding">TCP/IP Socket Coding</a></li><li><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="bookmark" title="Interview Questions">Interview Questions</a></li><li class="active"><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" rel="bookmark" title="Statistical Learning">Statistical Learning</a></li><li><a href="/2024/09/13/Notes/Cmake/" rel="bookmark" title="Project Building Notes">Project Building Notes</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunday"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunday</p>
+  <div class="description" itemprop="description">Looking for freedom of mind</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">18</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">7</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">11</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUy" title="https:&#x2F;&#x2F;github.com&#x2F;Hexlove2"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTMxMzY0NTk5Ng==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;313645996"><i class="ic i-cloud-music"></i></span>
+      <a href="/hexlove@163.com" title="hexlove@163.com" class="item email"><i class="ic i-envelope"></i></a>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-moon"></i>Art</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/paint/" rel="section"><i class="ic i-sun"></i>Paint</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-sakura"></i>Demo</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/HTML/index.html" rel="section"><i class="ic i-flag"></i>Score</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/07/22/Coding/PjSip_Usage/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/09/05/Coding/Imageprocess/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/09/Coding/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/book/" title="In book?">book?</a>
+</div>
+
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">Statistical Learning</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/09/13/Notes/Cmake/" title="Project Building Notes">Project Building Notes</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunday @ Hex</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/08/10/Notes/The Elements of Statistical Learning/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
