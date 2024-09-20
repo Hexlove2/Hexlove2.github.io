@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="cmake, cpp, project building" />
+  <meta name="keywords" content="cmake, cpp, project buildi" />
 
 
 <link rel="canonical" href="http://hexlove2.github.io/2024/09/13/Notes/Cmake/">
@@ -102,12 +102,12 @@ Hex = Hex = Looking for freedom of mind</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/18.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/14.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/17.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/5.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/8.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/6.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/9.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/10.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/17.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,19 +153,24 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <p><strong>Environment and Tools</strong></p>
-<ol>
-<li>OS: Ubuntu 22&#x2F; MacOS 14</li>
-<li>IDE: NeoVim, VsCode</li>
+    <h3 id="Common-Cmake-Template"><a href="#Common-Cmake-Template" class="headerlink" title="Common Cmake Template"></a>Common Cmake Template</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Version Required: Lowest</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>( VERSION <span class="number">3.0</span> )</span><br><span class="line"></span><br><span class="line"><span class="comment"># C++ Standard</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create compile_commands.json automatically</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXPORT_COMPILE_COMMANDS <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Project Name</span></span><br><span class="line"><span class="keyword">project</span>(Test1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set include path</span></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set output path</span></span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/bin)</span><br><span class="line"></span><br><span class="line"><span class="comment"># The source dirctory list</span></span><br><span class="line"><span class="keyword">aux_source_directory</span>(<span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/src SRC_LIST)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create the final add </span></span><br><span class="line"><span class="keyword">add_executable</span>(test1 <span class="variable">$&#123;SRC_LIST&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Environment-and-Tools"><a href="#Environment-and-Tools" class="headerlink" title="Environment and Tools"></a><strong>Environment and Tools</strong></h3><ol>
+<li><strong>OS: Ubuntu 22&#x2F; MacOS 14</strong></li>
+<li><strong>IDE: NeoVim, VsCode</strong></li>
 </ol>
-<h2 id="1-Structure-Of-Project"><a href="#1-Structure-Of-Project" class="headerlink" title="1. Structure Of Project"></a>1. Structure Of Project</h2><p><strong>Basic structure:</strong></p>
-<img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-09-14%20at%204.32.19%E2%80%AFPM.png" alt="Alt text" width="400"/>
+<img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-09-17%20at%208.18.03%E2%80%AFAM.png" width="400"/>
 
+<p><strong>bin:</strong> bin directory generally stores the compiled binary and excutable files after the build process is completed. </p>
+<p><strong>build:</strong> build directory usually contains the output of build process, including intermediate files, like .o files</p>
+<p><strong>include:</strong> this directory contains the head files for the project</p>
+<p><strong>lib:</strong> some external or internal libraries</p>
+<p><strong>src:</strong> your code source files</p>
+<img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-09-17%20at%209.34.54%E2%80%AFAM.png" width="500"/>
 
-
-<h2 id="2-IDE-Settings-x2F-LazyVim-Usage"><a href="#2-IDE-Settings-x2F-LazyVim-Usage" class="headerlink" title="2. IDE Settings&#x2F; LazyVim Usage"></a>2. IDE Settings&#x2F; LazyVim Usage</h2><h2 id="3-CMake"><a href="#3-CMake" class="headerlink" title="3. CMake"></a>3. CMake</h2>
+<h2 id="1-IDE-Settings-x2F-LazyVim-Usage"><a href="#1-IDE-Settings-x2F-LazyVim-Usage" class="headerlink" title="1. IDE Settings&#x2F; LazyVim Usage"></a>1. IDE Settings&#x2F; LazyVim Usage</h2><h2 id="2-CMake"><a href="#2-CMake" class="headerlink" title="2. CMake"></a>2. CMake</h2><h2 id="3-Practice"><a href="#3-Practice" class="headerlink" title="3. Practice"></a>3. Practice</h2>
       <div class="tags">
-          <a href="/tags/cmake-cpp-project-building/" rel="tag"><i class="ic i-tag"></i> cmake, cpp, project building</a>
+          <a href="/tags/cmake-cpp-project-buildi/" rel="tag"><i class="ic i-tag"></i> cmake, cpp, project buildi</a>
       </div>
   </div>
 
@@ -177,7 +182,7 @@ Hex = Hex = Looking for freedom of mind</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-09-14 17:38:57" itemprop="dateModified" datetime="2024-09-14T17:38:57+09:00">2024-09-14</time>
+    <time title="Modified: 2024-09-20 10:32:09" itemprop="dateModified" datetime="2024-09-20T10:32:09+09:00">2024-09-20</time>
   </span>
 </div>
 
@@ -232,7 +237,7 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item left">
       
 
-  <a href="/2024/09/05/Coding/Imageprocess/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;3.jpg" title="Image Processing Algorithm(Raw Data)">
+  <a href="/2024/09/05/Coding/Imageprocess/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;16.jpg" title="Image Processing Algorithm(Raw Data)">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Coding</span>
   <h3>Image Processing Algorithm(Raw Data)</h3>
@@ -256,7 +261,7 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Structure-Of-Project"><span class="toc-number">1.</span> <span class="toc-text">1. Structure Of Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-IDE-Settings-x2F-LazyVim-Usage"><span class="toc-number">2.</span> <span class="toc-text">2. IDE Settings&#x2F; LazyVim Usage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-CMake"><span class="toc-number">3.</span> <span class="toc-text">3. CMake</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Common-Cmake-Template"><span class="toc-number">1.</span> <span class="toc-text">Common Cmake Template</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Environment-and-Tools"><span class="toc-number">2.</span> <span class="toc-text">Environment and Tools</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-IDE-Settings-x2F-LazyVim-Usage"><span class="toc-number"></span> <span class="toc-text">1. IDE Settings&#x2F; LazyVim Usage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CMake"><span class="toc-number"></span> <span class="toc-text">2. CMake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Practice"><span class="toc-number"></span> <span class="toc-text">3. Practice</span></a>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -376,10 +381,10 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Games/" title="In Games">Games</a>
+<a href="/categories/Journey/" title="In Journey">Journey</a>
 </div>
 
-    <span><a href="/2024/07/11/Games/Elden%20ring/" title="Elden Ring">Elden Ring</a></span>
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
@@ -396,10 +401,39 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
   </li>
 
       
@@ -416,20 +450,10 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Journey/" title="In Journey">Journey</a>
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Books/" title="In Books">Books</a>
-</div>
-
-    <span><a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" title="A Good Girl&#39;s Guide To Murder">A Good Girl's Guide To Murder</a></span>
+    <span><a href="/2024/09/13/Notes/Cmake/" title="Project Building Notes">Project Building Notes</a></span>
   </li>
 
       
@@ -446,30 +470,10 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/12/09/Coding/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
   </li>
 
   </ul>
