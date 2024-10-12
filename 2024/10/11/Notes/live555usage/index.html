@@ -1,0 +1,554 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="Hex" href="http://hexlove2.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="Hex" href="http://hexlove2.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="Hex" href="http://hexlove2.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="live555, ffmpeg" />
+
+
+<link rel="canonical" href="http://hexlove2.github.io/2024/10/11/Notes/live555usage/">
+
+
+
+  <title>
+Live555 Usage - Notes |
+Hex = Hex = Looking for freedom of mind</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Live555 Usage
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2024-10-12 00:00:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-10-12T00:00:00+09:00">2024-10-12</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hex</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/8.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/6.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/24.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/11.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Notes/" itemprop="item" rel="index" title="In Notes"><span itemprop="name">Notes</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2024/10/11/Notes/live555usage/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Sunday">
+    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Hex">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h3 id="Platform-Win10-amp-MacOS15"><a href="#Platform-Win10-amp-MacOS15" class="headerlink" title="Platform: Win10 &amp; MacOS15"></a>Platform: Win10 &amp; MacOS15</h3><h3 id="1-Source-Code-Download-Link-https-github-com-rgaufman-live555"><a href="#1-Source-Code-Download-Link-https-github-com-rgaufman-live555" class="headerlink" title="1. Source Code Download Link: https://github.com/rgaufman/live555"></a>1. Source Code Download Link: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JnYXVmbWFuL2xpdmU1NTU=">https://github.com/rgaufman/live555</span></h3><p>This repository was not published by the original team of Live555, but I can’t download it on their website. You can also try it before using this link to get the newest version.</p>
+<h3 id="2-Build"><a href="#2-Build" class="headerlink" title="2. Build"></a>2. Build</h3><p>Unzip the file or use git, then you’ll get a folder including these files like this below. Then open it on the terminal.</p>
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-10-12%20at%205.19.16%E2%80%AFPM.png" alt="Screenshot 2024-10-12 at 5.19.16 PM"></p>
+<p>Then input</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> live555</span><br><span class="line"><span class="comment"># if your platform is linux</span></span><br><span class="line">./genMakefiles linux</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/Screenshot%202024-10-12%20at%205.22.22%E2%80%AFPM.png" alt="Screenshot 2024-10-12 at 5.22.22 PM"></p>
+<p>Because my platform is Mac, so I need to choose this one.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./genMakefiles macosx-bigsur</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>You can also look through some examples provided by the team in the folder named testProgs.</p>
+<p>There is a clear and good example of a cpp file named testOnDemandRTSPServer.cpp.</p>
+<h3 id="3-Usages"><a href="#3-Usages" class="headerlink" title="3. Usages"></a>3. Usages</h3><h4 id="1-Push-local-audio-and-video-files’-stream-to-an-RTSP-server"><a href="#1-Push-local-audio-and-video-files’-stream-to-an-RTSP-server" class="headerlink" title="1. Push local audio and video files’ stream to an RTSP server."></a>1. Push local audio and video files’ stream to an RTSP server.</h4><p>So, in order to do that, what you need to do first is just create an RTSP server, here is a template, and I will add some explanations in the code below.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;liveMedia.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;BasicUsageEnvironment.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;GroupsockHelper.h&quot;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> &#123;</span><br><span class="line">    <span class="comment">// Setting the basic environment.</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &quot;Hello, World&quot;; Just a test, never mind.</span></span><br><span class="line">    TaskScheduler* scheduler = BasicTaskScheduler::createNew();</span><br><span class="line">    UsageEnvironment* env = BasicUsageEnvironment::createNew(*scheduler);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Create the RTSP server </span></span><br><span class="line">    <span class="type">char</span> <span class="type">const</span>* rtspURL = <span class="string">&quot;rtsp://127.0.0.1:8554/liveTest&quot;</span>;</span><br><span class="line">    RTSPServer* rtspServer = RTSPServer::createNew(*env, <span class="number">8554</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (rtspServer == nullptr) &#123;</span><br><span class="line">        *env &lt;&lt; <span class="string">&quot;Failed to create RTSP client: &quot;</span> &lt;&lt; env-&gt;getResultMsg() &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">char</span> <span class="type">const</span>* streamName    = <span class="string">&quot;liveTest&quot;</span>;</span><br><span class="line">        <span class="type">char</span> <span class="type">const</span>* videoFileName = <span class="string">&quot;test.264&quot;</span>;</span><br><span class="line">        <span class="type">char</span> <span class="type">const</span>* audioFileName = <span class="string">&quot;test.aac&quot;</span>;</span><br><span class="line">        ServerMediaSession* sms = ServerMediaSession::createNew(*env, streamName, streamName);</span><br><span class="line">        sms-&gt;addSubsession(H264VideoFileServerMediaSubsession::createNew(*env, videoFileName, False));</span><br><span class="line"></span><br><span class="line">        sms-&gt;addSubsession(ADTSAudioFileServerMediaSubsession::createNew(*env, audioFileName, False));</span><br><span class="line">        rtspServer-&gt;addServerMediaSession(sms);</span><br><span class="line">        <span class="comment">// announceStream();</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// Event Loop</span></span><br><span class="line">    env-&gt;taskScheduler().doEventLoop();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Btw, you need to prepare both the source audio and video files in advance in the folder of your final executable file just like this</p>
+<p><img data-src="https://raw.githubusercontent.com/Hexlove2/images1/main/images/e39485eaad25fd4b7de3ed8d976a2fdc.png" alt="e39485eaad25fd4b7de3ed8d976a2fdc"></p>
+<p>test.264 and test.aac.</p>
+<p>If you just want to have a test and you don’t have any files like these, you can download any mp4 format video and extract the audio and video parts into these files. You can use a FFmpeg command line like this:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -c:v copy -an -bsf:v h264_mp4toannexb test.264 -c:a copy -vn test.aac</span><br></pre></td></tr></table></figure>
+
+<p>You only need to download some test videos and name them input.mp4, then execute this command on your terminal.</p>
+<p>You can test it on any app that can watch the RTSP stream. Like the pot player, or you can just execute this command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay rtsp://192.168.1.18:8554/liveTest</span><br></pre></td></tr></table></figure>
+
+<p>Remember to replace the IP. If you test it on the same device, you should replace it with 127.0.0.1</p>
+<p>Alright, this example is tiny and concise, Let’s discuss another situation when you need to customize your own source like a camera source.</p>
+<h3 id="2-Push-the-camera-stream-to-an-RTSP-server"><a href="#2-Push-the-camera-stream-to-an-RTSP-server" class="headerlink" title="2. Push the camera stream to an RTSP server."></a>2. Push the camera stream to an RTSP server.</h3>
+      <div class="tags">
+          <a href="/tags/live555-ffmpeg/" rel="tag"><i class="ic i-tag"></i> live555, ffmpeg</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2024-10-12 18:58:55" itemprop="dateModified" datetime="2024-10-12T18:58:55+09:00">2024-10-12</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <checkbox><i class="ic i-heartbeat"></i> Donate</checkbox>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Sunday WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Sunday Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Sunday PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>Sunday <i class="ic i-at"><em>@</em></i>Hex
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://hexlove2.github.io/2024/10/11/Notes/live555usage/" title="Live555 Usage">http://hexlove2.github.io/2024/10/11/Notes/live555usage/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/09/26/Notes/stream/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;13.jpg" title="Name">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> Notes</span>
+  <h3>Name</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Platform-Win10-amp-MacOS15"><span class="toc-number">1.</span> <span class="toc-text">Platform: Win10 &amp; MacOS15</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Source-Code-Download-Link-https-github-com-rgaufman-live555"><span class="toc-number">2.</span> <span class="toc-text">1. Source Code Download Link: https:&#x2F;&#x2F;github.com&#x2F;rgaufman&#x2F;live555</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Build"><span class="toc-number">3.</span> <span class="toc-text">2. Build</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Usages"><span class="toc-number">4.</span> <span class="toc-text">3. Usages</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Push-local-audio-and-video-files%E2%80%99-stream-to-an-RTSP-server"><span class="toc-number">4.1.</span> <span class="toc-text">1. Push local audio and video files’ stream to an RTSP server.</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Push-the-camera-stream-to-an-RTSP-server"><span class="toc-number">5.</span> <span class="toc-text">2. Push the camera stream to an RTSP server.</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="bookmark" title="C#初级笔记">C#初级笔记</a></li><li><a href="/2024/02/29/Notes/Socket%20learning/" rel="bookmark" title="TCP/IP Socket Coding">TCP/IP Socket Coding</a></li><li><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="bookmark" title="Interview Questions">Interview Questions</a></li><li><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" rel="bookmark" title="Statistical Learning">Statistical Learning</a></li><li><a href="/2024/09/13/Notes/Cmake/" rel="bookmark" title="Project Building Notes">Project Building Notes</a></li><li><a href="/2024/09/26/Notes/stream/" rel="bookmark" title="Name">Name</a></li><li class="active"><a href="/2024/10/11/Notes/live555usage/" rel="bookmark" title="Live555 Usage">Live555 Usage</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Sunday"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Sunday</p>
+  <div class="description" itemprop="description">Looking for freedom of mind</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">20</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">7</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">12</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUy" title="https:&#x2F;&#x2F;github.com&#x2F;Hexlove2"><i class="ic i-github"></i></span>
+      <span class="exturl item music" data-url="aHR0cHM6Ly9tdXNpYy4xNjMuY29tLyMvdXNlci9ob21lP2lkPTMxMzY0NTk5Ng==" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;313645996"><i class="ic i-cloud-music"></i></span>
+      <a href="/hexlove@163.com" title="hexlove@163.com" class="item email"><i class="ic i-envelope"></i></a>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>About</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>Categories</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>Friends</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-moon"></i>Art</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/paint/" rel="section"><i class="ic i-sun"></i>Paint</a>
+  </li>
+
+  </ul>
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-sakura"></i>Demo</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/HTML/index.html" rel="section"><i class="ic i-flag"></i>Score</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage">Live555 Usage</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/book/" title="In book?">book?</a>
+</div>
+
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Sunday @ Hex</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/10/11/Notes/live555usage/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
