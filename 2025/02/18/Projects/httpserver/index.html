@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
-  <meta name="keywords" content="Hexo,Hexo d,Github" />
+  <meta name="keywords" content="Socket,TCP/IP,Github" />
 
 
-<link rel="canonical" href="http://hexlove2.github.io/2022/10/29/Journey/hexo/">
+<link rel="canonical" href="http://hexlove2.github.io/2025/02/18/Projects/httpserver/">
 
 
 
   <title>
-关于Hexo s显示正常但Hexo d没有更新内容的问题 - Journey |
+Http Linux Server - Projects |
 Hex = Hex = Looking for freedom of mind</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -60,16 +60,16 @@ Hex = Hex = Looking for freedom of mind</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">关于Hexo s显示正常但Hexo d没有更新内容的问题
+  <h1 itemprop="name headline">Http Linux Server
   </h1>
   
 <div class="meta">
-  <span class="item" title="Created: 2022-10-30 00:00:00">
+  <span class="item" title="Created: 2025-02-19 00:00:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">Posted on</span>
-    <time itemprop="dateCreated datePublished" datetime="2022-10-30T00:00:00+09:00">2022-10-30</time>
+    <time itemprop="dateCreated datePublished" datetime="2025-02-19T00:00:00+09:00">2025-02-19</time>
   </span>
 </div>
 
@@ -102,12 +102,12 @@ Hex = Hex = Looking for freedom of mind</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/2.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/9.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/7.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/15.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/18.jpg"></li>
         </ul>
       </div>
     </header>
@@ -133,12 +133,12 @@ Hex = Hex = Looking for freedom of mind</title>
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
 <span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
-<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Journey/" itemprop="item" rel="index" title="In Journey"><span itemprop="name">Journey</span></a>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/Projects/" itemprop="item" rel="index" title="In Projects"><span itemprop="name">Projects</span></a>
 <meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="en">
-  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2022/10/29/Journey/hexo/">
+  <link itemprop="mainEntityOfPage" href="http://hexlove2.github.io/2025/02/18/Projects/httpserver/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -153,27 +153,21 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h3 id="关于Hexo-s显示正常但Hexo-d后网页端没有更新内容的问题"><a href="#关于Hexo-s显示正常但Hexo-d后网页端没有更新内容的问题" class="headerlink" title="关于Hexo s显示正常但Hexo d后网页端没有更新内容的问题"></a>关于Hexo s显示正常但Hexo d后网页端没有更新内容的问题</h3><p>作为一个接触这方面不久的新手，在部署的时候发现了一个很奇怪的问题，一开始我学着正常加入Blog菜单上的目录</p>
-<p>先用命令创建页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hexo new page &quot;about&quot;</span><br><span class="line">Hexo new page &quot;diary&quot;</span><br></pre></td></tr></table></figure>
-
-<p>接着修改根目录下的配置文件</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span></span><br><span class="line">  <span class="attr">About:</span> <span class="string">/About/</span> <span class="string">||</span> <span class="string">user</span></span><br><span class="line">  <span class="comment"># posts:</span></span><br><span class="line">  <span class="comment">#   default: / || feather</span></span><br><span class="line">  <span class="comment">#   archives: /archives/ || list-alt</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></span><br><span class="line">  <span class="attr">Diary:</span> <span class="string">/Diary/</span> <span class="string">||</span> <span class="string">moon</span></span><br><span class="line">  <span class="comment">#   tags: /tags/ || tags</span></span><br><span class="line">  <span class="attr">Friends:</span> <span class="string">/Friends/</span> <span class="string">||</span> <span class="string">heart</span></span><br><span class="line">  <span class="comment"># links: /links/ || magic</span></span><br></pre></td></tr></table></figure>
-
-<p>接着我去重新生成页面并在本地查看效果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo cl</span><br><span class="line">Hexo g</span><br><span class="line">Hexo s</span><br></pre></td></tr></table></figure>
-
-<p>启动成功，浏览器上查看也没有问题</p>
-<p>接着我就直接Hexo d了，看到Github上代码已更新，就登录了网页端，但点击目录上的<strong>About</strong>和<strong>Friends</strong>后发现没反应，起初我也没在意，我认为是Github那边没有及时更新，一般几分钟就好了，但后面还是不行，于是我不断清理，生成，推送，但仍无果。我纳闷的是，为什么本地没问题，推送有问题，我一直认为是GitHub那边的问题，于是我猜测可能是配置文件写错了，就在页面添加了别的内容，推送上去，果然新加的内容出现了。然后我才发现，</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/3F03A731BE640A7EA4E2F8E0D195E3FC.png" alt="img"></p>
-<p>这里应该要小写，因为我在创建页面的时候是小写，_post下的文件夹也是小写的，如图：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/74A4C7F573AC41EE135D5C74E6B9BC15.png" alt="img"></p>
-<p>推送到GitHub也是小写</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/EF7F4DF07F2EDAC3FDAAD8A93891F0F4.png" alt="img"></p>
-<p>改成小写后，成功显示</p>
-<p>这里主要的问题就是，不清楚为什么本地没问题，推送后有问题，耽误了很久，我真的栓Q</p>
-<p>目前还是不清楚为啥</p>
-<p>以上</p>
+    <h3 id="项目地址："><a href="#项目地址：" class="headerlink" title="项目地址："></a>项目地址：</h3><h4 id="https-github-com-Hexlove2-Linux-HttpServer"><a href="#https-github-com-Hexlove2-Linux-HttpServer" class="headerlink" title="https://github.com/Hexlove2/Linux_HttpServer"></a><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hleGxvdmUyL0xpbnV4X0h0dHBTZXJ2ZXI=">https://github.com/Hexlove2/Linux_HttpServer</span></h4><h2 id="项目结构："><a href="#项目结构：" class="headerlink" title="项目结构："></a>项目结构：</h2><h4 id="1-互斥信号量类"><a href="#1-互斥信号量类" class="headerlink" title="1.互斥信号量类"></a>1.互斥信号量类</h4><p>使用pthread封装信号量，互斥锁，条件变量类，sem_wait</p>
+<h4 id="2-线程池类"><a href="#2-线程池类" class="headerlink" title="2.线程池类"></a>2.线程池类</h4><p><strong>成员变量：</strong></p>
+<p>线程池数组，线程数，最大请求数，请求任务队列，停止标志，互斥锁，信号量</p>
+<p><strong>成员函数：</strong></p>
+<p>append函数，添加任务，worker函数，执行run，run函数，各个线程不断在任务队列里取任务并执行其处理函数，构造函数，创建线程等</p>
+<h4 id="3-http请求类"><a href="#3-http请求类" class="headerlink" title="3.http请求类"></a>3.http请求类</h4><p>需要完成的功能：<br>包括：接受请求数据，解析请求数据，根据不同请求完成需求，写到回复缓冲区并发生数据，处理连接状态</p>
+<h5 id="1-处理请求"><a href="#1-处理请求" class="headerlink" title="1.处理请求"></a>1.处理请求</h5><p>当main函数循环检测IO通知到的事件时，发现为EPOLLIN事件，这时会将这个socket id对应的请求类实例传给线程池队列，线程池取到该任务时就会调用该实例的process函数，这里就会分别执行以下步骤<br>1.一次性读入数据到缓冲区，这是在main函数里就直接执行了<br>2.解析请求头，请求行，请求体，使用状态机，此时buffer里已经读到了全部数据<br>3.生成回应并传给客户端，这里用到了内存映射相关的系统调用，将html文件的内容写到请求体里，浏览器会解析到200 ok并发现为html类型</p>
+<h5 id="2-初始化和关闭连接等"><a href="#2-初始化和关闭连接等" class="headerlink" title="2.初始化和关闭连接等"></a>2.初始化和关闭连接等</h5><p>1.初始化时需要设置好各个参数，设置端口复用，添加到epoll对象等</p>
+<h4 id="4-main函数"><a href="#4-main函数" class="headerlink" title="4.main函数"></a>4.main函数</h4><p>1.初始化，线程池相关，epoll相关，socket相关</p>
+<p>2.循环检测epoll已准备好的事件，并依次针对事件的种类进行判断处理，有时是连接请求，有时是http请求</p>
+<p>3.直接读写好数据并将其添加到任务队列，进行http请求的处理</p>
+<h4 id="5-相关问题"><a href="#5-相关问题" class="headerlink" title="5.相关问题"></a>5.相关问题</h4><p>1.epoll相对于poll和select的优势？</p>
+<p>epoll是事件驱动的，而其他的是线性扫描，并且epoll可支持边缘触发搭配非阻塞io，注意需要一次性读完数据，使用的是红黑树存储文件描述符，且支持的最大fd数很大</p>
+<p>2.还有相关的优化或扩展功能吗？</p>
+<p>有在尝试手写一个定时器，通过定时器管理长期没有请求的客户端连接，将其断开，每一个定时器都有一个超时时间，每5秒会有一个alarm信号提醒检查定时器队列是否有超时，若出现超时，则调用注册好的回调函数</p>
 
   </div>
 
@@ -185,7 +179,7 @@ Hex = Hex = Looking for freedom of mind</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-06-28 17:39:53" itemprop="dateModified" datetime="2024-06-28T17:39:53+09:00">2024-06-28</time>
+    <time title="Modified: 2025-03-24 18:51:44" itemprop="dateModified" datetime="2025-03-24T18:51:44+09:00">2025-03-24</time>
   </span>
 </div>
 
@@ -221,7 +215,7 @@ Hex = Hex = Looking for freedom of mind</title>
   </li>
   <li class="link">
     <strong>Post link: </strong>
-    <a href="http://hexlove2.github.io/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">http://hexlove2.github.io/2022/10/29/Journey/hexo/</a>
+    <a href="http://hexlove2.github.io/2025/02/18/Projects/httpserver/" title="Http Linux Server">http://hexlove2.github.io/2025/02/18/Projects/httpserver/</a>
   </li>
   <li class="license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
@@ -240,22 +234,14 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item left">
       
 
-  <a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;4.jpg" title="缺陷检测方法对比">
+  <a href="/2024/10/11/Notes/live555usage/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;23.jpg" title="Live555 Usage(FFmpeg)">
   <span class="type">Previous Post</span>
-  <span class="category"><i class="ic i-flag"></i> Coding</span>
-  <h3>缺陷检测方法对比</h3>
+  <span class="category"><i class="ic i-flag"></i> Notes</span>
+  <h3>Live555 Usage(FFmpeg)</h3>
   </a>
 
     </div>
     <div class="item right">
-      
-
-  <a href="/2022/11/19/Journey/My%20diary/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;23.jpg" title="First Diary">
-  <span class="type">Next Post</span>
-  <span class="category"><i class="ic i-flag"></i> Journey</span>
-  <h3>First Diary</h3>
-  </a>
-
     </div>
 </div>
 
@@ -272,11 +258,11 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EHexo-s%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E4%BD%86Hexo-d%E5%90%8E%E7%BD%91%E9%A1%B5%E7%AB%AF%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">关于Hexo s显示正常但Hexo d后网页端没有更新内容的问题</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">项目地址：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#https-github-com-Hexlove2-Linux-HttpServer"><span class="toc-number">1.1.</span> <span class="toc-text">https:&#x2F;&#x2F;github.com&#x2F;Hexlove2&#x2F;Linux_HttpServer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">项目结构：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BA%92%E6%96%A5%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%B1%BB"><span class="toc-number">0.1.</span> <span class="toc-text">1.互斥信号量类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB"><span class="toc-number">0.2.</span> <span class="toc-text">2.线程池类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-http%E8%AF%B7%E6%B1%82%E7%B1%BB"><span class="toc-number">0.3.</span> <span class="toc-text">3.http请求类</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82"><span class="toc-number">0.3.1.</span> <span class="toc-text">1.处理请求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E5%85%B3%E9%97%AD%E8%BF%9E%E6%8E%A5%E7%AD%89"><span class="toc-number">0.3.2.</span> <span class="toc-text">2.初始化和关闭连接等</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-main%E5%87%BD%E6%95%B0"><span class="toc-number">0.4.</span> <span class="toc-text">4.main函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-number">0.5.</span> <span class="toc-text">5.相关问题</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li class="active"><a href="/2022/10/29/Journey/hexo/" rel="bookmark" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></li><li><a href="/2022/11/19/Journey/My%20diary/" rel="bookmark" title="First Diary">First Diary</a></li>
+          <li><a href="/2024/07/01/Projects/ChatWeb/" rel="bookmark" title="ChatWeb Project">ChatWeb Project</a></li><li class="active"><a href="/2025/02/18/Projects/httpserver/" rel="bookmark" title="Http Linux Server">Http Linux Server</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -367,12 +353,10 @@ Hex = Hex = Looking for freedom of mind</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2022/11/19/Journey/My%20diary/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -394,20 +378,30 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2025/02/18/Projects/httpserver/" title="Http Linux Server">Http Linux Server</a></span>
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Books/" title="In Books">Books</a>
 </div>
 
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+    <span><a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" title="A Good Girl&#39;s Guide To Murder">A Good Girl's Guide To Murder</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
   </li>
 
       
@@ -424,30 +418,20 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2024/09/13/Notes/Cmake/" title="Project Building Notes">Project Building Notes</a></span>
+    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/Journey/" title="In Journey">Journey</a>
 </div>
 
-    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Games/" title="In Games">Games</a>
-</div>
-
-    <span><a href="/2024/07/11/Games/Elden%20ring/" title="Elden Ring">Elden Ring</a></span>
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
@@ -464,29 +448,30 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Games/" title="In Games">Games</a>
+</div>
+
+    <span><a href="/2024/07/11/Games/Elden%20ring/" title="Elden Ring">Elden Ring</a></span>
   </li>
 
   </ul>
@@ -517,7 +502,7 @@ Hex = Hex = Looking for freedom of mind</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2022/10/29/Journey/hexo/',
+    path: '2025/02/18/Projects/httpserver/',
     favicon: {
       show: "（●´3｀●）Goooood",
       hide: "(´Д｀)Booooom"
