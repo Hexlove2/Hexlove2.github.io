@@ -100,12 +100,12 @@ Hex = Sunday = Later's better than never</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/30.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/11.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/34.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/2.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/16.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/32.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/24.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/35.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/21.jpg"></li>
         </ul>
       </div>
     </header>
@@ -153,179 +153,179 @@ Hex = Sunday = Later's better than never</title>
 
     <h3 id="image-processing-algorithmraw-data"><a class="markdownIt-Anchor" href="#image-processing-algorithmraw-data">#</a> Image Processing Algorithm(Raw Data)</h3>
 <p>Supposing that we have an AVFrame constructor point, like *frame</p>
-<pre><code class="language-c++">void frame_horizontal(AVFrame* frame)
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void frame_horizontal(AVFrame* frame)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int uv_width = width / 2;
-	int uv_height = height / 2;
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int uv_width &#x3D; width &#x2F; 2;
+	int uv_height &#x3D; height &#x2F; 2;
 
-	for (int i = 0; i &lt; height; i++)
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t * row = frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
-		for (int j = 0; j &lt; width / 2; j++)
+		uint8_t * row &#x3D; frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
+		for (int j &#x3D; 0; j &lt; width &#x2F; 2; j++)
 		&#123;
 			uint8_t temp;
-			temp = row[j];
-			row[j] = row[width - 1 - j];
-			row[width - 1 - j] = temp;
+			temp &#x3D; row[j];
+			row[j] &#x3D; row[width - 1 - j];
+			row[width - 1 - j] &#x3D; temp;
 		&#125;
 	&#125;
 
-	for (int i = 0; i &lt; uv_height; i++)
+	for (int i &#x3D; 0; i &lt; uv_height; i++)
 	&#123;
-		uint8_t * row_u = frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
-		uint8_t * row_v = frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
-		for (int j = 0; j &lt; uv_width / 2; j++)
+		uint8_t * row_u &#x3D; frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
+		uint8_t * row_v &#x3D; frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
+		for (int j &#x3D; 0; j &lt; uv_width &#x2F; 2; j++)
 		&#123;
 			uint8_t temp;
-			temp = row_u[j];
-			row_u[j] = row_u[uv_width - j - 1];
-			row_u[uv_width - j - 1] = temp;
+			temp &#x3D; row_u[j];
+			row_u[j] &#x3D; row_u[uv_width - j - 1];
+			row_u[uv_width - j - 1] &#x3D; temp;
 
-			temp = row_v[j];
-			row_v[j] = row_v[uv_width - j - 1];
-			row_v[uv_width - j - 1] = temp;
+			temp &#x3D; row_v[j];
+			row_v[j] &#x3D; row_v[uv_width - j - 1];
+			row_v[uv_width - j - 1] &#x3D; temp;
 		&#125;
 	&#125;
 &#125;
 
 static void frame_vertical(AVFrame* frame)
 &#123;
-	int height = frame-&gt;height;
-	int width = frame-&gt;width;
-	int uv_height = height / 2;
-	int uv_width = width / 2;
+	int height &#x3D; frame-&gt;height;
+	int width &#x3D; frame-&gt;width;
+	int uv_height &#x3D; height &#x2F; 2;
+	int uv_width &#x3D; width &#x2F; 2;
 
-	for (int i = 0; i &lt; height / 2; i++)
+	for (int i &#x3D; 0; i &lt; height &#x2F; 2; i++)
 	&#123;
-		uint8_t * row_1 = frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
-		uint8_t * row_2 = frame-&gt;data[0] + (height - i - 1) * (frame-&gt;linesize[0]);
-		for (int j = 0; j &lt; width; j++)
+		uint8_t * row_1 &#x3D; frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
+		uint8_t * row_2 &#x3D; frame-&gt;data[0] + (height - i - 1) * (frame-&gt;linesize[0]);
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
-			int temp = row_1[j];
-			row_1[j] = row_2[j];
-			row_2[j] = temp;
+			int temp &#x3D; row_1[j];
+			row_1[j] &#x3D; row_2[j];
+			row_2[j] &#x3D; temp;
 		&#125;
 	&#125;
 
-	for (int i = 0; i &lt; uv_height / 2; i++)
+	for (int i &#x3D; 0; i &lt; uv_height &#x2F; 2; i++)
 	&#123;
-		uint8_t* row_u_1 = frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
-		uint8_t* row_u_2 = frame-&gt;data[1] + (uv_height - i - 1) * (frame-&gt;linesize[1]);
-		uint8_t* row_v_1 = frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
-		uint8_t* row_v_2 = frame-&gt;data[2] + (uv_height - i - 1) * (frame-&gt;linesize[2]);
-		for (int j = 0; j &lt; uv_width; j++)
+		uint8_t* row_u_1 &#x3D; frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
+		uint8_t* row_u_2 &#x3D; frame-&gt;data[1] + (uv_height - i - 1) * (frame-&gt;linesize[1]);
+		uint8_t* row_v_1 &#x3D; frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
+		uint8_t* row_v_2 &#x3D; frame-&gt;data[2] + (uv_height - i - 1) * (frame-&gt;linesize[2]);
+		for (int j &#x3D; 0; j &lt; uv_width; j++)
 		&#123;
-			int temp = row_u_1[j];
-			row_u_1[j] = row_u_2[j];
-			row_u_2[j] = temp;
+			int temp &#x3D; row_u_1[j];
+			row_u_1[j] &#x3D; row_u_2[j];
+			row_u_2[j] &#x3D; temp;
 
-			temp = row_v_1[j];
-			row_v_1[j] = row_v_2[j];
-			row_v_2[j] = temp;
+			temp &#x3D; row_v_1[j];
+			row_v_1[j] &#x3D; row_v_2[j];
+			row_v_2[j] &#x3D; temp;
 		&#125;
 	&#125;
 &#125;
 
 static void frame_gray(AVFrame* frame)
 &#123;
-	int height = frame-&gt;height / 2;
-	int width = frame-&gt;width / 2;
-	for (int i = 0; i &lt; height; i++)
+	int height &#x3D; frame-&gt;height &#x2F; 2;
+	int width &#x3D; frame-&gt;width &#x2F; 2;
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t* row_u = frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
-		uint8_t* row_v = frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
-		for (int j = 0; j &lt; width; j++)
+		uint8_t* row_u &#x3D; frame-&gt;data[1] + i * (frame-&gt;linesize[1]);
+		uint8_t* row_v &#x3D; frame-&gt;data[2] + i * (frame-&gt;linesize[2]);
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
-			row_u[j] = 128;
-			row_v[j] = 128;
+			row_u[j] &#x3D; 128;
+			row_v[j] &#x3D; 128;
 		&#125;
 	&#125;
 &#125;
 
 static void frame_auto_light(AVFrame* frame)
 &#123;
-	if (frame-&gt;data == NULL) return;
+	if (frame-&gt;data &#x3D;&#x3D; NULL) return;
 
-	int height = frame-&gt;height;
-	int width = frame-&gt;width;
-	int count = 0;
-	for (int i = 0; i &lt; height; i++)
+	int height &#x3D; frame-&gt;height;
+	int width &#x3D; frame-&gt;width;
+	int count &#x3D; 0;
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t* row = frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
-		for (int j = 0; j &lt; width; j++)
+		uint8_t* row &#x3D; frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
 			if (row[j] &gt; 140)
 				count++;
 		&#125;
 	&#125;
-	float index_light = 2.4f - ((float)count / (float)(height * width)) * 3.5f;
-	SLOG_ERROR(&quot;Current frame index of light : %f percent:%f count:%d\n&quot;, index_light, ((float)count / (float)(height * width)), count);
+	float index_light &#x3D; 2.4f - ((float)count &#x2F; (float)(height * width)) * 3.5f;
+	SLOG_ERROR(&quot;Current frame index of light : %f percent:%f count:%d\n&quot;, index_light, ((float)count &#x2F; (float)(height * width)), count);
 	if (index_light &gt; 2.2f)
-		index_light = 2.2f;
+		index_light &#x3D; 2.2f;
 	else if (index_light &lt; 0.0f)
-		index_light = 0.3f;
+		index_light &#x3D; 0.3f;
 	frame_gamma_adjust(frame, index_light);
 &#125;
 
 void gaussian_create_kernel(double* kernal, double sigma, int kernal_size)
 &#123;
-	if (kernal_size % 2 == 0) kernal_size--;
-	const double pi = 3.141592653589793;
-	double sum = 0.0;
+	if (kernal_size % 2 &#x3D;&#x3D; 0) kernal_size--;
+	const double pi &#x3D; 3.141592653589793;
+	double sum &#x3D; 0.0;
 
-	//SLOG_ERROR(&quot;Kernal Size:%d\n&quot;, kernal_size);
-	//kernal = (double*)malloc(sizeof(double) * kernal_size * kernal_size);
+	&#x2F;&#x2F;SLOG_ERROR(&quot;Kernal Size:%d\n&quot;, kernal_size);
+	&#x2F;&#x2F;kernal &#x3D; (double*)malloc(sizeof(double) * kernal_size * kernal_size);
 
-	int mid = (kernal_size - 1) / 2;
+	int mid &#x3D; (kernal_size - 1) &#x2F; 2;
 
-	for (int i = 0; i &lt; kernal_size; i++)
+	for (int i &#x3D; 0; i &lt; kernal_size; i++)
 	&#123;
-		for (int j = 0; j &lt; kernal_size; j++)
+		for (int j &#x3D; 0; j &lt; kernal_size; j++)
 		&#123;
-			int x = i - mid;
-			int y = j - mid;
-			double value = (1.0 / (pi * 2.0 * sigma * sigma)) * exp((-1.0)*(x * x + y * y) / (2.0 * sigma * sigma));
-			*(kernal + j + i * kernal_size) = value;
-			sum += value;
+			int x &#x3D; i - mid;
+			int y &#x3D; j - mid;
+			double value &#x3D; (1.0 &#x2F; (pi * 2.0 * sigma * sigma)) * exp((-1.0)*(x * x + y * y) &#x2F; (2.0 * sigma * sigma));
+			*(kernal + j + i * kernal_size) &#x3D; value;
+			sum +&#x3D; value;
 		&#125;
 	&#125;
 
-	//πÈ“ªªØ
+	&#x2F;&#x2F;πÈ“ªªØ
 	SLOG_ERROR(&quot;Kernal Display:%f&quot;,sum);
-	sum = 1 / sum;
-	//SLOG_ERROR(&quot;Kernal Display:&quot;);
-	for (int i = 0; i &lt; kernal_size; i++)
+	sum &#x3D; 1 &#x2F; sum;
+	&#x2F;&#x2F;SLOG_ERROR(&quot;Kernal Display:&quot;);
+	for (int i &#x3D; 0; i &lt; kernal_size; i++)
 	&#123;
-		//SLOG_ERROR(&quot;||&quot;);
-		for (int j = 0; j &lt; kernal_size; j++)
+		&#x2F;&#x2F;SLOG_ERROR(&quot;||&quot;);
+		for (int j &#x3D; 0; j &lt; kernal_size; j++)
 		&#123;
-			*(kernal + j + i * kernal_size) *= sum;
-			//SLOG_ERROR(&quot;%f  &quot;, *(kernal + j + i * kernal_size));
+			*(kernal + j + i * kernal_size) *&#x3D; sum;
+			&#x2F;&#x2F;SLOG_ERROR(&quot;%f  &quot;, *(kernal + j + i * kernal_size));
 		&#125;
-		//SLOG_ERROR(&quot;||\n&quot;);
+		&#x2F;&#x2F;SLOG_ERROR(&quot;||\n&quot;);
 	&#125;
-	//SLOG_ERROR(&quot;gaussian_create_kernel success&quot;);
+	&#x2F;&#x2F;SLOG_ERROR(&quot;gaussian_create_kernel success&quot;);
 &#125;
 
 static void BGR2YUV(uint8_t *data)
 &#123;
-	uint8_t* newdata = (uint8_t*)malloc(1920 * 1080 * 3);
-	//memcpy(newdata, data, 1920 * 1080 * 3);
-	for (int i = 0; i &lt; 1920 * 1080; i++)
+	uint8_t* newdata &#x3D; (uint8_t*)malloc(1920 * 1080 * 3);
+	&#x2F;&#x2F;memcpy(newdata, data, 1920 * 1080 * 3);
+	for (int i &#x3D; 0; i &lt; 1920 * 1080; i++)
 	&#123;
-		uint8_t B = data[i * 3];
-		uint8_t G = data[i * 3 + 1];
-		uint8_t R = data[i * 3 + 2];
+		uint8_t B &#x3D; data[i * 3];
+		uint8_t G &#x3D; data[i * 3 + 1];
+		uint8_t R &#x3D; data[i * 3 + 2];
 
-		uint8_t Y = 0.2126*R + 0.7152*G + 0.0722*B;
-		uint8_t U = -0.09991*R  - 0.33609*G + 0.436*B;
-		uint8_t V = 0.615*R - 0.55861*G-0.05639*B ;
+		uint8_t Y &#x3D; 0.2126*R + 0.7152*G + 0.0722*B;
+		uint8_t U &#x3D; -0.09991*R  - 0.33609*G + 0.436*B;
+		uint8_t V &#x3D; 0.615*R - 0.55861*G-0.05639*B ;
 
-		newdata[i] = Y;
-		newdata[i + 1920 * 1080] = U;
-		newdata[i + 2 * 1920 * 1080] = V;
+		newdata[i] &#x3D; Y;
+		newdata[i + 1920 * 1080] &#x3D; U;
+		newdata[i + 2 * 1920 * 1080] &#x3D; V;
 	&#125;
 	memcpy(data, newdata, 1920 * 1080 * 3);
 	free(newdata);
@@ -333,21 +333,21 @@ static void BGR2YUV(uint8_t *data)
 
 static void YUV2BGR(uint8_t* data)
 &#123;
-	uint8_t* newdata = (uint8_t*)malloc(1920 * 1080 * 3);
-	//memcpy(newdata, data, 1920 * 1080 * 3);
-	for (int i = 0; i &lt; 1920 * 1080; i++)
+	uint8_t* newdata &#x3D; (uint8_t*)malloc(1920 * 1080 * 3);
+	&#x2F;&#x2F;memcpy(newdata, data, 1920 * 1080 * 3);
+	for (int i &#x3D; 0; i &lt; 1920 * 1080; i++)
 	&#123;
-		uint8_t Y = data[i];
-		uint8_t U = data[i + 1920 * 1080];
-		uint8_t V = data[i + 2 * 1920 * 1080];
+		uint8_t Y &#x3D; data[i];
+		uint8_t U &#x3D; data[i + 1920 * 1080];
+		uint8_t V &#x3D; data[i + 2 * 1920 * 1080];
 
-		uint8_t B = Y + 2.12798 * U;
-		uint8_t G = Y - 0.21482 * U - 0.38059 * V;
-		uint8_t R = Y + 1.28033 * V;
+		uint8_t B &#x3D; Y + 2.12798 * U;
+		uint8_t G &#x3D; Y - 0.21482 * U - 0.38059 * V;
+		uint8_t R &#x3D; Y + 1.28033 * V;
 
-		newdata[3*i] = R;
-		newdata[3*i + 1] = G;
-		newdata[3*i + 2] = B;
+		newdata[3*i] &#x3D; R;
+		newdata[3*i + 1] &#x3D; G;
+		newdata[3*i + 2] &#x3D; B;
 	&#125;
 	memcpy(data, newdata, 1920 * 1080 * 3);
 	free(newdata);
@@ -360,299 +360,298 @@ void frame_DGamma_adjust(int kernal_size, double *kernal_1, double* kernal_2, do
 	int height;
 	int linesize;
 	uint8_t* data;
-	if (type == 0)
+	if (type &#x3D;&#x3D; 0)
 	&#123;
-		AVFrame* frame = (AVFrame*)frame1;
-		data = frame-&gt;data[0];
-		width = frame-&gt;width;
-		height = frame-&gt;height;
-		linesize = frame-&gt;linesize[0];
+		AVFrame* frame &#x3D; (AVFrame*)frame1;
+		data &#x3D; frame-&gt;data[0];
+		width &#x3D; frame-&gt;width;
+		height &#x3D; frame-&gt;height;
+		linesize &#x3D; frame-&gt;linesize[0];
 	&#125;
 
 	else
 	&#123;
-		width = 1920;
-		height = 1080;
-		linesize = 1920;
-		data = (uint8_t*)frame1;
+		width &#x3D; 1920;
+		height &#x3D; 1080;
+		linesize &#x3D; 1920;
+		data &#x3D; (uint8_t*)frame1;
 		BGR2YUV(data);
 	&#125;
-		//SLOG_ERROR(&quot;frame_2DGamma Start1 \n&quot;);
+		&#x2F;&#x2F;SLOG_ERROR(&quot;frame_2DGamma Start1 \n&quot;);
 
 		
-		//SLOG_ERROR(&quot;frame_2DGamma Start2 \n&quot;);
-		double* light = (double*)malloc(sizeof(double) * 1920 * 1080);
+		&#x2F;&#x2F;SLOG_ERROR(&quot;frame_2DGamma Start2 \n&quot;);
+		double* light &#x3D; (double*)malloc(sizeof(double) * 1920 * 1080);
 		memset(light, 0, sizeof(double) * 1920 * 1080);
-		double mean = 0;
-		//SLOG_ERROR(&quot;frame_2DGamma Start3 \n&quot;);
+		double mean &#x3D; 0;
+		&#x2F;&#x2F;SLOG_ERROR(&quot;frame_2DGamma Start3 \n&quot;);
 
-		for (int i = 0; i &lt; height; i++)
+		for (int i &#x3D; 0; i &lt; height; i++)
 		&#123;
-			for (int j = 0; j &lt; width; j++)
+			for (int j &#x3D; 0; j &lt; width; j++)
 			&#123;
-				double sum = 0.0;
-				for (int q = 0; q &lt; kernal_size; q++)
+				double sum &#x3D; 0.0;
+				for (int q &#x3D; 0; q &lt; kernal_size; q++)
 				&#123;
-					for (int w = 0; w &lt; kernal_size; w++)
+					for (int w &#x3D; 0; w &lt; kernal_size; w++)
 					&#123;
-						int x = i + q - 2;
-						int y = j + w - 2;
-						if (x &lt; 0) x = 0;
-						if (x &gt;= height) x = height - 1;
-						if (y &lt; 0) y = 0;
-						if (y &gt;= width)  y = width - 1;
-						double a1 = kernal_1[w + kernal_size * q];
-						double a2 = kernal_2[w + kernal_size * q];
-						double a3 = kernal_3[w + kernal_size * q];
-						double b1 = (double)(data[y + x * width]);
-						sum += ((a1 + a2 + a3) * b1) / 3;
+						int x &#x3D; i + q - 2;
+						int y &#x3D; j + w - 2;
+						if (x &lt; 0) x &#x3D; 0;
+						if (x &gt;&#x3D; height) x &#x3D; height - 1;
+						if (y &lt; 0) y &#x3D; 0;
+						if (y &gt;&#x3D; width)  y &#x3D; width - 1;
+						double a1 &#x3D; kernal_1[w + kernal_size * q];
+						double a2 &#x3D; kernal_2[w + kernal_size * q];
+						double a3 &#x3D; kernal_3[w + kernal_size * q];
+						double b1 &#x3D; (double)(data[y + x * width]);
+						sum +&#x3D; ((a1 + a2 + a3) * b1) &#x2F; 3;
 					&#125;
 				&#125;
-				light[j + i * 1920] = sum;
-				mean += sum;
+				light[j + i * 1920] &#x3D; sum;
+				mean +&#x3D; sum;
 			&#125;
 		&#125;
 
 
 
-		mean = mean / (double)(1920 * 1080);
+		mean &#x3D; mean &#x2F; (double)(1920 * 1080);
 		SLOG_ERROR(&quot;Mean Display:%f&quot;, mean);
 
-		for (int i = 0; i &lt; height; i++)
+		for (int i &#x3D; 0; i &lt; height; i++)
 		&#123;
-			for (int j = 0; j &lt; width; j++)
+			for (int j &#x3D; 0; j &lt; width; j++)
 			&#123;
-				double r = pow(0.5, (mean - light[j + i * 1920]) / mean);
-				double F = (double)(data[j + i * width]);
+				double r &#x3D; pow(0.5, (mean - light[j + i * 1920]) &#x2F; mean);
+				double F &#x3D; (double)(data[j + i * width]);
 
-				//SLOG_ERROR(&quot;frame_2DGamma Start4 \n&quot;);
-				uint8_t value = (uint8_t)(255.0 * pow(F / 255.0, r));
-				//SLOG_ERROR(&quot;frame_2DGamma Start5 \n&quot;);
-				if (value &lt; 0) value = 0;
-				else if (value &gt; 255) value = 255;
-				data[j + i * width] = value;
+				&#x2F;&#x2F;SLOG_ERROR(&quot;frame_2DGamma Start4 \n&quot;);
+				uint8_t value &#x3D; (uint8_t)(255.0 * pow(F &#x2F; 255.0, r));
+				&#x2F;&#x2F;SLOG_ERROR(&quot;frame_2DGamma Start5 \n&quot;);
+				if (value &lt; 0) value &#x3D; 0;
+				else if (value &gt; 255) value &#x3D; 255;
+				data[j + i * width] &#x3D; value;
 			&#125;
 		&#125;
 	
-		if (type == 1) YUV2BGR(data);
+		if (type &#x3D;&#x3D; 1) YUV2BGR(data);
 &#125;
 
 static void frame_histogram(AVFrame* frame)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 	int counts[256];
 	uint8_t y[256];
-	int sum = 0;
+	int sum &#x3D; 0;
 
 	memset(counts, 0, 256 * 4);
 	memset(y, 0, 256);
 
-	for (int i = 0; i &lt; height; i++)
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t* row = frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
-		for (int j = 0; j &lt; width; j++)
+		uint8_t* row &#x3D; frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
 			counts[row[j]]++;
 		&#125;
 	&#125;
 
-	for (int i = 0; i &lt; 256; i++)
+	for (int i &#x3D; 0; i &lt; 256; i++)
 	&#123;
-		sum += counts[i];
+		sum +&#x3D; counts[i];
 		int x;
-		x = 255 * (sum) / (height * width);
-		y[i] = x;
+		x &#x3D; 255 * (sum) &#x2F; (height * width);
+		y[i] &#x3D; x;
 		SLOG_ERROR(&quot;Y[%d]-&gt;%d \n&quot;,i, x);
 	&#125;
 
-	for (int i = 0; i &lt; height; i++)
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t* row = frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
-		for (int j = 0; j &lt; width; j++)
+		uint8_t* row &#x3D; frame-&gt;data[0] + i * (frame-&gt;linesize[0]);
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
-			row[j] = y[row[j]];
+			row[j] &#x3D; y[row[j]];
 		&#125;
 	&#125;
 &#125;
 static void frame_mean_blur(AVFrame* frame)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 
-	float kernal[3][3] = &#123;
-		&#123;1.0f / 9, 1.0f / 9, 1.0f / 9 &#125;,
-		&#123;1.0f / 9, 1.0f / 9, 1.0f / 9 &#125;,
-		&#123;1.0f / 9, 1.0f / 9, 1.0f / 9 &#125;
+	float kernal[3][3] &#x3D; &#123;
+		&#123;1.0f &#x2F; 9, 1.0f &#x2F; 9, 1.0f &#x2F; 9 &#125;,
+		&#123;1.0f &#x2F; 9, 1.0f &#x2F; 9, 1.0f &#x2F; 9 &#125;,
+		&#123;1.0f &#x2F; 9, 1.0f &#x2F; 9, 1.0f &#x2F; 9 &#125;
 	&#125;;
 
-	uint8_t* output = malloc(height * linesize);
+	uint8_t* output &#x3D; malloc(height * linesize);
 	memcpy(output, data, height * linesize);
-	int pad = 3 / 2;
-	for(int i = pad; i &lt; height - pad; i++)
-		for (int j = pad; j &lt; width - pad; j++)
+	int pad &#x3D; 3 &#x2F; 2;
+	for(int i &#x3D; pad; i &lt; height - pad; i++)
+		for (int j &#x3D; pad; j &lt; width - pad; j++)
 		&#123;
-			float sum = 0.0f;
-			for (int x = 0; x &lt; 3; x++)
+			float sum &#x3D; 0.0f;
+			for (int x &#x3D; 0; x &lt; 3; x++)
 			&#123;
-				for (int y = 0; y &lt; 3; y++)
+				for (int y &#x3D; 0; y &lt; 3; y++)
 				&#123;
-					sum += output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
+					sum +&#x3D; output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
 				&#125;
 			&#125;
-			data[j + i * linesize] = (uint8_t)sum;
+			data[j + i * linesize] &#x3D; (uint8_t)sum;
 		&#125;
 	free(output);
 &#125;
 
 static void frame_sharpening(AVFrame* frame)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 
-	float kernal[3][3] = &#123;
+	float kernal[3][3] &#x3D; &#123;
 		&#123;-1.0f, -1.0f, -1.0f&#125;,
 		&#123;-1.0f,  9.0f, -1.0f&#125;,
 		&#123;-1.0f, -1.0f, -1.0f&#125;
 	&#125;;
 
-	uint8_t* output = malloc(height * linesize);
+	uint8_t* output &#x3D; malloc(height * linesize);
 	memcpy(output, data, height * linesize);
-	int pad = 3 / 2;
-	for (int i = pad; i &lt; height - pad; i++)
-		for (int j = pad; j &lt; width - pad; j++)
+	int pad &#x3D; 3 &#x2F; 2;
+	for (int i &#x3D; pad; i &lt; height - pad; i++)
+		for (int j &#x3D; pad; j &lt; width - pad; j++)
 		&#123;
-			float sum = 0.0f;
-			for (int x = 0; x &lt; 3; x++)
+			float sum &#x3D; 0.0f;
+			for (int x &#x3D; 0; x &lt; 3; x++)
 			&#123;
-				for (int y = 0; y &lt; 3; y++)
+				for (int y &#x3D; 0; y &lt; 3; y++)
 				&#123;
-					sum += output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
+					sum +&#x3D; output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
 				&#125;
 			&#125;
 			if (sum &lt; 0)
 			&#123;
-				data[j + i * linesize] = 0;
+				data[j + i * linesize] &#x3D; 0;
 			&#125;
 			else if (sum &gt; 255)
 			&#123;
-				data[j + i * linesize] = 255;
+				data[j + i * linesize] &#x3D; 255;
 			&#125;
 			else
-				data[j + i * linesize] = (uint8_t)sum;
+				data[j + i * linesize] &#x3D; (uint8_t)sum;
 		&#125;
 	free(output);
 &#125;
 
 static void frame_laplacian(AVFrame* frame)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 
-	float kernal[3][3] = &#123;
+	float kernal[3][3] &#x3D; &#123;
 		&#123; 0.0f, -1.0f,  0.0f&#125;,
 		&#123;-1.0f,  4.0f, -1.0f&#125;,
 		&#123; 0.0f, -1.0f,  0.0f&#125;
 	&#125;;
 
-	uint8_t* output = malloc(height * linesize);
+	uint8_t* output &#x3D; malloc(height * linesize);
 	memcpy(output, data, height * linesize);
-	int pad = 3 / 2;
-	for (int i = pad; i &lt; height - pad; i++)
-		for (int j = pad; j &lt; width - pad; j++)
+	int pad &#x3D; 3 &#x2F; 2;
+	for (int i &#x3D; pad; i &lt; height - pad; i++)
+		for (int j &#x3D; pad; j &lt; width - pad; j++)
 		&#123;
-			float sum = 0.0f;
-			for (int x = 0; x &lt; 3; x++)
+			float sum &#x3D; 0.0f;
+			for (int x &#x3D; 0; x &lt; 3; x++)
 			&#123;
-				for (int y = 0; y &lt; 3; y++)
+				for (int y &#x3D; 0; y &lt; 3; y++)
 				&#123;
-					sum += output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
+					sum +&#x3D; output[j - 1 + y + (i - 1 + x) * linesize] * kernal[x][y];
 				&#125;
 			&#125;
 			if (sum &lt; 0)
 			&#123;
-				data[j + i * linesize] = 0;
+				data[j + i * linesize] &#x3D; 0;
 			&#125;
 			else if (sum &gt; 255)
 			&#123;
-				data[j + i * linesize] = 255;
+				data[j + i * linesize] &#x3D; 255;
 			&#125;
 			else
-				data[j + i * linesize] = (uint8_t)sum;
+				data[j + i * linesize] &#x3D; (uint8_t)sum;
 		&#125;
 	free(output);
 &#125;
 
 static void frame_kernal(AVFrame* frame, float * kernal)
 &#123;
-	int width = frame-&gt;width;
-	int height = frame-&gt;height;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int width &#x3D; frame-&gt;width;
+	int height &#x3D; frame-&gt;height;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 
 
-	uint8_t* output = malloc(height * linesize);
+	uint8_t* output &#x3D; malloc(height * linesize);
 	memcpy(output, data, height * linesize);
-	int pad = 3 / 2;
-	for (int i = pad; i &lt; height - pad; i++)
-		for (int j = pad; j &lt; width - pad; j++)
+	int pad &#x3D; 3 &#x2F; 2;
+	for (int i &#x3D; pad; i &lt; height - pad; i++)
+		for (int j &#x3D; pad; j &lt; width - pad; j++)
 		&#123;
-			float sum = 0.0f;
-			for (int x = 0; x &lt; 3; x++)
+			float sum &#x3D; 0.0f;
+			for (int x &#x3D; 0; x &lt; 3; x++)
 			&#123;
-				for (int y = 0; y &lt; 3; y++)
+				for (int y &#x3D; 0; y &lt; 3; y++)
 				&#123;
-					sum += output[j - 1 + y + (i - 1 + x) * linesize] * (*(kernal+y+3*x));
+					sum +&#x3D; output[j - 1 + y + (i - 1 + x) * linesize] * (*(kernal+y+3*x));
 				&#125;
 			&#125;
 			if (sum &lt; 0)
 			&#123;
-				data[j + i * linesize] = 0;
+				data[j + i * linesize] &#x3D; 0;
 			&#125;
 			else if (sum &gt; 255)
 			&#123;
-				data[j + i * linesize] = 255;
+				data[j + i * linesize] &#x3D; 255;
 			&#125;
 			else
-				data[j + i * linesize] = (uint8_t)sum;
+				data[j + i * linesize] &#x3D; (uint8_t)sum;
 		&#125;
 	free(output);
 &#125;
 
 static void frame_gamma_adjust(AVFrame *frame, float gamma)
 &#123;
-	int height = frame-&gt;height;
-	int width = frame-&gt;width;
-	int linesize = frame-&gt;linesize[0];
-	uint8_t* data = frame-&gt;data[0];
+	int height &#x3D; frame-&gt;height;
+	int width &#x3D; frame-&gt;width;
+	int linesize &#x3D; frame-&gt;linesize[0];
+	uint8_t* data &#x3D; frame-&gt;data[0];
 	
-	for (int i = 0; i &lt; height; i++)
+	for (int i &#x3D; 0; i &lt; height; i++)
 	&#123;
-		uint8_t* row = data + i * linesize;
-		for (int j = 0; j &lt; width; j++)
+		uint8_t* row &#x3D; data + i * linesize;
+		for (int j &#x3D; 0; j &lt; width; j++)
 		&#123;
-			float a = (row[j]) / 255.0f;
-			float b = pow(a, 1.0f / gamma);
-			a = (b * 255.0f + 0.5f);
+			float a &#x3D; (row[j]) &#x2F; 255.0f;
+			float b &#x3D; pow(a, 1.0f &#x2F; gamma);
+			a &#x3D; (b * 255.0f + 0.5f);
 			if (a &gt; 255.0f)
 			&#123;
-				row[j] = 255;
+				row[j] &#x3D; 255;
 			&#125;
 			else
-				row[j] = (uint8_t)a;
+				row[j] &#x3D; (uint8_t)a;
 			
 		&#125;
 	&#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
   </div>
 
@@ -719,7 +718,7 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
     <div class="item left">
       
 
-  <a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;16.jpg" title="Statistical Learning">
+  <a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;28.jpg" title="Statistical Learning">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Notes</span>
   <h3>Statistical Learning</h3>
@@ -729,7 +728,7 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
     <div class="item right">
       
 
-  <a href="/2024/09/13/Notes/Cmake/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;5.jpg" title="Project Building Notes">
+  <a href="/2024/09/13/Notes/Cmake/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;13.jpg" title="Project Building Notes">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Notes</span>
   <h3>Project Building Notes</h3>
@@ -866,36 +865,17 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
     <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Journey/" title="In Journey">Journey</a>
-</div>
-
-    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
-</div>
-
-    <span><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">Statistical Learning</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
       
@@ -912,10 +892,10 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Projects/" title="In Projects">Projects</a>
 </div>
 
-    <span><a href="/2025/05/18/Coding/threadpool/" title="C++ Concurrency - Thread pool">C++ Concurrency - Thread pool</a></span>
+    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
   </li>
 
       
@@ -932,20 +912,40 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/Journey/" title="In Journey">Journey</a>
 </div>
 
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/book/" title="In book?">book?</a>
 </div>
 
-    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
   </li>
 
       
@@ -955,7 +955,7 @@ static void frame_gamma_adjust(AVFrame *frame, float gamma)
 <a href="/categories/Journey/" title="In Journey">Journey</a>
 </div>
 
-    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
+    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
   </li>
 
   </ul>

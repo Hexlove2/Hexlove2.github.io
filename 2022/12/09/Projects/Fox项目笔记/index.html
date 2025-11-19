@@ -102,12 +102,12 @@ Hex = Sunday = Later's better than never</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/21.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/27.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/5.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/15.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/17.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/33.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/7.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
         </ul>
       </div>
     </header>
@@ -199,27 +199,26 @@ Hex = Sunday = Later's better than never</title>
 <p>之后定义这个切换条件</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221128095733072.png" alt="image-20221128095733072"></p>
 <p>接下来是代码中的使用，需要先获取到该对象的 Animator，如下</p>
-<pre><code class="language-c#"> public Animator ani;//获取动画，一般写在start函数中
-         //角色跳跃
-     if (Input.GetcheckboxDown(&quot;Jump&quot;))
-        &#123;
-            /*Vector2 p;
-            p.x = rb.velocity.x;
-            p.y = jumpForce;
-            rb.velocity = p;*/
-            if(coll.IsTouchingLayers(ground))
-            &#123;
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                ani.SetBool(&quot;jumping&quot;, true);
-            &#125;
-            else if(jumpegg&gt;0)
-            &#123;
-                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-                ani.SetBool(&quot;jumping&quot;, true);
-                jumpegg--;
-            &#125;
-        &#125;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public Animator ani;&#x2F;&#x2F;获取动画，一般写在start函数中
+        &#x2F;&#x2F;角色跳跃
+    if (Input.GetcheckboxDown(&quot;Jump&quot;))
+       &#123;
+           &#x2F;*Vector2 p;
+           p.x &#x3D; rb.velocity.x;
+           p.y &#x3D; jumpForce;
+           rb.velocity &#x3D; p;*&#x2F;
+           if(coll.IsTouchingLayers(ground))
+           &#123;
+               rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpForce);
+               ani.SetBool(&quot;jumping&quot;, true);
+           &#125;
+           else if(jumpegg&gt;0)
+           &#123;
+               rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpForce);
+               ani.SetBool(&quot;jumping&quot;, true);
+               jumpegg--;
+           &#125;
+       &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里的 Setbool 就是比较常用的状态标记，仅展示了跳跃相关动画代码</p>
 <h2 id="22d地图绘制与图层问题"><a class="markdownIt-Anchor" href="#22d地图绘制与图层问题">#</a> 2.2D 地图绘制与图层问题</h2>
 <p>本项目中绘制地图使用的是 Tilemap，首先创建一个对象</p>
@@ -275,150 +274,149 @@ Hex = Sunday = Later's better than never</title>
 <p>脚本配置如下图</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214223546686.png" alt="image-20221214223546686"></p>
 <p>完整代码如下</p>
-<pre><code class="language-c#">    // Start is called before the first frame update
-    private Rigidbody2D rb;
-    private Animator ani;
-    private int jumpegg;
-    private bool IsHurt;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F; Start is called before the first frame update
+private Rigidbody2D rb;
+private Animator ani;
+private int jumpegg;
+private bool IsHurt;
 
-    public Text CherryNumber;
-    public int Cherry;
-    public float speed;
-    public float jumpforce;
-    public LayerMask ground;
-    public Collider2D coll;
-    void Start()
+public Text CherryNumber;
+public int Cherry;
+public float speed;
+public float jumpforce;
+public LayerMask ground;
+public Collider2D coll;
+void Start()
+&#123;
+    rb &#x3D; GetComponent&lt;Rigidbody2D&gt;();
+    ani &#x3D; GetComponent&lt;Animator&gt;();
+&#125;
+
+&#x2F;&#x2F; Update is called once per frame
+
+void Update()
+&#123;
+    if (!IsHurt)
     &#123;
-        rb = GetComponent&lt;Rigidbody2D&gt;();
-        ani = GetComponent&lt;Animator&gt;();
+        Movement(); 
     &#125;
+    SwitchAnim();
+&#125;
 
-    // Update is called once per frame
-
-    void Update()
+private void Movement()
+&#123;
+    float horizontalmove &#x3D; Input.GetAxis(&quot;Horizontal&quot;);
+    float facedirection &#x3D; Input.GetAxisRaw(&quot;Horizontal&quot;);
+    &#x2F;&#x2F;移动
+    if (horizontalmove !&#x3D; 0)
     &#123;
-        if (!IsHurt)
-        &#123;
-            Movement(); 
-        &#125;
-        SwitchAnim();
+        rb.velocity &#x3D; new Vector2(horizontalmove * speed , rb.velocity.y);
+        ani.SetFloat(&quot;running&quot;,Mathf.Abs(facedirection));
     &#125;
-
-    private void Movement()
+    &#x2F;&#x2F;转向
+    if (facedirection !&#x3D; 0)
     &#123;
-        float horizontalmove = Input.GetAxis(&quot;Horizontal&quot;);
-        float facedirection = Input.GetAxisRaw(&quot;Horizontal&quot;);
-        //移动
-        if (horizontalmove != 0)
+        transform.localScale &#x3D; new Vector3(facedirection, 1, 1);
+    &#125;
+    &#x2F;&#x2F;跳跃
+    if (Input.GetcheckboxDown(&quot;Jump&quot;))
+    &#123;
+        if (coll.IsTouchingLayers(ground))
         &#123;
-            rb.velocity = new Vector2(horizontalmove * speed , rb.velocity.y);
-            ani.SetFloat(&quot;running&quot;,Mathf.Abs(facedirection));
+            rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpforce);
+            ani.SetBool(&quot;jump&quot;,true);
         &#125;
-        //转向
-        if (facedirection != 0)
+        else if (jumpegg &gt; 0)
         &#123;
-            transform.localScale = new Vector3(facedirection, 1, 1);
-        &#125;
-        //跳跃
-        if (Input.GetcheckboxDown(&quot;Jump&quot;))
-        &#123;
-            if (coll.IsTouchingLayers(ground))
-            &#123;
-                rb.velocity = new Vector2(rb.velocity.x, jumpforce);
-                ani.SetBool(&quot;jump&quot;,true);
-            &#125;
-            else if (jumpegg &gt; 0)
-            &#123;
-                rb.velocity = new Vector2(rb.velocity.x, jumpforce);
-                ani.SetBool(&quot;jump&quot;,true);
-                jumpegg--;
-            &#125;
+            rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpforce);
+            ani.SetBool(&quot;jump&quot;,true);
+            jumpegg--;
         &#125;
     &#125;
+&#125;
 
-    private void SwitchAnim()
+private void SwitchAnim()
+&#123;
+    if (ani.GetBool(&quot;jump&quot;))
     &#123;
-        if (ani.GetBool(&quot;jump&quot;))
-        &#123;
-            if (rb.velocity.y &lt; 0)
-            &#123;
-                ani.SetBool(&quot;jump&quot;,false);
-                ani.SetBool(&quot;fall&quot;,true);
-            &#125;
-        &#125;
-        else if (IsHurt)
-        &#123;
-            if (Mathf.Abs(rb.velocity.x) &lt; 0.1f)
-            &#123;
-                ani.SetBool(&quot;hurt&quot;,false);
-                ani.SetBool(&quot;idle&quot;,true);
-                ani.SetFloat(&quot;running&quot;,0);
-                IsHurt = false;
-            &#125;
-        &#125;
-        else if (coll.IsTouchingLayers(ground))
-        &#123;
-            ani.SetBool(&quot;fall&quot;,false);
-            jumpegg = 0;
-        &#125;
-        else if (rb.velocity.y &lt; 0.1f &amp;&amp; !coll.IsTouchingLayers(ground))
+        if (rb.velocity.y &lt; 0)
         &#123;
             ani.SetBool(&quot;jump&quot;,false);
             ani.SetBool(&quot;fall&quot;,true);
         &#125;
     &#125;
+    else if (IsHurt)
+    &#123;
+        if (Mathf.Abs(rb.velocity.x) &lt; 0.1f)
+        &#123;
+            ani.SetBool(&quot;hurt&quot;,false);
+            ani.SetBool(&quot;idle&quot;,true);
+            ani.SetFloat(&quot;running&quot;,0);
+            IsHurt &#x3D; false;
+        &#125;
+    &#125;
+    else if (coll.IsTouchingLayers(ground))
+    &#123;
+        ani.SetBool(&quot;fall&quot;,false);
+        jumpegg &#x3D; 0;
+    &#125;
+    else if (rb.velocity.y &lt; 0.1f &amp;&amp; !coll.IsTouchingLayers(ground))
+    &#123;
+        ani.SetBool(&quot;jump&quot;,false);
+        ani.SetBool(&quot;fall&quot;,true);
+    &#125;
+&#125;
 
-    //物品收集代码
-    private void OnTriggerEnter2D(Collider2D col)
+&#x2F;&#x2F;物品收集代码
+private void OnTriggerEnter2D(Collider2D col)
+&#123;
+    if (col.tag &#x3D;&#x3D; &quot;Collection&quot;)
     &#123;
-        if (col.tag == &quot;Collection&quot;)
-        &#123;
-            Cherry++;
-            CherryNumber.text = Cherry.ToString();
-            jumpegg++;
-            Destroy(col.gameObject);
-        &#125;
-        //后续添加吃宝石代码
-        /*
-        if (col.tag == &quot;Collection&quot;)
-        &#123;
-            Cherry++;
-            CherryNumber.text = Cherry.ToString();
-            jumpegg++;
-            Destroy(col.gameObject);
-        &#125;
-        */
+        Cherry++;
+        CherryNumber.text &#x3D; Cherry.ToString();
+        jumpegg++;
+        Destroy(col.gameObject);
     &#125;
-    
-    //消灭敌人
-    private void OnCollisionEnter2D(Collision2D col)
+    &#x2F;&#x2F;后续添加吃宝石代码
+    &#x2F;*
+    if (col.tag &#x3D;&#x3D; &quot;Collection&quot;)
     &#123;
-        if (col.gameObject.tag == &quot;Enemies&quot;)
-        &#123;
-            if (ani.GetBool(&quot;fall&quot;))
-            &#123;
-                Destroy(col.gameObject);
-                rb.velocity = new Vector2(rb.velocity.x, jumpforce);
-                ani.SetBool(&quot;jump&quot;,true);
-                ani.SetBool(&quot;fall&quot;,false);
-            &#125;
-            //角色受伤
-            else if (transform.position.x &lt; col.gameObject.transform.position.x) 
-            &#123;
-                ani.SetBool(&quot;hurt&quot;,true);
-                IsHurt = true;
-                rb.velocity = new Vector2(-15, rb.velocity.y);
-            &#125;
-            else if (transform.position.x &gt; col.gameObject.transform.position.x) 
-            &#123;
-                ani.SetBool(&quot;hurt&quot;,true);
-                IsHurt = true;
-                rb.velocity = new Vector2(15, rb.velocity.y);
-            &#125;        
-            
-        &#125;
+        Cherry++;
+        CherryNumber.text &#x3D; Cherry.ToString();
+        jumpegg++;
+        Destroy(col.gameObject);
     &#125;
-</code></pre>
+    *&#x2F;
+&#125;
+
+&#x2F;&#x2F;消灭敌人
+private void OnCollisionEnter2D(Collision2D col)
+&#123;
+    if (col.gameObject.tag &#x3D;&#x3D; &quot;Enemies&quot;)
+    &#123;
+        if (ani.GetBool(&quot;fall&quot;))
+        &#123;
+            Destroy(col.gameObject);
+            rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpforce);
+            ani.SetBool(&quot;jump&quot;,true);
+            ani.SetBool(&quot;fall&quot;,false);
+        &#125;
+        &#x2F;&#x2F;角色受伤
+        else if (transform.position.x &lt; col.gameObject.transform.position.x) 
+        &#123;
+            ani.SetBool(&quot;hurt&quot;,true);
+            IsHurt &#x3D; true;
+            rb.velocity &#x3D; new Vector2(-15, rb.velocity.y);
+        &#125;
+        else if (transform.position.x &gt; col.gameObject.transform.position.x) 
+        &#123;
+            ani.SetBool(&quot;hurt&quot;,true);
+            IsHurt &#x3D; true;
+            rb.velocity &#x3D; new Vector2(15, rb.velocity.y);
+        &#125;        
+        
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>下面说一下关于主角蹲下的部分</p>
 <p>首先要在编译器设置里面设置一个蹲下的按键，如下</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221100405302.png" alt="image-20221221100405302"></p>
@@ -426,25 +424,24 @@ Hex = Sunday = Later's better than never</title>
 <p>这里没有下蹲，可以复制某个改成下蹲</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221221100629050.png" alt="image-20221221100629050"></p>
 <p>接着在下蹲的时候改变动画，并关闭上半身的 box 碰撞体，并且如果蹲下后上面有碰撞体就不能起立，这个可以通过区域检测，代码如下</p>
-<pre><code class="language-c#">    private void Crouch()
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void Crouch()
+&#123;
+    &#x2F;&#x2F;collision detect
+    if (!Physics2D.OverlapCircle(transform.position,0.2f,ground))
+    &#123;            
+    
+    if (Input.GetButton(&quot;Crouch&quot;))
     &#123;
-        //collision detect
-        if (!Physics2D.OverlapCircle(transform.position,0.2f,ground))
-        &#123;            
-        
-        if (Input.GetButton(&quot;Crouch&quot;))
-        &#123;
-            BoxColl.enabled = false;
-            ani.SetBool(&quot;crouch&quot;,true);
-        &#125;
-        else
-        &#123;
-            BoxColl.enabled = true;
-            ani.SetBool(&quot;crouch&quot;,false);
-        &#125;
-        &#125;
+        BoxColl.enabled &#x3D; false;
+        ani.SetBool(&quot;crouch&quot;,true);
     &#125;
-</code></pre>
+    else
+    &#123;
+        BoxColl.enabled &#x3D; true;
+        ani.SetBool(&quot;crouch&quot;,false);
+    &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5敌对生物生成"><a class="markdownIt-Anchor" href="#5敌对生物生成">#</a> 5. 敌对生物生成</h2>
 <p>首先仿照角色的定义与创建，并创建对应的动画，如下所示</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212195723779.png" alt="image-20221212195723779"></p>
@@ -453,89 +450,86 @@ Hex = Sunday = Later's better than never</title>
 <p>先放到一边</p>
 <p>再给角色添加脚本函数，让角色可以踩死敌人</p>
 <p>如下：</p>
-<pre><code class="language-c#">private void OnCollisionEnter2D(Collision2D col)
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void OnCollisionEnter2D(Collision2D col)
     &#123;
-        if (col.gameObject.tag == &quot;Enemies&quot;)
+        if (col.gameObject.tag &#x3D;&#x3D; &quot;Enemies&quot;)
         &#123;
             if (ani.GetBool(&quot;fall&quot;))
             &#123;
                 Destroy(col.gameObject);
-                rb.velocity = new Vector2(rb.velocity.x, jumpforce);
+                rb.velocity &#x3D; new Vector2(rb.velocity.x, jumpforce);
                 ani.SetBool(&quot;jump&quot;,true);
                 ani.SetBool(&quot;fall&quot;,false);
             &#125;
-            //角色受伤
+            &#x2F;&#x2F;角色受伤
             else
             &#123;
                 
             &#125;
         &#125;
-    &#125;
-</code></pre>
+    &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里也可以顺便定义角色受伤的脚本，因为一旦碰到了敌人，要么就是踩死，要么就一定会受伤</p>
 <p>这里关于角色受伤的部分要注意一个问题，如果是直接更改角色的速度，那么则这段时间内不能执行 movement () 函数，否则会重置速度，因此，修改代码如下</p>
-<pre><code class="language-c#">      	    private bool IsHurt;
-    		//下面这部分添加在switchAni函数中
-            else if (IsHurt)
-            &#123;
-                if (Mathf.Abs(rb.velocity.x) &lt; 0.1f)
-                &#123;
-                    ani.SetBool(&quot;hurt&quot;,false);
-                    ani.SetBool(&quot;idle&quot;,true);
-                    IsHurt = false;
-                &#125;
-            &#125;
-			//下面这部分即为上面的代码中的角色受伤部分
-            //角色受伤
-            else if (transform.position.x &lt; col.gameObject.transform.position.x) 
-            &#123;
-                ani.SetBool(&quot;hurt&quot;,true);
-                IsHurt = true;
-                rb.velocity = new Vector2(-10, rb.velocity.y);
-            &#125;
-            else if (transform.position.x &gt; col.gameObject.transform.position.x) 
-            &#123;
-                ani.SetBool(&quot;hurt&quot;,true);
-                IsHurt = true;
-                rb.velocity = new Vector2(10, rb.velocity.y);
-            &#125;  
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">   	    private bool IsHurt;
+ 		&#x2F;&#x2F;下面这部分添加在switchAni函数中
+         else if (IsHurt)
+         &#123;
+             if (Mathf.Abs(rb.velocity.x) &lt; 0.1f)
+             &#123;
+                 ani.SetBool(&quot;hurt&quot;,false);
+                 ani.SetBool(&quot;idle&quot;,true);
+                 IsHurt &#x3D; false;
+             &#125;
+         &#125;
+&#x2F;&#x2F;下面这部分即为上面的代码中的角色受伤部分
+         &#x2F;&#x2F;角色受伤
+         else if (transform.position.x &lt; col.gameObject.transform.position.x) 
+         &#123;
+             ani.SetBool(&quot;hurt&quot;,true);
+             IsHurt &#x3D; true;
+             rb.velocity &#x3D; new Vector2(-10, rb.velocity.y);
+         &#125;
+         else if (transform.position.x &gt; col.gameObject.transform.position.x) 
+         &#123;
+             ani.SetBool(&quot;hurt&quot;,true);
+             IsHurt &#x3D; true;
+             rb.velocity &#x3D; new Vector2(10, rb.velocity.y);
+         &#125;  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>下面要实现青蛙的相关代码，让其在两个固定点之间来回跳动，可以给青蛙添加两个子类点，如下</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212220727116.png" alt="image-20221212220727116"></p>
 <p>思路是，刚开始时就获取到两个点的绝对坐标，将两个 transform 拖入其中，后面直接销毁即可</p>
 <p>代码如下 (非完整版，待优化)</p>
-<pre><code class="language-c#">    void Start()
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Start()
+&#123;
+    rb &#x3D; GetComponent&lt;Rigidbody2D&gt;();
+    ani &#x3D; GetComponent&lt;Animator&gt;();
+    leftx &#x3D; leftpoint.position.x;
+    rightx &#x3D; rightpoint.position.x;
+    Destroy(leftpoint.gameObject);
+    Destroy(rightpoint.gameObject);
+    Faceleft &#x3D; true;
+&#125;
+void Movement()
+&#123;
+    if (Faceleft)
     &#123;
-        rb = GetComponent&lt;Rigidbody2D&gt;();
-        ani = GetComponent&lt;Animator&gt;();
-        leftx = leftpoint.position.x;
-        rightx = rightpoint.position.x;
-        Destroy(leftpoint.gameObject);
-        Destroy(rightpoint.gameObject);
-        Faceleft = true;
-    &#125;
-    void Movement()
-    &#123;
-        if (Faceleft)
+        rb.velocity &#x3D; new Vector2(-Speed, rb.velocity.y);
+        if (transform.position.x &lt;&#x3D; leftx)
         &#123;
-            rb.velocity = new Vector2(-Speed, rb.velocity.y);
-            if (transform.position.x &lt;= leftx)
-            &#123;
-                transform.localScale = new Vector3(-1, 1, 1);
-                Faceleft = false;
-            &#125;
-        &#125;
-        else
-        &#123;
-            rb.velocity = new Vector2(Speed, rb.velocity.y);
-            if (transform.position.x &gt;= rightx)
-            &#123;
-                transform.localScale = new Vector3(1, 1, 1);
-                Faceleft = true;
-            &#125;
+            transform.localScale &#x3D; new Vector3(-1, 1, 1);
+            Faceleft &#x3D; false;
         &#125;
     &#125;
-</code></pre>
+    else
+    &#123;
+        rb.velocity &#x3D; new Vector2(Speed, rb.velocity.y);
+        if (transform.position.x &gt;&#x3D; rightx)
+        &#123;
+            transform.localScale &#x3D; new Vector3(1, 1, 1);
+            Faceleft &#x3D; true;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>这里还未添加动画，下面是动画部分</p>
 <p>这里要用到一个新的概念，动画事件</p>
 <p>也就是说，当对象完成某一动画之后，自动执行命令切换动画</p>
@@ -543,13 +537,12 @@ Hex = Sunday = Later's better than never</title>
 <p>思路为：执行一次 idle 动画，则跳动，落地后继续执行一次 idle 动画，以此循环</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214205208616.png" alt="image-20221214205208616"></p>
 <p>写好切换条件，并在 enemy 的脚本中添加修改内容</p>
-<pre><code class="language-c#">    //用于检测地面碰撞
- 	private Collider2D coll;
-    public LayerMask Ground;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">   &#x2F;&#x2F;用于检测地面碰撞
+	private Collider2D coll;
+   public LayerMask Ground;
 
-	//落地才能起跳
-	if (coll.IsTouchingLayers(Ground))
-</code></pre>
+&#x2F;&#x2F;落地才能起跳
+if (coll.IsTouchingLayers(Ground))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214210113782.png" alt="image-20221214210113782"></p>
 <p>选择 idle 动画，点加号在动画末尾添加帧事件</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214210216534.png" alt="image-20221214210216534"></p>
@@ -560,84 +553,82 @@ Hex = Sunday = Later's better than never</title>
 <p>第二个 bug 是，由于其中检测地面碰撞时，可能在空中撞到空中地形形成的地面，有可能就会导致卡死在 jumping 动画中，解决办法是，在动画中增加一个解决卡死的过渡条件，强行过渡到 idle 状态</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221214215821508.png" alt="image-20221214215821508"></p>
 <p>完整代码如下</p>
-<pre><code class="language-c#">    void Update()
-    &#123;
-        //Movement();
-        SwitchAni();
-    &#125;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Update()
+&#123;
+    &#x2F;&#x2F;Movement();
+    SwitchAni();
+&#125;
 
-    void Movement()
+void Movement()
+&#123;
+    if (Faceleft)
     &#123;
-        if (Faceleft)
+        if (transform.position.x &lt;&#x3D; leftx)
         &#123;
-            if (transform.position.x &lt;= leftx)
-            &#123;
-                transform.localScale = new Vector3(-1, 1, 1);
-                Faceleft = false;
-            &#125;
-            
-            if (coll.IsTouchingLayers(Ground)&amp;&amp; Faceleft)
-            &#123;
-                rb.velocity = new Vector2(-Speed, Jumpforce);
-                ani.SetBool(&quot;jumping&quot;,true);
-            &#125;
-
-
+            transform.localScale &#x3D; new Vector3(-1, 1, 1);
+            Faceleft &#x3D; false;
         &#125;
-        else
+        
+        if (coll.IsTouchingLayers(Ground)&amp;&amp; Faceleft)
         &#123;
-            if (transform.position.x &gt;= rightx)
-            &#123;
-                transform.localScale = new Vector3(1, 1, 1);
-                Faceleft = true;
-            &#125;
-            if (coll.IsTouchingLayers(Ground) &amp;&amp; !Faceleft)
-            &#123;
-                rb.velocity = new Vector2(Speed, Jumpforce);
-                ani.SetBool(&quot;jumping&quot;,true);
-            &#125;
+            rb.velocity &#x3D; new Vector2(-Speed, Jumpforce);
+            ani.SetBool(&quot;jumping&quot;,true);
         &#125;
 
 
     &#125;
-
-    private void SwitchAni()
+    else
     &#123;
-        if (ani.GetBool(&quot;jumping&quot;))
+        if (transform.position.x &gt;&#x3D; rightx)
         &#123;
-            if (rb.velocity.y &lt; 0.1f )
-            &#123;
-                ani.SetBool(&quot;jumping&quot;, false);
-                ani.SetBool(&quot;falling&quot;,true);
-            &#125; 
+            transform.localScale &#x3D; new Vector3(1, 1, 1);
+            Faceleft &#x3D; true;
         &#125;
-        if (coll.IsTouchingLayers(Ground) &amp;&amp; rb.velocity.y &lt;= 0.1f) 
+        if (coll.IsTouchingLayers(Ground) &amp;&amp; !Faceleft)
         &#123;
-            ani.SetBool(&quot;falling&quot;,false);
+            rb.velocity &#x3D; new Vector2(Speed, Jumpforce);
+            ani.SetBool(&quot;jumping&quot;,true);
         &#125;
     &#125;
-</code></pre>
+
+
+&#125;
+
+private void SwitchAni()
+&#123;
+    if (ani.GetBool(&quot;jumping&quot;))
+    &#123;
+        if (rb.velocity.y &lt; 0.1f )
+        &#123;
+            ani.SetBool(&quot;jumping&quot;, false);
+            ani.SetBool(&quot;falling&quot;,true);
+        &#125; 
+    &#125;
+    if (coll.IsTouchingLayers(Ground) &amp;&amp; rb.velocity.y &lt;&#x3D; 0.1f) 
+    &#123;
+        ani.SetBool(&quot;falling&quot;,false);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>同理可以完成老鹰的部分，因为没有动画上的变化，且路线上无障碍物，因此比较容易</p>
-<pre><code class="language-c#">    private void Movement()
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">private void Movement()
+&#123;
+    if (Facedown)
     &#123;
-        if (Facedown)
+        rb.velocity &#x3D; new Vector2(0, -Speed);
+        if (rb.position.y &lt; bottomy)
         &#123;
-            rb.velocity = new Vector2(0, -Speed);
-            if (rb.position.y &lt; bottomy)
-            &#123;
-                Facedown = false;
-            &#125;
-        &#125;
-        else
-        &#123;
-            rb.velocity = new Vector2(0, Speed);
-            if (rb.position.y &gt; topy)
-            &#123;
-                Facedown = true;
-            &#125;
+            Facedown &#x3D; false;
         &#125;
     &#125;
-</code></pre>
+    else
+    &#123;
+        rb.velocity &#x3D; new Vector2(0, Speed);
+        if (rb.position.y &gt; topy)
+        &#123;
+            Facedown &#x3D; true;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>添加死亡动画</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215121053815.png" alt="image-20221215121053815"></p>
 <p>如何在消灭敌人的同时让敌人改变动画呢？</p>
@@ -646,20 +637,19 @@ Hex = Sunday = Later's better than never</title>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215123729916.png" alt="image-20221215123729916"></p>
 <p>注意这是一个 trigger，如果定义为 bool，会出现角色死亡后不断显示爆炸效果，并无法销毁 gameobject 的现象</p>
 <p>这样就可以实现，在碰到敌人后，调用实体中的函数改变动画，接着在动画的最后一帧添加帧事件 Death</p>
-<pre><code class="language-c#">    public void JumpOn()
-    &#123;
-        ani.SetTrigger(&quot;death&quot;);
-    &#125;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public void JumpOn()
+&#123;
+    ani.SetTrigger(&quot;death&quot;);
+&#125;
 
-    void Death()
-    &#123;
-        //禁用碰撞体，防止二次碰撞
-        GetComponent&lt;Collider2D&gt;().enabled = false;
-        Destroy(gameObject);
-    &#125;
-</code></pre>
+void Death()
+&#123;
+    &#x2F;&#x2F;禁用碰撞体，防止二次碰撞
+    GetComponent&lt;Collider2D&gt;().enabled &#x3D; false;
+    Destroy(gameObject);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>为了让更多种类的敌人均能调用此函数，因此，我将其包装在了单独的 Enemy 类中，利用重写函数的特性</p>
-<pre><code class="language-c#">using System;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -667,10 +657,10 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 &#123;
     protected Animator ani;
-    //虚函数实现重写
+    &#x2F;&#x2F;虚函数实现重写
     protected virtual void Start()
     &#123;
-        ani = GetComponent&lt;Animator&gt;();
+        ani &#x3D; GetComponent&lt;Animator&gt;();
     &#125;
 
     public void JumpOn()
@@ -680,21 +670,18 @@ public class Enemy : MonoBehaviour
 
     void Death()
     &#123;
-        //禁用碰撞体，防止二次碰撞
-        GetComponent&lt;Collider2D&gt;().enabled = false;
+        &#x2F;&#x2F;禁用碰撞体，防止二次碰撞
+        GetComponent&lt;Collider2D&gt;().enabled &#x3D; false;
         Destroy(gameObject);
     &#125;
 &#125;
-
-</code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接着让其他 Enemy 继承这个类</p>
-<pre><code class="language-c#">	public class Enemy_Eagle : Enemy
-    public class Enemy_Frog : Enemy
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class Enemy_Eagle : Enemy
+   public class Enemy_Frog : Enemy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>这样就可以在消灭敌人时不需要生成对应种类的敌人，如下</p>
-<pre><code class="language-c#">       Enemy enemy = col.gameObject.GetComponent&lt;Enemy&gt;();
-       enemy.JumpOn();
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">Enemy enemy &#x3D; col.gameObject.GetComponent&lt;Enemy&gt;();
+enemy.JumpOn();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>与此同时会出现一个新的问题，那就是如果在消灭敌人的同时死亡动画未播放完成就又踩到了敌人可能会重复播放死亡动画，需要将死亡动画的 Loop time 去掉</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221215132005215.png" alt="image-20221215132005215"></p>
 <h2 id="6可收集物品"><a class="markdownIt-Anchor" href="#6可收集物品">#</a> 6. 可收集物品</h2>
@@ -705,19 +692,18 @@ public class Enemy : MonoBehaviour
 <p>添加樱桃的 tag</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212130620832.png" alt="image-20221212130620832"></p>
 <p>下面进入控制角色的代码中</p>
-<pre><code class="language-c#">    //首先定义cherry
-    public int Cherry;
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;首先定义cherry
+public int Cherry;
 
-    //使用UnityEngine的函数OnTriggerEnter2D
-    private void OnTriggerEnter2D(Collider2D col)
+&#x2F;&#x2F;使用UnityEngine的函数OnTriggerEnter2D
+private void OnTriggerEnter2D(Collider2D col)
+&#123;
+    if (col.tag &#x3D;&#x3D; &quot;Collection&quot;)
     &#123;
-        if (col.tag == &quot;Collection&quot;)
-        &#123;
-            Cherry++;
-            Destroy(col.gameObject);
-        &#125;
+        Cherry++;
+        Destroy(col.gameObject);
     &#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>定义完成，将其设置为 prefab 当成模板，拖入文件夹，后续若要更改樱桃就可以直接改预制体 prefab</p>
 <h2 id="7碰撞体问题"><a class="markdownIt-Anchor" href="#7碰撞体问题">#</a> 7. 碰撞体问题</h2>
 <p><strong>1. 代码中如何控制碰撞体</strong></p>
@@ -739,16 +725,15 @@ public class Enemy : MonoBehaviour
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191540643.png" alt="image-20221212191540643"></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221212191549363.png" alt="image-20221212191549363"></p>
 <p>现在想要实时更新 Cherry 的收集数量，只需要将右边的文本信息实时同步改成定义的樱桃数量即可，脚本如下</p>
-<pre><code class="language-c#">    using UnityEngine.UI;
- 	public Text CherryNumber;       
-	if (col.tag == &quot;Collection&quot;)
-        &#123;
-            Cherry++;
-            CherryNumber.text = Cherry.ToString(); //更新数量信息
-            jumpegg++;
-            Destroy(col.gameObject);
-        &#125;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">   using UnityEngine.UI;
+	public Text CherryNumber;       
+if (col.tag &#x3D;&#x3D; &quot;Collection&quot;)
+       &#123;
+           Cherry++;
+           CherryNumber.text &#x3D; Cherry.ToString(); &#x2F;&#x2F;更新数量信息
+           jumpegg++;
+           Destroy(col.gameObject);
+       &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2触发ui"><a class="markdownIt-Anchor" href="#2触发ui">#</a> 2. 触发 UI</h3>
 <p>本次举例为，对话框 UI，首先 Canvas 是整体的 UI 画布，在 Canvas 中添加一个 Panel</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220223423990.png" alt="image-20221220223423990"></p>
@@ -768,25 +753,24 @@ public class Enemy : MonoBehaviour
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220225617432.png" alt="image-20221220225617432"></p>
 <p>这里要把这个 UI 赋给函数</p>
 <p>这样就能实现人物碰撞后自动触发 UI，不碰撞就关闭，相关代码如下</p>
-<pre><code class="language-c#">    public GameObject enterDialog;
-    // Start is called before the first frame update
-	//进入
-    private void OnTriggerEnter2D(Collider2D col)
-    &#123;
-        if (col.tag == &quot;Player&quot;)
-        &#123;
-            enterDialog.SetActive(true);
-        &#125;
-    &#125;
-	//离开
-    private void OnTriggerExit2D(Collider2D other)
-    &#123;
-        if (other.tag == &quot;Player&quot;)
-        &#123;
-            enterDialog.SetActive(false);
-        &#125;
-    &#125;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">   public GameObject enterDialog;
+   &#x2F;&#x2F; Start is called before the first frame update
+&#x2F;&#x2F;进入
+   private void OnTriggerEnter2D(Collider2D col)
+   &#123;
+       if (col.tag &#x3D;&#x3D; &quot;Player&quot;)
+       &#123;
+           enterDialog.SetActive(true);
+       &#125;
+   &#125;
+&#x2F;&#x2F;离开
+   private void OnTriggerExit2D(Collider2D other)
+   &#123;
+       if (other.tag &#x3D;&#x3D; &quot;Player&quot;)
+       &#123;
+           enterDialog.SetActive(false);
+       &#125;
+   &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>但是这里还有一个可优化的部分，就是 UI 的出现形式，可以为对话框也添加一个动画</p>
 <p>方式和剪视频很类似，添加关键帧，会自动过渡</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221220230724992.png" alt="image-20221220230724992"></p>
@@ -797,48 +781,44 @@ public class Enemy : MonoBehaviour
 <p>接着停止录制即可</p>
 <h2 id="10游戏场景控制"><a class="markdownIt-Anchor" href="#10游戏场景控制">#</a> 10. 游戏场景控制</h2>
 <p>首先，想要控制游戏场景，就必须要使用一个组件</p>
-<pre><code class="language-c#">using UnityEngine.SceneManagement;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">using UnityEngine.SceneManagement;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>1. 处理角色掉落死亡</strong></p>
-<pre><code class="language-c#">    void Restart()
-    &#123;
-        	//重置游戏
-            //这里的用法是，LoadScene可以根据场景的名字来加载场景，但场景的名字很多且不固定
-            //因此使用GetActiveScene函数来获取当前的场景，其name就是场景的名字
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    &#125;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">void Restart()
+&#123;
+    	&#x2F;&#x2F;重置游戏
+        &#x2F;&#x2F;这里的用法是，LoadScene可以根据场景的名字来加载场景，但场景的名字很多且不固定
+        &#x2F;&#x2F;因此使用GetActiveScene函数来获取当前的场景，其name就是场景的名字
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>但这样只是简单粗暴的重置场景，没有死亡的音效，死亡画面等等，因此可以封装成一个单独的函数，Restart ()。</p>
-<pre><code class="language-c#">        //触发死亡效果
-        if (col.tag == &quot;DeadLine&quot;)
-        &#123;
-            //关闭所有音频
-            GetComponent&lt;AudioSource&gt;().enabled = false;
-            //启用死亡音频
-            DeathAudio.Play();
-            //延迟运行某个函数
-            Invoke(&quot;Restart&quot;,2f);
-        &#125;
-</code></pre>
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">&#x2F;&#x2F;触发死亡效果
+if (col.tag &#x3D;&#x3D; &quot;DeadLine&quot;)
+&#123;
+    &#x2F;&#x2F;关闭所有音频
+    GetComponent&lt;AudioSource&gt;().enabled &#x3D; false;
+    &#x2F;&#x2F;启用死亡音频
+    DeathAudio.Play();
+    &#x2F;&#x2F;延迟运行某个函数
+    Invoke(&quot;Restart&quot;,2f);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>2. 切换场景</strong></p>
 <p>简单的实现方式，可以通过场景的编号实现场景加载</p>
 <p>首先，新建一个加载场景的脚本，用于控制场景切换，当然，在这之前，我们要给场景进行编号，如下</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/image-20221223102839997.png" alt="image-20221223102839997"></p>
 <p>这里就可以看到场景的编号了</p>
-<pre><code class="language-c#">public class EnterHouse : MonoBehaviour
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class EnterHouse : MonoBehaviour
 &#123;
 
-    // Update is called once per frame
+    &#x2F;&#x2F; Update is called once per frame
     void Update()
     &#123;
         if (Input.GetKeyDown(KeyCode.E))
         &#123;
-            //加载当前场景的下一个场景编号的场景
+            &#x2F;&#x2F;加载当前场景的下一个场景编号的场景
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         &#125;
     &#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>另一方面，我们的目标是在弹出窗口时按 E 才会加载场景，因此需要在弹出窗口后激活这个脚本，所以要挂在到窗口上，如下。</p>
 <h2 id="112d光效"><a class="markdownIt-Anchor" href="#112d光效">#</a> 11.2D 光效</h2>
 <p>本次使用的光效插件为：</p>
@@ -863,7 +843,7 @@ public class Enemy : MonoBehaviour
 <h2 id="12场景移动视觉差效果"><a class="markdownIt-Anchor" href="#12场景移动视觉差效果">#</a> 12. 场景移动视觉差效果</h2>
 <p>在现实中，对于不同距离的背景，移动时变化的速度是不一样的，例如远处的山，就移动得很慢，近处的树移动的很快，如何制造这种效果呢。</p>
 <p>首先创建脚本，让对象跟随镜头移动，并设置一个 Rate，减慢速度</p>
-<pre><code class="language-c#">public class BackgroundMove : MonoBehaviour
+<pre class="line-numbers language-c#" data-language="c#"><code class="language-c#">public class BackgroundMove : MonoBehaviour
 &#123;
     public Transform Cam;
 
@@ -871,28 +851,27 @@ public class Enemy : MonoBehaviour
     public bool LockY;
     private float StartPointX,StartPointY;
     
-    // Start is called before the first frame update
+    &#x2F;&#x2F; Start is called before the first frame update
     void Start()
     &#123;
-        StartPointX = transform.position.x;
-        StartPointY = transform.position.y;
+        StartPointX &#x3D; transform.position.x;
+        StartPointY &#x3D; transform.position.y;
     &#125;
 
-    // Update is called once per frame
+    &#x2F;&#x2F; Update is called once per frame
     void Update()
     &#123;
-        //是否锁定Y轴
+        &#x2F;&#x2F;是否锁定Y轴
         if (LockY)
         &#123; 
-            transform.position = new Vector2(StartPointX+Cam.position.x*MoveRate,transform.position.y); 
+            transform.position &#x3D; new Vector2(StartPointX+Cam.position.x*MoveRate,transform.position.y); 
         &#125;
         else
         &#123;
-            transform.position = new Vector2(StartPointX+Cam.position.x*MoveRate,StartPointY+Cam.position.y*MoveRate);
+            transform.position &#x3D; new Vector2(StartPointX+Cam.position.x*MoveRate,StartPointY+Cam.position.y*MoveRate);
         &#125;
     &#125;
-&#125;
-</code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接着将其拖入到对应的背景父级对象即可，可以为不同 Z 轴层级的对象添加不同的 rate，实现交错移动的效果</p>
 <p><strong>这一部分也有 package manage 工具包</strong></p>
 <h2 id="13菜单"><a class="markdownIt-Anchor" href="#13菜单">#</a> 13. 菜单</h2>
@@ -974,7 +953,7 @@ public class Enemy : MonoBehaviour
     <div class="item left">
       
 
-  <a href="/2022/12/05/Coding/Unity+Git/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;14.jpg" title="Unity+Git">
+  <a href="/2022/12/05/Coding/Unity+Git/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;26.jpg" title="Unity+Git">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Coding</span>
   <h3>Unity+Git</h3>
@@ -984,7 +963,7 @@ public class Enemy : MonoBehaviour
     <div class="item right">
       
 
-  <a href="/2022/12/11/Template/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;19.jpg" title="Name">
+  <a href="/2022/12/11/Template/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;7.jpg" title="Name">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> book?</span>
   <h3>Name</h3>
@@ -1118,10 +1097,20 @@ public class Enemy : MonoBehaviour
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
+<a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2025/07/11/Projects/Liarbar/" title="Liar&#39;s Bar">Liar's Bar</a></span>
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
   </li>
 
       
@@ -1131,7 +1120,17 @@ public class Enemy : MonoBehaviour
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/book/" title="In book?">book?</a>
+</div>
+
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
   </li>
 
       
@@ -1148,40 +1147,10 @@ public class Enemy : MonoBehaviour
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2025/05/18/Coding/threadpool/" title="C++ Concurrency - Thread pool">C++ Concurrency - Thread pool</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">Statistical Learning</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
-</div>
-
-    <span><a href="/2025/02/18/Projects/httpserver/" title="Http Linux Server">Http Linux Server</a></span>
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
   </li>
 
       
@@ -1201,16 +1170,27 @@ public class Enemy : MonoBehaviour
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
+    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">Statistical Learning</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
   </li>
 
   </ul>

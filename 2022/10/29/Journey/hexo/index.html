@@ -102,12 +102,12 @@ Hex = Sunday = Later's better than never</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/30.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/21.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/33.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/10.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/6.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/31.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/5.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/27.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
         </ul>
       </div>
     </header>
@@ -156,11 +156,24 @@ Hex = Sunday = Later's better than never</title>
     <h3 id="关于hexo-s显示正常但hexo-d后网页端没有更新内容的问题"><a class="markdownIt-Anchor" href="#关于hexo-s显示正常但hexo-d后网页端没有更新内容的问题">#</a> 关于 Hexo s 显示正常但 Hexo d 后网页端没有更新内容的问题</h3>
 <p>作为一个接触这方面不久的新手，在部署的时候发现了一个很奇怪的问题，一开始我学着正常加入 Blog 菜单上的目录</p>
 <p>先用命令创建页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hexo new page &quot;about&quot;</span><br><span class="line">Hexo new page &quot;diary&quot;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Hexo new page <span class="token string">"about"</span>
+Hexo new page <span class="token string">"diary"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>接着修改根目录下的配置文件</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">home</span></span><br><span class="line">  <span class="attr">About:</span> <span class="string">/About/</span> <span class="string">||</span> <span class="string">user</span></span><br><span class="line">  <span class="comment"># posts:</span></span><br><span class="line">  <span class="comment">#   default: / || feather</span></span><br><span class="line">  <span class="comment">#   archives: /archives/ || list-alt</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">th</span></span><br><span class="line">  <span class="attr">Diary:</span> <span class="string">/Diary/</span> <span class="string">||</span> <span class="string">moon</span></span><br><span class="line">  <span class="comment">#   tags: /tags/ || tags</span></span><br><span class="line">  <span class="attr">Friends:</span> <span class="string">/Friends/</span> <span class="string">||</span> <span class="string">heart</span></span><br><span class="line">  <span class="comment"># links: /links/ || magic</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+  <span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> home
+  <span class="token key atrule">About</span><span class="token punctuation">:</span> /About/ <span class="token punctuation">|</span><span class="token punctuation">|</span> user
+  <span class="token comment"># posts:</span>
+  <span class="token comment">#   default: / || feather</span>
+  <span class="token comment">#   archives: /archives/ || list-alt</span>
+  <span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> th
+  <span class="token key atrule">Diary</span><span class="token punctuation">:</span> /Diary/ <span class="token punctuation">|</span><span class="token punctuation">|</span> moon
+  <span class="token comment">#   tags: /tags/ || tags</span>
+  <span class="token key atrule">Friends</span><span class="token punctuation">:</span> /Friends/ <span class="token punctuation">|</span><span class="token punctuation">|</span> heart
+  <span class="token comment"># links: /links/ || magic</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>接着我去重新生成页面并在本地查看效果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Hexo cl</span><br><span class="line">Hexo g</span><br><span class="line">Hexo s</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">Hexo cl
+Hexo g
+Hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>启动成功，浏览器上查看也没有问题</p>
 <p>接着我就直接 Hexo d 了，看到 Github 上代码已更新，就登录了网页端，但点击目录上的<strong> About</strong> 和<strong> Friends</strong> 后发现没反应，起初我也没在意，我认为是 Github 那边没有及时更新，一般几分钟就好了，但后面还是不行，于是我不断清理，生成，推送，但仍无果。我纳闷的是，为什么本地没问题，推送有问题，我一直认为是 GitHub 那边的问题，于是我猜测可能是配置文件写错了，就在页面添加了别的内容，推送上去，果然新加的内容出现了。然后我才发现，</p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/Hexlove2/images1/images/3F03A731BE640A7EA4E2F8E0D195E3FC.png" alt="img"></p>
@@ -238,7 +251,7 @@ Hex = Sunday = Later's better than never</title>
     <div class="item left">
       
 
-  <a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;19.jpg" title="缺陷检测方法对比">
+  <a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;6.jpg" title="缺陷检测方法对比">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Coding</span>
   <h3>缺陷检测方法对比</h3>
@@ -248,7 +261,7 @@ Hex = Sunday = Later's better than never</title>
     <div class="item right">
       
 
-  <a href="/2022/11/19/Journey/My%20diary/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;31.jpg" title="First Diary">
+  <a href="/2022/11/19/Journey/My%20diary/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;9.jpg" title="First Diary">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Journey</span>
   <h3>First Diary</h3>
@@ -382,10 +395,10 @@ Hex = Sunday = Later's better than never</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
   </li>
 
       
@@ -402,10 +415,30 @@ Hex = Sunday = Later's better than never</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Projects/" title="In Projects">Projects</a>
 </div>
 
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2022/12/09/Projects/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
   </li>
 
       
@@ -425,6 +458,16 @@ Hex = Sunday = Later's better than never</title>
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
     <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
   </li>
 
@@ -432,19 +475,10 @@ Hex = Sunday = Later's better than never</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/06/09/hello-world/" title="Hello World">Hello World</a></span>
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
   </li>
 
       
@@ -454,27 +488,7 @@ Hex = Sunday = Later's better than never</title>
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2025/05/18/Coding/threadpool/" title="C++ Concurrency - Thread pool">C++ Concurrency - Thread pool</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Journey/" title="In Journey">Journey</a>
-</div>
-
-    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
+    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
   </li>
 
   </ul>

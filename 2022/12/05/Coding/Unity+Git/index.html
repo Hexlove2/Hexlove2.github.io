@@ -102,12 +102,12 @@ Hex = Sunday = Later's better than never</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/12.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/14.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/24.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/6.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/3.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/11.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/7.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/28.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/32.jpg"></li>
         </ul>
       </div>
     </header>
@@ -162,10 +162,83 @@ Hex = Sunday = Later's better than never</title>
 <h3 id="方法1推荐手动添加gitignore"><a class="markdownIt-Anchor" href="#方法1推荐手动添加gitignore">#</a> 方法 1 (推荐). 手动添加.gitignore</h3>
 <p>首先正常 git bush 后初始化，git init</p>
 <p>接着使用命令直接生成.gitignore 文件，如下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//git bush界面</span><br><span class="line">touch .gitignore</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">//git bush界面
+<span class="token function">touch</span> .gitignore<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>之后使用 notepad 等打开，拷贝以下内容放入.gitignore 文件中即可</p>
 <p>此时使用 GitHub Desktop 直接打开项目文件夹</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This .gitignore file should be placed at the root of your Unity project directory</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="string">/[Ll]ibrary/</span></span><br><span class="line"><span class="string">/[Tt]emp/</span></span><br><span class="line"><span class="string">/[Oo]bj/</span></span><br><span class="line"><span class="string">/[Bb]uild/</span></span><br><span class="line"><span class="string">/[Bb]uilds/</span></span><br><span class="line"><span class="string">/[Ll]ogs/</span></span><br><span class="line"><span class="string">/[Uu]ser[Ss]ettings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># MemoryCaptures can get excessive in size.</span></span><br><span class="line"><span class="comment"># They also could contain extremely sensitive data</span></span><br><span class="line"><span class="string">/[Mm]emoryCaptures/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Recordings can get excessive in size</span></span><br><span class="line"><span class="string">/[Rr]ecordings/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Uncomment this line if you wish to ignore the asset store tools plugin</span></span><br><span class="line"><span class="comment"># /[Aa]ssets/AssetStoreTools*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Autogenerated Jetbrains Rider plugin</span></span><br><span class="line"><span class="string">/[Aa]ssets/Plugins/Editor/JetBrains*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Visual Studio cache directory</span></span><br><span class="line"><span class="string">.vs/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Gradle cache directory</span></span><br><span class="line"><span class="string">.gradle/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Autogenerated VS/MD/Consulo solution and project files</span></span><br><span class="line"><span class="string">ExportedObj/</span></span><br><span class="line"><span class="string">.consulo/</span></span><br><span class="line"><span class="string">*.csproj</span></span><br><span class="line"><span class="string">*.unityproj</span></span><br><span class="line"><span class="string">*.sln</span></span><br><span class="line"><span class="string">*.suo</span></span><br><span class="line"><span class="string">*.tmp</span></span><br><span class="line"><span class="string">*.user</span></span><br><span class="line"><span class="string">*.userprefs</span></span><br><span class="line"><span class="string">*.pidb</span></span><br><span class="line"><span class="string">*.booproj</span></span><br><span class="line"><span class="string">*.svd</span></span><br><span class="line"><span class="string">*.pdb</span></span><br><span class="line"><span class="string">*.mdb</span></span><br><span class="line"><span class="string">*.opendb</span></span><br><span class="line"><span class="string">*.VC.db</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Unity3D generated meta files</span></span><br><span class="line"><span class="string">*.pidb.meta</span></span><br><span class="line"><span class="string">*.pdb.meta</span></span><br><span class="line"><span class="string">*.mdb.meta</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Unity3D generated file on crash reports</span></span><br><span class="line"><span class="string">sysinfo.txt</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Builds</span></span><br><span class="line"><span class="string">*.apk</span></span><br><span class="line"><span class="string">*.aab</span></span><br><span class="line"><span class="string">*.unitypackage</span></span><br><span class="line"><span class="string">*.app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Crashlytics generated file</span></span><br><span class="line"><span class="string">crashlytics-build.properties</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Packed Addressables</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Temporary auto-generated Android Assets</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Ss]treamingAssets/aa.meta</span></span><br><span class="line"><span class="string">/[Aa]ssets/[Ss]treamingAssets/aa/*</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># This .gitignore file should be placed at the root of your Unity project directory</span>
+<span class="token comment">#</span>
+<span class="token comment"># Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore</span>
+<span class="token comment">#</span>
+/<span class="token punctuation">[</span>Ll<span class="token punctuation">]</span>ibrary/
+/<span class="token punctuation">[</span>Tt<span class="token punctuation">]</span>emp/
+/<span class="token punctuation">[</span>Oo<span class="token punctuation">]</span>bj/
+/<span class="token punctuation">[</span>Bb<span class="token punctuation">]</span>uild/
+/<span class="token punctuation">[</span>Bb<span class="token punctuation">]</span>uilds/
+/<span class="token punctuation">[</span>Ll<span class="token punctuation">]</span>ogs/
+/<span class="token punctuation">[</span>Uu<span class="token punctuation">]</span>ser<span class="token punctuation">[</span>Ss<span class="token punctuation">]</span>ettings/
+
+<span class="token comment"># MemoryCaptures can get excessive in size.</span>
+<span class="token comment"># They also could contain extremely sensitive data</span>
+/<span class="token punctuation">[</span>Mm<span class="token punctuation">]</span>emoryCaptures/
+
+<span class="token comment"># Recordings can get excessive in size</span>
+/<span class="token punctuation">[</span>Rr<span class="token punctuation">]</span>ecordings/
+
+<span class="token comment"># Uncomment this line if you wish to ignore the asset store tools plugin</span>
+<span class="token comment"># /[Aa]ssets/AssetStoreTools*</span>
+
+<span class="token comment"># Autogenerated Jetbrains Rider plugin</span>
+/<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ssets/Plugins/Editor/JetBrains*
+
+<span class="token comment"># Visual Studio cache directory</span>
+.vs/
+
+<span class="token comment"># Gradle cache directory</span>
+.gradle/
+
+<span class="token comment"># Autogenerated VS/MD/Consulo solution and project files</span>
+ExportedObj/
+.consulo/
+<span class="token important">*.csproj</span>
+<span class="token important">*.unityproj</span>
+<span class="token important">*.sln</span>
+<span class="token important">*.suo</span>
+<span class="token important">*.tmp</span>
+<span class="token important">*.user</span>
+<span class="token important">*.userprefs</span>
+<span class="token important">*.pidb</span>
+<span class="token important">*.booproj</span>
+<span class="token important">*.svd</span>
+<span class="token important">*.pdb</span>
+<span class="token important">*.mdb</span>
+<span class="token important">*.opendb</span>
+<span class="token important">*.VC.db</span>
+
+<span class="token comment"># Unity3D generated meta files</span>
+<span class="token important">*.pidb.meta</span>
+<span class="token important">*.pdb.meta</span>
+<span class="token important">*.mdb.meta</span>
+
+<span class="token comment"># Unity3D generated file on crash reports</span>
+sysinfo.txt
+
+<span class="token comment"># Builds</span>
+<span class="token important">*.apk</span>
+<span class="token important">*.aab</span>
+<span class="token important">*.unitypackage</span>
+<span class="token important">*.app</span>
+
+<span class="token comment"># Crashlytics generated file</span>
+crashlytics<span class="token punctuation">-</span>build.properties
+
+<span class="token comment"># Packed Addressables</span>
+/<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ssets/<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ddressable<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ssets<span class="token punctuation">[</span>Dd<span class="token punctuation">]</span>ata/<span class="token important">*/*.bin*</span>
+
+<span class="token comment"># Temporary auto-generated Android Assets</span>
+/<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ssets/<span class="token punctuation">[</span>Ss<span class="token punctuation">]</span>treamingAssets/aa.meta
+/<span class="token punctuation">[</span>Aa<span class="token punctuation">]</span>ssets/<span class="token punctuation">[</span>Ss<span class="token punctuation">]</span>treamingAssets/aa/*
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="方法2github-desktop自动生成"><a class="markdownIt-Anchor" href="#方法2github-desktop自动生成">#</a> 方法 2.Github Desktop 自动生成</h3>
 <p>此方法更加方便快捷，但需要先指定好一个空文件夹</p>
 <p>打开 GitHub Desktop 并创建新仓库</p>
@@ -252,7 +325,7 @@ Hex = Sunday = Later's better than never</title>
     <div class="item left">
       
 
-  <a href="/2022/11/19/Journey/My%20diary/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;22.jpg" title="First Diary">
+  <a href="/2022/11/19/Journey/My%20diary/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;16.jpg" title="First Diary">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Journey</span>
   <h3>First Diary</h3>
@@ -262,7 +335,7 @@ Hex = Sunday = Later's better than never</title>
     <div class="item right">
       
 
-  <a href="/2022/12/09/Projects/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;31.jpg" title="Fox项目笔记">
+  <a href="/2022/12/09/Projects/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;20.jpg" title="Fox项目笔记">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Projects</span>
   <h3>Fox项目笔记</h3>
@@ -399,57 +472,7 @@ Hex = Sunday = Later's better than never</title>
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
-</div>
-
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/book/" title="In book?">book?</a>
-</div>
-
-    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
-</div>
-
-    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
+    <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
   </li>
 
       
@@ -459,7 +482,7 @@ Hex = Sunday = Later's better than never</title>
 <a href="/categories/Projects/" title="In Projects">Projects</a>
 </div>
 
-    <span><a href="/2025/07/11/Projects/Liarbar/" title="Liar&#39;s Bar">Liar's Bar</a></span>
+    <span><a href="/2077/07/26/Projects/blogupdatelog/" title="Blog Changelog">Blog Changelog</a></span>
   </li>
 
       
@@ -476,10 +499,40 @@ Hex = Sunday = Later's better than never</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Projects/" title="In Projects">Projects</a>
 </div>
 
-    <span><a href="/2022/08/14/Coding/%E5%A4%9A%E9%80%9A%E9%81%93%E6%BC%8F%E9%95%80%E6%A3%80%E6%B5%8B%E9%97%AE%E9%A2%98/" title="Skip plating defect detection problem">Skip plating defect detection problem</a></span>
+    <span><a href="/2025/02/18/Projects/httpserver/" title="Http Linux Server">Http Linux Server</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Notes/" title="In Notes">Notes</a>
+</div>
+
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2022/12/09/Projects/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
   </li>
 
       
@@ -489,7 +542,27 @@ Hex = Sunday = Later's better than never</title>
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2025/05/18/Coding/threadpool/" title="C++ Concurrency - Thread pool">C++ Concurrency - Thread pool</a></span>
+    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/07/22/Coding/PjSip_Usage/" title="Usage of PjSip">Usage of PjSip</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
   </li>
 
   </ul>
