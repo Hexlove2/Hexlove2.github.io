@@ -33,7 +33,7 @@
 
   <title>
 Interview Questions - Notes |
-Hex = Hex = Looking for freedom of mind</title>
+Hex = Hex = Later's better than never</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
   <div id="loading">
@@ -102,11 +102,11 @@ Hex = Hex = Looking for freedom of mind</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/4.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/14.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/23.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/16.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/7.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/25.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/1.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/24.jpg"></li>
           <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/10.jpg"></li>
         </ul>
       </div>
@@ -143,7 +143,7 @@ Hex = Hex = Looking for freedom of mind</title>
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
     <meta itemprop="name" content="Sunday">
-    <meta itemprop="description" content="Looking for freedom of mind, Looking for freedom of mind">
+    <meta itemprop="description" content="Later's better than never, Later's better than never">
   </span>
 
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -153,35 +153,49 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="面试题收集汇总"><a href="#面试题收集汇总" class="headerlink" title="面试题收集汇总"></a>面试题收集汇总</h1><h2 id="1-编程语言相关"><a href="#1-编程语言相关" class="headerlink" title="1.编程语言相关"></a>1.编程语言相关</h2><h3 id="1-c-x2F-c"><a href="#1-c-x2F-c" class="headerlink" title="1. c&#x2F;c++"></a>1. c&#x2F;c++</h3><p>Some blogs: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjYyNjMzOS9hcnRpY2xlL2RldGFpbHMvMTI2NTE5Mjgy">https://blog.csdn.net/weixin_46626339/article/details/126519282</span></p>
+    <h1 id="面试题收集汇总"><a href="#面试题收集汇总" class="headerlink" title="面试题收集汇总"></a>面试题收集汇总</h1><p><strong>此文档基本完全由个人逐步整理，查询资料并记录自己认为比较重要的部分再结合一些网络上常见的问题，答案由自己的理解整理编写</strong></p>
+<h2 id="1-编程语言相关"><a href="#1-编程语言相关" class="headerlink" title="1.编程语言相关"></a>1.编程语言相关</h2><h3 id="1-c-x2F-c-基础"><a href="#1-c-x2F-c-基础" class="headerlink" title="1. c&#x2F;c++基础"></a>1. c&#x2F;c++基础</h3><p>Some blogs: <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80NjYyNjMzOS9hcnRpY2xlL2RldGFpbHMvMTI2NTE5Mjgy">https://blog.csdn.net/weixin_46626339/article/details/126519282</span></p>
 <ol>
-<li><strong>C++ 中的虚函数和纯虚函数有什么区别？</strong></li>
+<li><strong>C++ 中的虚函数和纯虚函数有什么区别？说一下虚函数表？</strong></li>
 </ol>
 <p>​	•	<strong>虚函数</strong>：允许子类重写的方法。在基类中声明时用 virtual 关键字。</p>
 <p>​	•	<strong>纯虚函数</strong>：强制子类必须重写的方法。在基类中声明时用 &#x3D; 0。</p>
+<p><strong>关于虚函数表：</strong></p>
+<p>​	首先只要类有虚函数定义，就会有虚函数表，并且会隐含一个成员虚函数表指针，大小看操作系统位数，这个表在编译链接时就已经确定好了，并且同一个类所有对象共享，而在实际运行时，在用基类指针管理派生类时，自然使用的是派生类本身的vptr，就达到了多态的效果</p>
 <ol start="2">
-<li><strong>如何避免内存泄漏？请提供示例代码。</strong></li>
+<li><strong>如何避免内存泄漏？请提供示例代码。如何排查内存泄露？</strong></li>
 </ol>
 <p>​	•	使用智能指针（如 std::unique_ptr 和 std::shared_ptr）来自动管理内存。</p>
 <p>​	•	确保每个 new 都有对应的 delete。</p>
+<p>内存泄露的排查可以使用Valgrind检测泄露和非法内存访问等问题</p>
 <ol start="3">
-<li><strong>什么是智能指针？如何使用？</strong></li>
+<li><strong>什么是智能指针？如何使用？有哪几种常用智能指针？需要注意的点是？实现的原理是？</strong></li>
 </ol>
 <p>​	•	智能指针是RAII的实现，用于自动管理资源，避免内存泄漏。</p>
+<p>常见的有unique_ptr, shared_ptr, weak_ptr，需要注意的点是shared_ptr的相互引用问题，可能导致引用计数无法为0最终资源无法正常释放</p>
+<p>原理上使用了RAII的思想，将资源托管，析构函数中检测到一定条件才会释放资源，同时实现一些运算符，达到指针的功能</p>
+<p>同时unique_ptr直接禁止了拷贝构造和直接赋值，除非用右值移动构造或赋值</p>
+<p>shared_ptr则需要加入线程安全的引用计数器，在析构，拷贝赋值等情况下要进行处理</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="function">std::unique_ptr&lt;<span class="type">int</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="type">int</span>(<span class="number">10</span>))</span></span>;</span><br><span class="line">std::shared_ptr&lt;<span class="type">int</span>&gt; p2 = std::<span class="built_in">make_shared</span>&lt;<span class="type">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
 
 <ol start="4">
 <li><strong>解释一下C++11中引入的右值引用和移动语义。</strong></li>
 </ol>
-<p>​	•	<strong>右值引用</strong>：用 &amp;&amp; 声明，用于绑定将亡值和右值，允许移动语义的实现。</p>
+<p>​	•	<strong>右值引用</strong>：用 &amp;&amp; 声明，用于绑定将亡值和右值，允许移动语义的实现，尤其在移动构造函数等场景。</p>
 <p>​	•	<strong>移动语义</strong>：通过 std::move，对象的资源可以从一个对象转移到另一个对象，而不必复制。</p>
 <ol start="5">
 <li><strong>C++ 中的多态性如何实现？</strong></li>
 </ol>
+<p>可以从好几层理解</p>
+<p>第一种是各种函数重载，此时还未涉及类，是静态多态，第二种就是最常见的类的继承加上虚函数的作用，真正实现了动态多态</p>
 <p>​	•	多态性通过继承和虚函数实现。</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;Base&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;Derived&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
 
 <ol start="6">
 <li><strong>解释一下C++中的RAII（Resource Acquisition Is Initialization）。</strong></li>
@@ -190,12 +204,21 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FileHandle</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">FileHandle</span>(<span class="type">const</span> <span class="type">char</span>* filename) &#123;</span><br><span class="line">        file = <span class="built_in">fopen</span>(filename, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">FileHandle</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (file) <span class="built_in">fclose</span>(file);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    FILE* file;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+
+
 <ol start="7">
-<li><strong>C++中的模板（Templates）是什么？它们如何工作？</strong></li>
+<li><strong>C++中的模板（Templates）是什么？它们如何工作？顺便说一下类型擦除？</strong></li>
 </ol>
 <p>​	•	模板是一种通用编程工具，允许函数或类操作任意类型。</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">add</span><span class="params">(T a, T b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>类型擦除：</strong></p>
+<p>首先说一下基于继承来实现的类型擦除，通过基类指针就可以访问子类，并不需要关心子类的相关信息，缺点就是太多的继承关系会导致代码开发更加麻烦，不方便维护，尤其是继承关系越来越复杂的情况下</p>
+<p>当更关注易维护性时，可以使用模版的方式进行类型擦除，这时完全不需要考虑继承关系，只需要接口统一好即可，此时完全不用考虑各种基类的问题，例如基类可能有的纯虚函数等，只需要自定义的类有这个规定好的接口即可，这样就可以非常灵活的应对各种情况，这里我引用一个非常经典的例子，利用类型擦除实现对各种函数的封装，如lambda表达式，function类以及各种可能的情况：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">function_wrapper</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">impl_base</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">call</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">virtual</span> ~<span class="built_in">impl_base</span>()&#123;&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    std::unique_ptr&lt;impl_base&gt; imp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">impl_type</span>: impl_base&#123;</span><br><span class="line">        F f;</span><br><span class="line">        <span class="built_in">impl_type</span>(F &amp;&amp;f_):<span class="built_in">f</span>(std::<span class="built_in">move</span>(f_))&#123;&#125;;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">call</span><span class="params">()</span></span>&#123; <span class="built_in">f</span>();&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(F &amp;&amp;f): <span class="built_in">imp</span>(<span class="keyword">new</span> <span class="built_in">impl_type</span>&lt;F&gt;(std::<span class="built_in">move</span>(f)))&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operator</span><span class="params">()</span><span class="params">()</span></span>&#123;</span><br><span class="line">        imp-&gt;<span class="built_in">call</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">function_wrapper</span>()&#123;&#125;;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(function_wrapper&amp;&amp; other):<span class="built_in">imp</span>(std::<span class="built_in">move</span>(other.imp))&#123;&#125;</span><br><span class="line">    function_wrapper&amp; <span class="keyword">operator</span>=(function_wrapper&amp;&amp; f)&#123;</span><br><span class="line">        imp = std::<span class="built_in">move</span>(f.imp);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(<span class="type">const</span> function_wrapper&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(function_wrapper&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    function_wrapper&amp; <span class="keyword">operator</span>=(function_wrapper&amp;) = <span class="keyword">delete</span>; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
 
 <ol start="8">
 <li><strong>什么是内联函数（Inline Function）？它们的优缺点是什么？</strong></li>
@@ -209,24 +232,36 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>​	•	<strong>浅拷贝</strong>：简单复制对象的值。</p>
 <p>​	•	<strong>深拷贝</strong>：不仅复制对象的值，还复制对象指针所指向的资源。</p>
 <p>​	•	示例代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[size];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 深拷贝构造函数</span></span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">const</span> MyClass&amp; other) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[other.size];</span><br><span class="line">        std::<span class="built_in">copy</span>(other.data, other.data + other.size, data);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span>* data;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[size];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 深拷贝构造函数</span></span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">const</span> MyClass&amp; other) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[other.size];</span><br><span class="line">      	size = other.size;</span><br><span class="line">        std::<span class="built_in">copy</span>(other.data, other.data + other.size, data);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span>* data;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>当然也可以重载&#x3D;实现拷贝，重点是对堆区数据的重新分配</p>
 <ol start="10">
 <li><strong>C语言中的指针和引用有什么区别？</strong></li>
 </ol>
 <p>​	•	<strong>指针</strong>：存储变量地址，可以重新赋值。</p>
 <p>​	•	<strong>引用</strong>：变量的别名，一旦绑定不能更改。</p>
+<p>可以理解为，引用本质上是栈区分配了一个新的变量记录了一个间接地址到原变量上，而指针本身就是值传递，直接把地址赋值过去了</p>
 <ol start="11">
-<li><strong>C++中的构造函数和析构函数有什么作用？</strong></li>
+<li><strong>C++中的构造函数和析构函数有什么作用？顺序？构造函数有多少种？析构函数要注意什么？</strong></li>
 </ol>
 <p>​	•	<strong>构造函数</strong>：在对象创建时初始化对象。</p>
 <p>​	•	<strong>析构函数</strong>：在对象销毁时释放资源。</p>
+<p><strong>顺序：</strong></p>
+<p>构造函数是先基类后派生类，而析构函数则完全相反</p>
+<p><strong>种类：</strong></p>
+<p><strong>普通的构造函数</strong>，注意如果有非静态常变量则必须在初始化链表里初始化，其他静态变量基本都在类外初始化</p>
+<p><strong>拷贝构造函数</strong>，一般要实现深拷贝的，注意一定是要引用，最好加const</p>
+<p><strong>移动拷贝函数</strong>，一般是要将资源都移动过来，传右值</p>
+<p><strong>析构函数：</strong></p>
+<p>首先父类要有虚析构，在逐渐析构的过程中，vptr会逐步更新，保证实行正确的析构函数</p>
 <ol start="12">
-<li><strong>解释一下C++中的运算符重载（Operator Overloading）。</strong></li>
+<li><strong>解释一下C++中的运算符重载（Operator Overloading），有多少种常用的？</strong></li>
 </ol>
 <p>​	•	运算符重载允许用户定义自定义类型的运算行为。</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Complex <span class="keyword">operator</span>+(<span class="type">const</span> Complex&amp; other) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Complex</span>(real + other.real, imag + other.imag);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> real, imag;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
 
 <ol start="13">
 <li><strong>如何实现C++中的单例模式（Singleton Pattern）？</strong></li>
@@ -235,6 +270,7 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">static</span> Singleton instance;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">Singleton</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">Singleton</span>(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    <span class="type">void</span> <span class="keyword">operator</span>=(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>确保无法赋值，构造和拷贝，全部私有，只在一个公共接口中实现初始化，并且用静态值，保证全局唯一性</p>
 <ol start="14">
 <li><strong>C++中的STL（标准模板库）有哪些常用容器？</strong></li>
 </ol>
@@ -283,12 +319,6 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>​	•	内存对齐是指变量在内存中的存储位置要符合特定的对齐规则。</p>
 <p>​	•	内存对齐提高了内存访问的效率。</p>
 <ol start="22">
-<li><strong>如何在C++中实现线程安全的单例模式？</strong></li>
-</ol>
-<p>​	•	示例代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">static</span> Singleton instance;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">Singleton</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">Singleton</span>(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    <span class="type">void</span> <span class="keyword">operator</span>=(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ol start="23">
 <li><strong>C语言中的new, malloc和calloc有什么区别？</strong></li>
 </ol>
 <p>​	•	malloc分配指定大小的内存块，不初始化。</p>
@@ -296,46 +326,72 @@ Hex = Hex = Looking for freedom of mind</title>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* array1 = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="built_in">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 未初始化</span></span><br><span class="line"><span class="type">int</span>* array2 = (<span class="type">int</span>*)<span class="built_in">calloc</span>(<span class="number">10</span>, <span class="built_in">sizeof</span>(<span class="type">int</span>));  <span class="comment">// 初始化为零</span></span><br></pre></td></tr></table></figure>
 
-<ol start="24">
+<ol start="23">
 <li><strong>什么是volatile关键字，什么时候使用？</strong></li>
 </ol>
 <p>​	•	volatile指示编译器不优化声明的变量，因为变量可能被其他程序或硬件修改。</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (flag) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="25">
-<li><strong>解释C++中的智能指针类型（如unique_ptr、shared_ptr和weak_ptr），并提供示例。</strong></li>
-</ol>
-<p>​	•	unique_ptr：独占所有权。</p>
-<p>​	•	shared_ptr：共享所有权。</p>
-<p>​	•	weak_ptr：不控制资源，但能访问资源。</p>
-<p>​	•	示例代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::unique_ptr&lt;<span class="type">int</span>&gt; uptr = std::<span class="built_in">make_unique</span>&lt;<span class="type">int</span>&gt;(<span class="number">10</span>);</span><br><span class="line">    std::shared_ptr&lt;<span class="type">int</span>&gt; sptr1 = std::<span class="built_in">make_shared</span>&lt;<span class="type">int</span>&gt;(<span class="number">20</span>);</span><br><span class="line">    std::shared_ptr&lt;<span class="type">int</span>&gt; sptr2 = sptr1;</span><br><span class="line">    std::weak_ptr&lt;<span class="type">int</span>&gt; wptr = sptr1;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="26">
+
+<ol start="25">
 <li><strong>什么是模板元编程（Template Metaprogramming）？</strong></li>
 </ol>
 <p>​	•	模板元编程是一种在编译时进行计算和决策的编程技术。</p>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="type">int</span> N&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span> &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> value = N * Factorial&lt;N - <span class="number">1</span>&gt;::value;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span>&lt;<span class="number">0</span>&gt; &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> value = <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<ol start="27">
+<ol start="26">
 <li><strong>解释一下C++中的std::move和std::forward的区别。</strong></li>
 </ol>
 <p>​	•	std::move：用于将对象转化为右值引用，从而实现移动语义。</p>
 <p>​	•	std::forward：用于完美转发，将参数保持其原本的左值或右值属性。</p>
 <ol start="28">
-<li><strong>C++中的虚函数表（vtable）是什么？</strong></li>
-</ol>
-<p>​	•	虚函数表是一个函数指针数组，用于支持多态性。</p>
-<p>​	•	每个包含虚函数的类都有一个虚函数表指针，指向该类的虚函数表。</p>
-<ol start="29">
 <li><strong>如何在C++中实现一个简单的RAII类？</strong></li>
 </ol>
 <p>​	•	示例代码：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RAII</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RAII</span>() &#123;</span><br><span class="line">        resource = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource acquired&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">RAII</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span> resource;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource released&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span>* resource;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-数据结构相关"><a href="#2-数据结构相关" class="headerlink" title="2.数据结构相关"></a>2.数据结构相关</h2><h2 id="3-算法相关"><a href="#3-算法相关" class="headerlink" title="3.算法相关"></a>3.算法相关</h2><h2 id="4-网络编程相关"><a href="#4-网络编程相关" class="headerlink" title="4.网络编程相关"></a>4.网络编程相关</h2><h3 id="1-HTTP-请求"><a href="#1-HTTP-请求" class="headerlink" title="1. HTTP 请求"></a>1. HTTP 请求</h3><h3 id="2-TCP-x2F-UDP相关"><a href="#2-TCP-x2F-UDP相关" class="headerlink" title="2. TCP&#x2F;UDP相关"></a>2. TCP&#x2F;UDP相关</h3><h2 id="5-操作系统相关"><a href="#5-操作系统相关" class="headerlink" title="5.操作系统相关"></a>5.操作系统相关</h2><h3 id="1-多进程与多线程"><a href="#1-多进程与多线程" class="headerlink" title="1.多进程与多线程"></a>1.多进程与多线程</h3><h4 id="1-线程池"><a href="#1-线程池" class="headerlink" title="1.线程池"></a>1.线程池</h4><p><strong>基础概念问题</strong></p>
+<h3 id="2-C-新特性"><a href="#2-C-新特性" class="headerlink" title="2.C++新特性"></a>2.C++新特性</h3><h3 id="3-关于gcc和g"><a href="#3-关于gcc和g" class="headerlink" title="3.关于gcc和g++"></a>3.关于gcc和g++</h3><h3 id="4-关于gdb调试"><a href="#4-关于gdb调试" class="headerlink" title="4.关于gdb调试"></a>4.关于gdb调试</h3><h3 id="5-关于项目结构"><a href="#5-关于项目结构" class="headerlink" title="5.关于项目结构"></a>5.关于项目结构</h3><h3 id="6-关于Cmake和Makefile"><a href="#6-关于Cmake和Makefile" class="headerlink" title="6.关于Cmake和Makefile"></a>6.关于Cmake和Makefile</h3><h2 id="2-数据结构相关"><a href="#2-数据结构相关" class="headerlink" title="2.数据结构相关"></a>2.数据结构相关</h2><h2 id="3-算法相关"><a href="#3-算法相关" class="headerlink" title="3.算法相关"></a>3.算法相关</h2><h2 id="4-网络编程相关"><a href="#4-网络编程相关" class="headerlink" title="4.网络编程相关"></a>4.网络编程相关</h2><h3 id="1-HTTP-请求"><a href="#1-HTTP-请求" class="headerlink" title="1. HTTP 请求"></a>1. HTTP 请求</h3><h3 id="2-TCP-x2F-UDP相关"><a href="#2-TCP-x2F-UDP相关" class="headerlink" title="2. TCP&#x2F;UDP相关"></a>2. TCP&#x2F;UDP相关</h3><h2 id="5-操作系统相关"><a href="#5-操作系统相关" class="headerlink" title="5.操作系统相关"></a>5.操作系统相关</h2><h3 id="1-Linux"><a href="#1-Linux" class="headerlink" title="1.Linux"></a>1.Linux</h3><p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvTnZIQ3p2SE5QclI0amRLYjR0S3g0UQ==">https://mp.weixin.qq.com/s/NvHCzvHNPrR4jdKb4tKx4Q</span></p>
+<h4 id="1-常见的命令"><a href="#1-常见的命令" class="headerlink" title="1.常见的命令"></a>1.常见的命令</h4><h5 id="1-关于文件和目录"><a href="#1-关于文件和目录" class="headerlink" title="1.关于文件和目录"></a>1.关于文件和目录</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">// -l details -a all files -h show size -R files inside -t sort by time -S sort by size -i show inode index</span><br><span class="line">Common combinations:</span><br><span class="line">ls -lhS</span><br><span class="line">ls -la</span><br><span class="line"></span><br><span class="line">cp</span><br><span class="line">// -r copy all folders including inside</span><br><span class="line">cp a.txt b.txt</span><br><span class="line">cp a.txt ./test</span><br><span class="line">cp -r inc inc_copy</span><br><span class="line"></span><br><span class="line">pwd print working directory</span><br><span class="line"></span><br><span class="line">cd</span><br><span class="line"></span><br><span class="line">rm rm -r delete files or folders</span><br><span class="line"></span><br><span class="line">mkdir make a directory</span><br><span class="line"></span><br><span class="line">touch create new files</span><br><span class="line"></span><br><span class="line">clear clear the screen&#x27;s text</span><br><span class="line"></span><br><span class="line">hard link</span><br><span class="line">ln a.txt b.txt</span><br><span class="line">ls -li</span><br><span class="line"></span><br><span class="line">symbolic link</span><br><span class="line">ln -s a.txt a_link</span><br><span class="line">ls -li</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-关于系统和进程"><a href="#2-关于系统和进程" class="headerlink" title="2.关于系统和进程"></a><strong>2.关于系统和进程</strong></h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">top //show all processes and system resource usage</span><br><span class="line"></span><br><span class="line">ps aux ps -ef //show all processes</span><br><span class="line"></span><br><span class="line"><span class="built_in">kill</span> 1234 //kills the process with pid 1234</span><br><span class="line"></span><br><span class="line"><span class="built_in">df</span> -h //disk space usage</span><br><span class="line"></span><br><span class="line"><span class="built_in">du</span> //check the folder size</span><br><span class="line"></span><br><span class="line"><span class="built_in">uptime</span> //showing how long the system<span class="string">&#x27;s been running and the load average</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">free -h //shows memory usage</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="3-关于权限和用户"><a href="#3-关于权限和用户" class="headerlink" title="3.关于权限和用户"></a>3.关于权限和用户</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +r/+w/+x a.txt <span class="built_in">read</span>/write/execute -r/-w/-x</span><br><span class="line"><span class="built_in">chmod</span> 777 r|w|x-4|2|1 user/group/others</span><br><span class="line">so 7 means rwx 5 means r-x...</span><br><span class="line"></span><br><span class="line">sudo</span><br><span class="line"></span><br><span class="line"><span class="built_in">whoami</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4-others"><a href="#4-others" class="headerlink" title="4. others"></a>4. others</h5><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">date</span></span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, world&quot;</span> &gt; src/test1.cpp</span><br><span class="line"></span><br><span class="line">man <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-Linux系统"><a href="#2-Linux系统" class="headerlink" title="2.Linux系统"></a>2.Linux系统</h4><h5 id="1-linux的内核是什么？目的是？"><a href="#1-linux的内核是什么？目的是？" class="headerlink" title="1.linux的内核是什么？目的是？"></a>1.linux的内核是什么？目的是？</h5><p>首先内核是利用c语言和一点汇编语言实现的一个软件核心，其作用是管理和分配所有的资源，实现的功能有内存管理，文件管理，进程管理，设备管理等</p>
+<h5 id="2-linux的体系结构以及为什么要这样分配？"><a href="#2-linux的体系结构以及为什么要这样分配？" class="headerlink" title="2.linux的体系结构以及为什么要这样分配？"></a>2.linux的体系结构以及为什么要这样分配？</h5><p>linux系统分为用户空间和内核空间，用户空间给与用户使用例如调用一些C库，内核空间主要为3个部分，一个是系统调用接口，一个是内核，一个是平台架构的代码</p>
+<p>这样做的原因最重要的就是保证系统的安全，因为有些内容数据等是不可能让用户去随意访问的，假如出现什么bug了就完蛋了，同时这也对应了现代cpu的两种工作模式</p>
+<h5 id="3-Linux整个开机的流程简单说一下"><a href="#3-Linux整个开机的流程简单说一下" class="headerlink" title="3.Linux整个开机的流程简单说一下"></a>3.Linux整个开机的流程简单说一下</h5><p>1.第一步就是<strong>加电自检</strong>，确认各个硬件，例如内存cpu显卡等</p>
+<p>2.第二步则是<strong>加载引导</strong>，常见的有GRUB加载器，从启动盘加载boot loader到内存，最后把内核也加载到内存里，后面再启动</p>
+<p>3.之后就是<strong>内核初始化</strong>，cpu会处理内核，解压内核映像，CPU初始化，内存管理初始化，必要驱动加载，挂载根文件系统</p>
+<p>4.<strong>切换到根文件系统</strong>，运行第一个init，pid为1</p>
+<p>5.<strong>用户登录</strong>，此时系统初始化完成，用户可以登录</p>
+<p>6.<strong>登录完成</strong>，使用用户空间</p>
+<h5 id="4-Linux进程间的通信方式"><a href="#4-Linux进程间的通信方式" class="headerlink" title="4.Linux进程间的通信方式"></a>4.Linux进程间的通信方式</h5><p><strong>IPC inter-process communication</strong></p>
+<p>1.管道通信</p>
+<p>2.套接字通信</p>
+<p>3.信号量</p>
+<p>4.共享内存</p>
+<p>5.消息队列</p>
+<p>一般套接字和共享内存用得很多</p>
+<h5 id="5-关于文件描述符以及read，write系统调用"><a href="#5-关于文件描述符以及read，write系统调用" class="headerlink" title="5.关于文件描述符以及read，write系统调用"></a>5.关于文件描述符以及read，write系统调用</h5><p>在linux系统里，万物都可以被理解为文件，比如本地文件，套接字，设备，管道，还有信号量，最后都能用一个文件描述符来代替，而每个进程里都有个文件描述符表，记录了fd以及对应的类型还有指向某个缓冲区的指针</p>
+<p>像tcp和udp读一次缓冲区就空了所以要注意多进程的竞争问题，而udp因为是不可靠传输所以一定要及时读取，否则丢失数据不负责</p>
+<h5 id="6-关于swap交换空间"><a href="#6-关于swap交换空间" class="headerlink" title="6.关于swap交换空间"></a>6.关于swap交换空间</h5><p>swap交换空间在安装系统时可以自己分配，主要用途是当内存不够时临时作为虚拟内存，虽然速度会变慢但不至于杀死某些进程</p>
+<h5 id="7-关于文件系统"><a href="#7-关于文件系统" class="headerlink" title="7.关于文件系统"></a>7.关于文件系统</h5><p>使用的是B+树，而进程调度相关则使用红黑树，保证增删效率</p>
+<p>文件夹本身也是一种特殊文件，而每个文件都有对应的inode，记录了很多信息，包括实际存储的位置，创建日期，文件格式等</p>
+<p>目录作为特殊文件映射表实现通过文件名去映射表中找到inode的index，inode本身是存在数组中，一个磁盘分区会有一个inode table，在初始化时会根据磁盘大小等分配inode数量，关于空闲的inode，会采用位图或者一个队列来存放空闲的inode编号</p>
+<h5 id="8-软硬链接问题"><a href="#8-软硬链接问题" class="headerlink" title="8.软硬链接问题"></a>8.软硬链接问题</h5><p>硬链接就像是一个索引，指向了同一个inode，并且引用计数+1</p>
+<p>软链接则是一个独立的文件有自己的inode，但文件的内容是原文件的路径名，这样就找到了对应的inode，但原文件被删的话就会失效</p>
+<p>注意硬链接无法链接文件夹但软链接可以</p>
+<h3 id="2-多进程与多线程"><a href="#2-多进程与多线程" class="headerlink" title="2.多进程与多线程"></a>2.多进程与多线程</h3><h4 id="1-线程池"><a href="#1-线程池" class="headerlink" title="1.线程池"></a>1.线程池</h4><p><strong>基础概念问题</strong></p>
 <ol>
 <li><strong>什么是线程池？</strong></li>
 </ol>
@@ -389,11 +445,7 @@ Hex = Hex = Looking for freedom of mind</title>
 <li><strong>如何实现任务优先级？</strong></li>
 </ol>
 <p>​	•	答：可以使用优先级队列（如优先级堆）来存储任务，确保高优先级任务优先执行。</p>
-<h2 id="6-数据库相关"><a href="#6-数据库相关" class="headerlink" title="6.数据库相关"></a>6.数据库相关</h2><h2 id="7-系统设计相关"><a href="#7-系统设计相关" class="headerlink" title="7.系统设计相关"></a>7.系统设计相关</h2><h2 id="8-编码与逻辑推理"><a href="#8-编码与逻辑推理" class="headerlink" title="8.编码与逻辑推理"></a>8.编码与逻辑推理</h2><h2 id="9-开发项目相关"><a href="#9-开发项目相关" class="headerlink" title="9.开发项目相关"></a>9.开发项目相关</h2><h2 id="10-其他"><a href="#10-其他" class="headerlink" title="10.其他"></a>10.其他</h2><ol>
-<li>简单介绍一下自己</li>
-</ol>
-<p>我叫徐一航，老家是安徽芜湖的，近些年在合肥发展，我是合肥工业大学毕业的，专业是数学与应用数学，大学里学的课程大部分都是和数学算法相关的，但一些经典重要的计算机课程也学了不少，像c，c++，数据结构，计组，算法导论等，我平常的兴趣爱好比较多，像什么画画看书之类的，我的上一份工作是做cv的，主要的工作就是开发新的算法，图像定位，计算偏移量，主要用到的就是数值分析和解析几何，工作内容我还是挺喜欢的，但家离公司实在太远了，每天上班要一个多小时的地铁公交。我的性格偏内向一点，但和陌生人和很熟的人都聊得很开。大概就是这样，有什么其他问题吗？</p>
-
+<h2 id="6-数据库"><a href="#6-数据库" class="headerlink" title="6.数据库"></a>6.数据库</h2><h2 id="7-设计模式"><a href="#7-设计模式" class="headerlink" title="7.设计模式"></a>7.设计模式</h2><h2 id="8-编码与逻辑推理"><a href="#8-编码与逻辑推理" class="headerlink" title="8.编码与逻辑推理"></a>8.编码与逻辑推理</h2><h2 id="9-开发项目相关"><a href="#9-开发项目相关" class="headerlink" title="9.开发项目相关"></a>9.开发项目相关</h2><h2 id="10-其他"><a href="#10-其他" class="headerlink" title="10.其他"></a>10.其他</h2>
   </div>
 
    <footer>
@@ -404,7 +456,7 @@ Hex = Hex = Looking for freedom of mind</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">Edited on</span>
-    <time title="Modified: 2024-07-10 16:16:25" itemprop="dateModified" datetime="2024-07-10T16:16:25+09:00">2024-07-10</time>
+    <time title="Modified: 2025-11-18 17:01:57" itemprop="dateModified" datetime="2025-11-18T17:01:57+09:00">2025-11-18</time>
   </span>
 </div>
 
@@ -459,7 +511,7 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item left">
       
 
-  <a href="/2024/07/01/Projects/ChatWeb/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;23.jpg" title="ChatWeb Project">
+  <a href="/2024/07/01/Projects/ChatWeb/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;18.jpg" title="ChatWeb Project">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Projects</span>
   <h3>ChatWeb Project</h3>
@@ -469,7 +521,7 @@ Hex = Hex = Looking for freedom of mind</title>
     <div class="item right">
       
 
-  <a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;19.jpg" title="A Good Girl&#39;s Guide To Murder">
+  <a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;3.jpg" title="A Good Girl&#39;s Guide To Murder">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Books</span>
   <h3>A Good Girl's Guide To Murder</h3>
@@ -491,7 +543,7 @@ Hex = Hex = Looking for freedom of mind</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="Contents">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">面试题收集汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9B%B8%E5%85%B3"><span class="toc-number">1.1.</span> <span class="toc-text">1.编程语言相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-c-x2F-c"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. c&#x2F;c++</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">2.数据结构相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.</span> <span class="toc-text">3.算法相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="toc-number">1.4.</span> <span class="toc-text">4.网络编程相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HTTP-%E8%AF%B7%E6%B1%82"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TCP-x2F-UDP%E7%9B%B8%E5%85%B3"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. TCP&#x2F;UDP相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3"><span class="toc-number">1.5.</span> <span class="toc-text">5.操作系统相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.多进程与多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">1.线程池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3"><span class="toc-number">1.6.</span> <span class="toc-text">6.数据库相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3"><span class="toc-number">1.7.</span> <span class="toc-text">7.系统设计相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BC%96%E7%A0%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%8E%A8%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">8.编码与逻辑推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3"><span class="toc-number">1.9.</span> <span class="toc-text">9.开发项目相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%85%B6%E4%BB%96"><span class="toc-number">1.10.</span> <span class="toc-text">10.其他</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98%E6%94%B6%E9%9B%86%E6%B1%87%E6%80%BB"><span class="toc-number">1.</span> <span class="toc-text">面试题收集汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%9B%B8%E5%85%B3"><span class="toc-number">1.1.</span> <span class="toc-text">1.编程语言相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-c-x2F-c-%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. c&#x2F;c++基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-C-%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.C++新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B3%E4%BA%8Egcc%E5%92%8Cg"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.关于gcc和g++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%85%B3%E4%BA%8Egdb%E8%B0%83%E8%AF%95"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.关于gdb调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.5.</span> <span class="toc-text">5.关于项目结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%85%B3%E4%BA%8ECmake%E5%92%8CMakefile"><span class="toc-number">1.1.6.</span> <span class="toc-text">6.关于Cmake和Makefile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">2.数据结构相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%AE%97%E6%B3%95%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.</span> <span class="toc-text">3.算法相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="toc-number">1.4.</span> <span class="toc-text">4.网络编程相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-HTTP-%E8%AF%B7%E6%B1%82"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TCP-x2F-UDP%E7%9B%B8%E5%85%B3"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. TCP&#x2F;UDP相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3"><span class="toc-number">1.5.</span> <span class="toc-text">5.操作系统相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Linux"><span class="toc-number">1.5.1.</span> <span class="toc-text">1.Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.1.1.</span> <span class="toc-text">1.常见的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%85%B3%E4%BA%8E%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95"><span class="toc-number">1.5.1.1.1.</span> <span class="toc-text">1.关于文件和目录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E5%92%8C%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.5.1.1.2.</span> <span class="toc-text">2.关于系统和进程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%85%B3%E4%BA%8E%E6%9D%83%E9%99%90%E5%92%8C%E7%94%A8%E6%88%B7"><span class="toc-number">1.5.1.1.3.</span> <span class="toc-text">3.关于权限和用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-others"><span class="toc-number">1.5.1.1.4.</span> <span class="toc-text">4. others</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Linux%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.1.2.</span> <span class="toc-text">2.Linux系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-linux%E7%9A%84%E5%86%85%E6%A0%B8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E7%9B%AE%E7%9A%84%E6%98%AF%EF%BC%9F"><span class="toc-number">1.5.1.2.1.</span> <span class="toc-text">1.linux的内核是什么？目的是？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-linux%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%99%E6%A0%B7%E5%88%86%E9%85%8D%EF%BC%9F"><span class="toc-number">1.5.1.2.2.</span> <span class="toc-text">2.linux的体系结构以及为什么要这样分配？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Linux%E6%95%B4%E4%B8%AA%E5%BC%80%E6%9C%BA%E7%9A%84%E6%B5%81%E7%A8%8B%E7%AE%80%E5%8D%95%E8%AF%B4%E4%B8%80%E4%B8%8B"><span class="toc-number">1.5.1.2.3.</span> <span class="toc-text">3.Linux整个开机的流程简单说一下</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Linux%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.1.2.4.</span> <span class="toc-text">4.Linux进程间的通信方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%85%B3%E4%BA%8E%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6%E4%BB%A5%E5%8F%8Aread%EF%BC%8Cwrite%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="toc-number">1.5.1.2.5.</span> <span class="toc-text">5.关于文件描述符以及read，write系统调用</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%85%B3%E4%BA%8Eswap%E4%BA%A4%E6%8D%A2%E7%A9%BA%E9%97%B4"><span class="toc-number">1.5.1.2.6.</span> <span class="toc-text">6.关于swap交换空间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%85%B3%E4%BA%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.1.2.7.</span> <span class="toc-text">7.关于文件系统</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-%E8%BD%AF%E7%A1%AC%E9%93%BE%E6%8E%A5%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.1.2.8.</span> <span class="toc-text">8.软硬链接问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E4%B8%8E%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.5.2.</span> <span class="toc-text">2.多进程与多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">1.5.2.1.</span> <span class="toc-text">1.线程池</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.6.</span> <span class="toc-text">6.数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.7.</span> <span class="toc-text">7.设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E7%BC%96%E7%A0%81%E4%B8%8E%E9%80%BB%E8%BE%91%E6%8E%A8%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">8.编码与逻辑推理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%BC%80%E5%8F%91%E9%A1%B9%E7%9B%AE%E7%9B%B8%E5%85%B3"><span class="toc-number">1.9.</span> <span class="toc-text">9.开发项目相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%85%B6%E4%BB%96"><span class="toc-number">1.10.</span> <span class="toc-text">10.其他</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
@@ -503,7 +555,7 @@ Hex = Hex = Looking for freedom of mind</title>
   <img class="image" itemprop="image" alt="Sunday"
       data-src="/images/avatar.jpg">
   <p class="name" itemprop="name">Sunday</p>
-  <div class="description" itemprop="description">Looking for freedom of mind</div>
+  <div class="description" itemprop="description">Later's better than never</div>
 </div>
 
 <nav class="state">
@@ -603,20 +655,10 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/Books/" title="In Books">Books</a>
 </div>
 
-    <span><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" title="Statistical Learning">Statistical Learning</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Games/" title="In Games">Games</a>
-</div>
-
-    <span><a href="/2025/07/11/Games/Liarbar/" title="Liar&#39;s Bar">Liar's Bar</a></span>
+    <span><a href="/2024/07/11/Books/Good%20girl's%20guide%20to%20murder/" title="A Good Girl&#39;s Guide To Murder">A Good Girl's Guide To Murder</a></span>
   </li>
 
       
@@ -633,10 +675,10 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
+<a href="/categories/book/" title="In book?">book?</a>
 </div>
 
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
   </li>
 
       
@@ -656,27 +698,27 @@ Hex = Hex = Looking for freedom of mind</title>
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
+    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
+<a href="/categories/Games/" title="In Games">Games</a>
 </div>
 
-    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
+    <span><a href="/2025/07/11/Games/Liarbar/" title="Liar&#39;s Bar">Liar's Bar</a></span>
   </li>
 
       
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
+<a href="/categories/Journey/" title="In Journey">Journey</a>
 </div>
 
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
@@ -693,10 +735,20 @@ Hex = Hex = Looking for freedom of mind</title>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/Games/" title="In Games">Games</a>
+</div>
+
+    <span><a href="/2022/12/09/Games/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
+    <span><a href="/2024/02/29/Notes/Socket%20learning/" title="TCP&#x2F;IP Socket Coding">TCP/IP Socket Coding</a></span>
   </li>
 
   </ul>
