@@ -102,12 +102,12 @@ Hex = Sunday = Later's better than never</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/16.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/19.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/22.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/13.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/11.jpg"></li>
-          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/18.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/32.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/17.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/35.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/9.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/21.jpg"></li>
+          <li class="item" data-background-image="https://raw.githubusercontent.com/Hexlove2/images1/main/images2/20.jpg"></li>
         </ul>
       </div>
     </header>
@@ -180,9 +180,7 @@ Hex = Sunday = Later's better than never</title>
 <p>同时 unique_ptr 直接禁止了拷贝构造和直接赋值，除非用右值移动构造或赋值</p>
 <p>shared_ptr 则需要加入线程安全的引用计数器，在析构，拷贝赋值等情况下要进行处理</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;memory&gt;
-std::unique_ptr&lt;int&gt; p1(new int(10));
-std::shared_ptr&lt;int&gt; p2 &#x3D; std::make_shared&lt;int&gt;(20);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="function">std::unique_ptr&lt;<span class="type">int</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="type">int</span>(<span class="number">10</span>))</span></span>;</span><br><span class="line">std::shared_ptr&lt;<span class="type">int</span>&gt; p2 = std::<span class="built_in">make_shared</span>&lt;<span class="type">int</span>&gt;(<span class="number">20</span>);</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li><strong>解释一下 C++11 中引入的右值引用和移动语义。</strong></li>
 </ol>
@@ -195,73 +193,23 @@ std::shared_ptr&lt;int&gt; p2 &#x3D; std::make_shared&lt;int&gt;(20);<span aria-
 <p>第一种是各种函数重载，此时还未涉及类，是静态多态，第二种就是最常见的类的继承加上虚函数的作用，真正实现了动态多态</p>
 <p>​	・	多态性通过继承和虚函数实现。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Base &#123;
-public:
-    virtual void show() &#123; std::cout &lt;&lt; &quot;Base&quot; &lt;&lt; std::endl; &#125;
-&#125;;
-class Derived : public Base &#123;
-public:
-    void show() override &#123; std::cout &lt;&lt; &quot;Derived&quot; &lt;&lt; std::endl; &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;Base&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">override</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;Derived&quot;</span> &lt;&lt; std::endl; &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="6">
 <li><strong>解释一下 C++ 中的 RAII（Resource Acquisition Is Initialization）。</strong></li>
 </ol>
 <p>​	・	RAII 是一种管理资源的编程惯用法，通过对象的生命周期自动管理资源的分配和释放。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class FileHandle &#123;
-public:
-    FileHandle(const char* filename) &#123;
-        file &#x3D; fopen(filename, &quot;r&quot;);
-    &#125;
-    ~FileHandle() &#123;
-        if (file) fclose(file);
-    &#125;
-private:
-    FILE* file;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FileHandle</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">FileHandle</span>(<span class="type">const</span> <span class="type">char</span>* filename) &#123;</span><br><span class="line">        file = <span class="built_in">fopen</span>(filename, <span class="string">&quot;r&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">FileHandle</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (file) <span class="built_in">fclose</span>(file);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    FILE* file;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="7">
 <li><strong>C++ 中的模板（Templates）是什么？它们如何工作？顺便说一下类型擦除？</strong></li>
 </ol>
 <p>​	・	模板是一种通用编程工具，允许函数或类操作任意类型。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template &lt;typename T&gt;
-T add(T a, T b) &#123;
-    return a + b;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function">T <span class="title">add</span><span class="params">(T a, T b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>类型擦除：</strong></p>
 <p>首先说一下基于继承来实现的类型擦除，通过基类指针就可以访问子类，并不需要关心子类的相关信息，缺点就是太多的继承关系会导致代码开发更加麻烦，不方便维护，尤其是继承关系越来越复杂的情况下</p>
 <p>当更关注易维护性时，可以使用模版的方式进行类型擦除，这时完全不需要考虑继承关系，只需要接口统一好即可，此时完全不用考虑各种基类的问题，例如基类可能有的纯虚函数等，只需要自定义的类有这个规定好的接口即可，这样就可以非常灵活的应对各种情况，这里我引用一个非常经典的例子，利用类型擦除实现对各种函数的封装，如 lambda 表达式，function 类以及各种可能的情况：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class function_wrapper&#123;
-private:
-    struct impl_base&#123;
-        virtual void call() &#x3D; 0;
-        virtual ~impl_base()&#123;&#125;;
-    &#125;;
-
-    std::unique_ptr&lt;impl_base&gt; imp;
-
-    template&lt;typename F&gt;
-    struct impl_type: impl_base&#123;
-        F f;
-        impl_type(F &amp;&amp;f_):f(std::move(f_))&#123;&#125;;
-        void call()&#123; f();&#125;
-    &#125;;
-public:
-    template &lt;typename F&gt;
-    function_wrapper(F &amp;&amp;f): imp(new impl_type&lt;F&gt;(std::move(f)))&#123;&#125;;
-    void operator()()&#123;
-        imp-&gt;call();
-    &#125;
-    function_wrapper()&#123;&#125;;
-    function_wrapper(function_wrapper&amp;&amp; other):imp(std::move(other.imp))&#123;&#125;
-    function_wrapper&amp; operator&#x3D;(function_wrapper&amp;&amp; f)&#123;
-        imp &#x3D; std::move(f.imp);
-        return *this;
-    &#125;
-    function_wrapper(const function_wrapper&amp;) &#x3D; delete;
-    function_wrapper(function_wrapper&amp;) &#x3D; delete;
-    function_wrapper&amp; operator&#x3D;(function_wrapper&amp;) &#x3D; delete; 
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">function_wrapper</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">impl_base</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">call</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">virtual</span> ~<span class="built_in">impl_base</span>()&#123;&#125;;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    std::unique_ptr&lt;impl_base&gt; imp;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">impl_type</span>: impl_base&#123;</span><br><span class="line">        F f;</span><br><span class="line">        <span class="built_in">impl_type</span>(F &amp;&amp;f_):<span class="built_in">f</span>(std::<span class="built_in">move</span>(f_))&#123;&#125;;</span><br><span class="line">        <span class="function"><span class="type">void</span> <span class="title">call</span><span class="params">()</span></span>&#123; <span class="built_in">f</span>();&#125;</span><br><span class="line">    &#125;;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(F &amp;&amp;f): <span class="built_in">imp</span>(<span class="keyword">new</span> <span class="built_in">impl_type</span>&lt;F&gt;(std::<span class="built_in">move</span>(f)))&#123;&#125;;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">operator</span><span class="params">()</span><span class="params">()</span></span>&#123;</span><br><span class="line">        imp-&gt;<span class="built_in">call</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">function_wrapper</span>()&#123;&#125;;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(function_wrapper&amp;&amp; other):<span class="built_in">imp</span>(std::<span class="built_in">move</span>(other.imp))&#123;&#125;</span><br><span class="line">    function_wrapper&amp; <span class="keyword">operator</span>=(function_wrapper&amp;&amp; f)&#123;</span><br><span class="line">        imp = std::<span class="built_in">move</span>(f.imp);</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(<span class="type">const</span> function_wrapper&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    <span class="built_in">function_wrapper</span>(function_wrapper&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    function_wrapper&amp; <span class="keyword">operator</span>=(function_wrapper&amp;) = <span class="keyword">delete</span>; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="8">
 <li><strong>什么是内联函数（Inline Function）？它们的优缺点是什么？</strong></li>
 </ol>
@@ -274,24 +222,7 @@ public:
 <p>​	•	<strong>浅拷贝</strong>：简单复制对象的值。</p>
 <p>​	•	<strong>深拷贝</strong>：不仅复制对象的值，还复制对象指针所指向的资源。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class MyClass &#123;
-public:
-    MyClass(int size) &#123;
-        data &#x3D; new int[size];
-    &#125;
-    &#x2F;&#x2F; 深拷贝构造函数
-    MyClass(const MyClass&amp; other) &#123;
-        data &#x3D; new int[other.size];
-      	size &#x3D; other.size;
-        std::copy(other.data, other.data + other.size, data);
-    &#125;
-    ~MyClass() &#123;
-        delete[] data;
-    &#125;
-private:
-    int* data;
-    int size;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> size) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[size];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 深拷贝构造函数</span></span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">const</span> MyClass&amp; other) &#123;</span><br><span class="line">        data = <span class="keyword">new</span> <span class="type">int</span>[other.size];</span><br><span class="line">      	size = other.size;</span><br><span class="line">        std::<span class="built_in">copy</span>(other.data, other.data + other.size, data);</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span>[] data;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span>* data;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>当然也可以重载 = 实现拷贝，重点是对堆区数据的重新分配</p>
 <ol start="10">
 <li><strong>C 语言中的指针和引用有什么区别？</strong></li>
@@ -317,30 +248,13 @@ private:
 </ol>
 <p>​	・	运算符重载允许用户定义自定义类型的运算行为。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Complex &#123;
-public:
-    Complex operator+(const Complex&amp; other) &#123;
-        return Complex(real + other.real, imag + other.imag);
-    &#125;
-private:
-    double real, imag;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Complex <span class="keyword">operator</span>+(<span class="type">const</span> Complex&amp; other) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Complex</span>(real + other.real, imag + other.imag);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> real, imag;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="13">
 <li><strong>如何实现 C++ 中的单例模式（Singleton Pattern）？</strong></li>
 </ol>
 <p>​	・	单例模式确保一个类只有一个实例，并提供全局访问点。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Singleton &#123;
-public:
-    static Singleton&amp; getInstance() &#123;
-        static Singleton instance;
-        return instance;
-    &#125;
-private:
-    Singleton() &#123;&#125;
-    Singleton(const Singleton&amp;) &#x3D; delete;
-    void operator&#x3D;(const Singleton&amp;) &#x3D; delete;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> Singleton&amp; <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="type">static</span> Singleton instance;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">Singleton</span>() &#123;&#125;</span><br><span class="line">    <span class="built_in">Singleton</span>(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">    <span class="type">void</span> <span class="keyword">operator</span>=(<span class="type">const</span> Singleton&amp;) = <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>确保无法赋值，构造和拷贝，全部私有，只在一个公共接口中实现初始化，并且用静态值，保证全局唯一性</p>
 <ol start="14">
 <li><strong>C++ 中的 STL（标准模板库）有哪些常用容器？</strong></li>
@@ -351,21 +265,13 @@ private:
 </ol>
 <p>​	・	C++ 使用 try, catch, throw 来处理异常。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">try &#123;
-    &#x2F;&#x2F; 可能抛出异常的代码
-&#125; catch (const std::exception&amp; e) &#123;
-    std::cerr &lt;&lt; &quot;Exception: &quot; &lt;&lt; e.what() &lt;&lt; std::endl;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 可能抛出异常的代码</span></span><br><span class="line">&#125; <span class="built_in">catch</span> (<span class="type">const</span> std::exception&amp; e) &#123;</span><br><span class="line">    std::cerr &lt;&lt; <span class="string">&quot;Exception: &quot;</span> &lt;&lt; e.<span class="built_in">what</span>() &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="16">
 <li><strong>什么是函数指针？请提供一个示例代码。</strong></li>
 </ol>
 <p>​	・	函数指针是指向函数的指针，可以用来调用函数。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void printHello() &#123;
-    std::cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; std::endl;
-&#125;
-void (*funcPtr)() &#x3D; printHello;
-funcPtr();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">printHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Hello, World!&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">void</span> (*funcPtr)() = printHello;</span><br><span class="line"><span class="built_in">funcPtr</span>();</span><br></pre></td></tr></table></figure>
 <ol start="17">
 <li><strong>C++ 中的拷贝构造函数和赋值运算符有什么区别？</strong></li>
 </ol>
@@ -376,53 +282,17 @@ funcPtr();<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 </ol>
 <p>​	・	友元函数可以访问类的私有成员和保护成员。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class MyClass &#123;
-private:
-    int data;
-public:
-    friend void printData(const MyClass&amp; obj);
-&#125;;
-void printData(const MyClass&amp; obj) &#123;
-    std::cout &lt;&lt; obj.data &lt;&lt; std::endl;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">friend</span> <span class="type">void</span> <span class="title">printData</span><span class="params">(<span class="type">const</span> MyClass&amp; obj)</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printData</span><span class="params">(<span class="type">const</span> MyClass&amp; obj)</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; obj.data &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="19">
 <li><strong>如何实现 C++ 中的双向链表？请提供示例代码。</strong></li>
 </ol>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct Node &#123;
-    int data;
-    Node* prev;
-    Node* next;
-    Node(int val) : data(val), prev(nullptr), next(nullptr) &#123;&#125;
-&#125;;
-
-class DoublyLinkedList &#123;
-private:
-    Node* head;
-public:
-    DoublyLinkedList() : head(nullptr) &#123;&#125;
-    void append(int data) &#123;
-        Node* newNode &#x3D; new Node(data);
-        if (!head) &#123;
-            head &#x3D; newNode;
-            return;
-        &#125;
-        Node* temp &#x3D; head;
-        while (temp-&gt;next) &#123;
-            temp &#x3D; temp-&gt;next;
-        &#125;
-        temp-&gt;next &#x3D; newNode;
-        newNode-&gt;prev &#x3D; temp;
-    &#125;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    Node* prev;</span><br><span class="line">    Node* next;</span><br><span class="line">    <span class="built_in">Node</span>(<span class="type">int</span> val) : <span class="built_in">data</span>(val), <span class="built_in">prev</span>(<span class="literal">nullptr</span>), <span class="built_in">next</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DoublyLinkedList</span> &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Node* head;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">DoublyLinkedList</span>() : <span class="built_in">head</span>(<span class="literal">nullptr</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">append</span><span class="params">(<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">        Node* newNode = <span class="keyword">new</span> <span class="built_in">Node</span>(data);</span><br><span class="line">        <span class="keyword">if</span> (!head) &#123;</span><br><span class="line">            head = newNode;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Node* temp = head;</span><br><span class="line">        <span class="keyword">while</span> (temp-&gt;next) &#123;</span><br><span class="line">            temp = temp-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        temp-&gt;next = newNode;</span><br><span class="line">        newNode-&gt;prev = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="20">
 <li><strong>什么是虚基类（Virtual Base Class）？为什么需要它？</strong></li>
 </ol>
 <p>​	・	虚基类用于解决多重继承中的菱形继承问题。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class A &#123; &#x2F;* ... *&#x2F; &#125;;
-class B : virtual public A &#123; &#x2F;* ... *&#x2F; &#125;;
-class C : virtual public A &#123; &#x2F;* ... *&#x2F; &#125;;
-class D : public B, public C &#123; &#x2F;* ... *&#x2F; &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123; <span class="comment">/* ... */</span> &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> A &#123; <span class="comment">/* ... */</span> &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">virtual</span> <span class="keyword">public</span> A &#123; <span class="comment">/* ... */</span> &#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">D</span> : <span class="keyword">public</span> B, <span class="keyword">public</span> C &#123; <span class="comment">/* ... */</span> &#125;;</span><br></pre></td></tr></table></figure>
 <ol start="21">
 <li><strong>C++ 中的内存对齐是什么？为什么需要它？</strong></li>
 </ol>
@@ -434,30 +304,19 @@ class D : public B, public C &#123; &#x2F;* ... *&#x2F; &#125;;<span aria-hidden
 <p>​	・	malloc 分配指定大小的内存块，不初始化。</p>
 <p>​	・	calloc 分配指定数量的内存块并初始化为零。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int* array1 &#x3D; (int*)malloc(10 * sizeof(int)); &#x2F;&#x2F; 未初始化
-int* array2 &#x3D; (int*)calloc(10, sizeof(int));  &#x2F;&#x2F; 初始化为零<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* array1 = (<span class="type">int</span>*)<span class="built_in">malloc</span>(<span class="number">10</span> * <span class="built_in">sizeof</span>(<span class="type">int</span>)); <span class="comment">// 未初始化</span></span><br><span class="line"><span class="type">int</span>* array2 = (<span class="type">int</span>*)<span class="built_in">calloc</span>(<span class="number">10</span>, <span class="built_in">sizeof</span>(<span class="type">int</span>));  <span class="comment">// 初始化为零</span></span><br></pre></td></tr></table></figure>
 <ol start="23">
 <li><strong>什么是 volatile 关键字，什么时候使用？</strong></li>
 </ol>
 <p>​	・	volatile 指示编译器不优化声明的变量，因为变量可能被其他程序或硬件修改。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">volatile int flag &#x3D; 1;
-while (flag) &#123;
-    &#x2F;&#x2F; do something
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (flag) &#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="25">
 <li><strong>什么是模板元编程（Template Metaprogramming）？</strong></li>
 </ol>
 <p>​	・	模板元编程是一种在编译时进行计算和决策的编程技术。</p>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">template&lt;int N&gt;
-struct Factorial &#123;
-    static const int value &#x3D; N * Factorial&lt;N - 1&gt;::value;
-&#125;;
-template&lt;&gt;
-struct Factorial&lt;0&gt; &#123;
-    static const int value &#x3D; 1;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="type">int</span> N&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span> &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> value = N * Factorial&lt;N - <span class="number">1</span>&gt;::value;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">template</span>&lt;&gt;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Factorial</span>&lt;<span class="number">0</span>&gt; &#123;</span><br><span class="line">    <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> value = <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <ol start="26">
 <li><strong>解释一下 C++ 中的 std::move 和 std::forward 的区别。</strong></li>
 </ol>
@@ -467,19 +326,7 @@ struct Factorial&lt;0&gt; &#123;
 <li><strong>如何在 C++ 中实现一个简单的 RAII 类？</strong></li>
 </ol>
 <p>​	・	示例代码：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class RAII &#123;
-public:
-    RAII() &#123;
-        resource &#x3D; new int;
-        std::cout &lt;&lt; &quot;Resource acquired&quot; &lt;&lt; std::endl;
-    &#125;
-    ~RAII() &#123;
-        delete resource;
-        std::cout &lt;&lt; &quot;Resource released&quot; &lt;&lt; std::endl;
-    &#125;
-private:
-    int* resource;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RAII</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">RAII</span>() &#123;</span><br><span class="line">        resource = <span class="keyword">new</span> <span class="type">int</span>;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource acquired&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line">    ~<span class="built_in">RAII</span>() &#123;</span><br><span class="line">        <span class="keyword">delete</span> resource;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;Resource released&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span>* resource;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="2c新特性"><a class="markdownIt-Anchor" href="#2c新特性">#</a> 2.C++ 新特性</h3>
 <h3 id="3关于gcc和g"><a class="markdownIt-Anchor" href="#3关于gcc和g">#</a> 3. 关于 gcc 和 g++</h3>
 <h3 id="4关于gdb调试"><a class="markdownIt-Anchor" href="#4关于gdb调试">#</a> 4. 关于 gdb 调试</h3>
@@ -495,70 +342,13 @@ private:
 <p>参考资料：<span class="exturl" data-url="aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvTnZIQ3p2SE5QclI0amRLYjR0S3g0UQ==">https://mp.weixin.qq.com/s/NvHCzvHNPrR4jdKb4tKx4Q</span></p>
 <h4 id="1常见的命令"><a class="markdownIt-Anchor" href="#1常见的命令">#</a> 1. 常见的命令</h4>
 <h5 id="1关于文件和目录"><a class="markdownIt-Anchor" href="#1关于文件和目录">#</a> 1. 关于文件和目录</h5>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ls</span>
-// <span class="token parameter variable">-l</span> details <span class="token parameter variable">-a</span> all files <span class="token parameter variable">-h</span> show size <span class="token parameter variable">-R</span> files inside <span class="token parameter variable">-t</span> <span class="token function">sort</span> by <span class="token function">time</span> <span class="token parameter variable">-S</span> <span class="token function">sort</span> by size <span class="token parameter variable">-i</span> show inode index
-Common combinations:
-<span class="token function">ls</span> <span class="token parameter variable">-lhS</span>
-<span class="token function">ls</span> <span class="token parameter variable">-la</span>
-
-<span class="token function">cp</span>
-// <span class="token parameter variable">-r</span> copy all folders including inside
-<span class="token function">cp</span> a.txt b.txt
-<span class="token function">cp</span> a.txt ./test
-<span class="token function">cp</span> <span class="token parameter variable">-r</span> inc inc_copy
-
-<span class="token builtin class-name">pwd</span> print working directory
-
-<span class="token builtin class-name">cd</span>
-
-<span class="token function">rm</span> <span class="token function">rm</span> <span class="token parameter variable">-r</span> delete files or folders
-
-<span class="token function">mkdir</span> <span class="token function">make</span> a directory
-
-<span class="token function">touch</span> create new files
-
-<span class="token function">clear</span> <span class="token function">clear</span> the screen's text
-
-hard <span class="token function">link</span>
-<span class="token function">ln</span> a.txt b.txt
-<span class="token function">ls</span> <span class="token parameter variable">-li</span>
-
-symbolic <span class="token function">link</span>
-<span class="token function">ln</span> <span class="token parameter variable">-s</span> a.txt a_link
-<span class="token function">ls</span> <span class="token parameter variable">-li</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">// -l details -a all files -h show size -R files inside -t sort by time -S sort by size -i show inode index</span><br><span class="line">Common combinations:</span><br><span class="line">ls -lhS</span><br><span class="line">ls -la</span><br><span class="line"></span><br><span class="line">cp</span><br><span class="line">// -r copy all folders including inside</span><br><span class="line">cp a.txt b.txt</span><br><span class="line">cp a.txt ./test</span><br><span class="line">cp -r inc inc_copy</span><br><span class="line"></span><br><span class="line">pwd print working directory</span><br><span class="line"></span><br><span class="line">cd</span><br><span class="line"></span><br><span class="line">rm rm -r delete files or folders</span><br><span class="line"></span><br><span class="line">mkdir make a directory</span><br><span class="line"></span><br><span class="line">touch create new files</span><br><span class="line"></span><br><span class="line">clear clear the screen&#x27;s text</span><br><span class="line"></span><br><span class="line">hard link</span><br><span class="line">ln a.txt b.txt</span><br><span class="line">ls -li</span><br><span class="line"></span><br><span class="line">symbolic link</span><br><span class="line">ln -s a.txt a_link</span><br><span class="line">ls -li</span><br></pre></td></tr></table></figure>
 <h5 id="2关于系统和进程"><a class="markdownIt-Anchor" href="#2关于系统和进程">#</a> <strong>2. 关于系统和进程</strong></h5>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">top</span> //show all processes and system resource usage
-
-<span class="token function">ps</span> aux <span class="token function">ps</span> <span class="token parameter variable">-ef</span> //show all processes
-
-<span class="token function">kill</span> <span class="token number">1234</span> //kills the process with pid <span class="token number">1234</span>
-
-<span class="token function">df</span> <span class="token parameter variable">-h</span> //disk space usage
-
-<span class="token function">du</span> //check the folder size
-
-<span class="token function">uptime</span> //showing how long the system's been running and the load average
-
-<span class="token function">free</span> <span class="token parameter variable">-h</span> //shows memory usage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">top //show all processes and system resource usage</span><br><span class="line"></span><br><span class="line">ps aux ps -ef //show all processes</span><br><span class="line"></span><br><span class="line"><span class="built_in">kill</span> 1234 //kills the process with pid 1234</span><br><span class="line"></span><br><span class="line"><span class="built_in">df</span> -h //disk space usage</span><br><span class="line"></span><br><span class="line"><span class="built_in">du</span> //check the folder size</span><br><span class="line"></span><br><span class="line"><span class="built_in">uptime</span> //showing how long the system<span class="string">&#x27;s been running and the load average</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">free -h //shows memory usage</span></span><br></pre></td></tr></table></figure>
 <h5 id="3关于权限和用户"><a class="markdownIt-Anchor" href="#3关于权限和用户">#</a> 3. 关于权限和用户</h5>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">chmod</span> +r/+w/+x a.txt read/write/execute -r/-w/-x
-<span class="token function">chmod</span> <span class="token number">777</span> r<span class="token operator">|</span>w<span class="token operator">|</span>x-4<span class="token operator">|</span><span class="token number">2</span><span class="token operator">|</span><span class="token number">1</span> user/group/others
-so <span class="token number">7</span> means rwx <span class="token number">5</span> means r-x<span class="token punctuation">..</span>.
-
-<span class="token function">sudo</span>
-
-<span class="token function">whoami</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +r/+w/+x a.txt <span class="built_in">read</span>/write/execute -r/-w/-x</span><br><span class="line"><span class="built_in">chmod</span> 777 r|w|x-4|2|1 user/group/others</span><br><span class="line">so 7 means rwx 5 means r-x...</span><br><span class="line"></span><br><span class="line">sudo</span><br><span class="line"></span><br><span class="line"><span class="built_in">whoami</span></span><br></pre></td></tr></table></figure>
 <h5 id="4-others"><a class="markdownIt-Anchor" href="#4-others">#</a> 4. others</h5>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">history</span>
-
-<span class="token function">date</span>
-
-<span class="token function">clear</span>
-
-<span class="token builtin class-name">echo</span> <span class="token string">"hello"</span>
-<span class="token builtin class-name">echo</span> <span class="token string">"hello, world"</span> <span class="token operator">></span> src/test1.cpp
-
-<span class="token function">man</span> <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">date</span></span><br><span class="line"></span><br><span class="line">clear</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;hello, world&quot;</span> &gt; src/test1.cpp</span><br><span class="line"></span><br><span class="line">man <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
 <h4 id="2linux系统"><a class="markdownIt-Anchor" href="#2linux系统">#</a> 2.Linux 系统</h4>
 <h5 id="1linux的内核是什么目的是"><a class="markdownIt-Anchor" href="#1linux的内核是什么目的是">#</a> 1.linux 的内核是什么？目的是？</h5>
 <p>首先内核是利用 c 语言和一点汇编语言实现的一个软件核心，其作用是管理和分配所有的资源，实现的功能有内存管理，文件管理，进程管理，设备管理等</p>
@@ -615,107 +405,7 @@ so <span class="token number">7</span> means rwx <span class="token number">5</s
 <p>​	・	创建一个任务队列。</p>
 <p>​	・	创建固定数量的线程，每个线程从队列中取任务执行。</p>
 <p>​	・	使用锁和条件变量管理任务队列的访问和线程的等待 / 唤醒。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;iostream&gt;
-#include &lt;vector&gt;
-#include &lt;queue&gt;
-#include &lt;thread&gt;
-#include &lt;mutex&gt;
-#include &lt;condition_variable&gt;
-
-&#x2F;&#x2F; 定义一个线程池类
-class ThreadPool &#123;
-public:
-    &#x2F;&#x2F; 构造函数，初始化线程池
-    ThreadPool(size_t numThreads);
-    &#x2F;&#x2F; 析构函数，销毁线程池
-    ~ThreadPool();
-    &#x2F;&#x2F; 将任务添加到任务队列中
-    void enqueue(std::function&lt;void()&gt; task);
-
-private:
-    &#x2F;&#x2F; 存储工作线程的向量
-    std::vector&lt;std::thread&gt; workers;
-    &#x2F;&#x2F; 任务队列
-    std::queue&lt;std::function&lt;void()&gt;&gt; tasks;
-    &#x2F;&#x2F; 互斥锁，用于保护任务队列的访问
-    std::mutex queueMutex;
-    &#x2F;&#x2F; 条件变量，用于通知工作线程任务的到来
-    std::condition_variable condition;
-    &#x2F;&#x2F; 标志线程池是否停止
-    bool stop;
-&#125;;
-
-&#x2F;&#x2F; 线程池构造函数，创建指定数量的工作线程
-ThreadPool::ThreadPool(size_t numThreads) : stop(false) &#123;
-    for (size_t i &#x3D; 0; i &lt; numThreads; ++i) &#123;
-        &#x2F;&#x2F; 向工作线程向量中添加线程，并启动线程
-        workers.emplace_back([this] &#123;
-            while (true) &#123;
-                std::function&lt;void()&gt; task;
-                &#123;
-                    &#x2F;&#x2F; 获取队列的互斥锁
-                    std::unique_lock&lt;std::mutex&gt; lock(this-&gt;queueMutex);
-                    &#x2F;&#x2F; 等待条件变量通知，直到有任务或线程池停止
-                    this-&gt;condition.wait(lock, [this] &#123;
-                        return this-&gt;stop || !this-&gt;tasks.empty();
-                    &#125;);
-                    &#x2F;&#x2F; 如果线程池停止且没有任务，退出线程
-                    if (this-&gt;stop &amp;&amp; this-&gt;tasks.empty()) return;
-                    &#x2F;&#x2F; 取出任务队列中的第一个任务
-                    task &#x3D; std::move(this-&gt;tasks.front());
-                    this-&gt;tasks.pop();
-                &#125;
-                &#x2F;&#x2F; 执行任务
-                task();
-            &#125;
-        &#125;);
-    &#125;
-&#125;
-
-&#x2F;&#x2F; 线程池析构函数，等待所有工作线程完成
-ThreadPool::~ThreadPool() &#123;
-    &#123;
-        &#x2F;&#x2F; 获取队列的互斥锁，并设置停止标志
-        std::unique_lock&lt;std::mutex&gt; lock(queueMutex);
-        stop &#x3D; true;
-    &#125;
-    &#x2F;&#x2F; 通知所有等待的工作线程
-    condition.notify_all();
-    &#x2F;&#x2F; 等待所有工作线程完成
-    for (std::thread&amp; worker : workers) &#123;
-        worker.join();
-    &#125;
-&#125;
-
-&#x2F;&#x2F; 将任务添加到任务队列中
-void ThreadPool::enqueue(std::function&lt;void()&gt; task) &#123;
-    &#123;
-        &#x2F;&#x2F; 获取队列的互斥锁
-        std::unique_lock&lt;std::mutex&gt; lock(queueMutex);
-        &#x2F;&#x2F; 如果线程池已经停止，抛出异常
-        if (stop) throw std::runtime_error(&quot;enqueue on stopped ThreadPool&quot;);
-        &#x2F;&#x2F; 将任务添加到任务队列中
-        tasks.emplace(std::move(task));
-    &#125;
-    &#x2F;&#x2F; 通知一个等待的工作线程
-    condition.notify_one();
-&#125;
-
-&#x2F;&#x2F; 主函数，测试线程池功能
-int main() &#123;
-    &#x2F;&#x2F; 创建一个包含4个线程的线程池
-    ThreadPool pool(4);
-    &#x2F;&#x2F; 向线程池中添加8个任务
-    for (int i &#x3D; 0; i &lt; 8; ++i) &#123;
-        pool.enqueue([i] &#123;
-            &#x2F;&#x2F; 输出当前任务信息和线程ID
-            std::cout &lt;&lt; &quot;Task &quot; &lt;&lt; i &lt;&lt; &quot; is being processed by thread &quot; &lt;&lt; std::this_thread::get_id() &lt;&lt; std::endl;
-            &#x2F;&#x2F; 模拟任务处理时间
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-        &#125;);
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;thread&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;mutex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;condition_variable&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义一个线程池类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ThreadPool</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="comment">// 构造函数，初始化线程池</span></span><br><span class="line">    <span class="built_in">ThreadPool</span>(<span class="type">size_t</span> numThreads);</span><br><span class="line">    <span class="comment">// 析构函数，销毁线程池</span></span><br><span class="line">    ~<span class="built_in">ThreadPool</span>();</span><br><span class="line">    <span class="comment">// 将任务添加到任务队列中</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">enqueue</span><span class="params">(std::function&lt;<span class="type">void</span>()&gt; task)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="comment">// 存储工作线程的向量</span></span><br><span class="line">    std::vector&lt;std::thread&gt; workers;</span><br><span class="line">    <span class="comment">// 任务队列</span></span><br><span class="line">    std::queue&lt;std::function&lt;<span class="type">void</span>()&gt;&gt; tasks;</span><br><span class="line">    <span class="comment">// 互斥锁，用于保护任务队列的访问</span></span><br><span class="line">    std::mutex queueMutex;</span><br><span class="line">    <span class="comment">// 条件变量，用于通知工作线程任务的到来</span></span><br><span class="line">    std::condition_variable condition;</span><br><span class="line">    <span class="comment">// 标志线程池是否停止</span></span><br><span class="line">    <span class="type">bool</span> stop;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 线程池构造函数，创建指定数量的工作线程</span></span><br><span class="line">ThreadPool::<span class="built_in">ThreadPool</span>(<span class="type">size_t</span> numThreads) : <span class="built_in">stop</span>(<span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; numThreads; ++i) &#123;</span><br><span class="line">        <span class="comment">// 向工作线程向量中添加线程，并启动线程</span></span><br><span class="line">        workers.<span class="built_in">emplace_back</span>([<span class="keyword">this</span>] &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                std::function&lt;<span class="built_in">void</span>()&gt; task;</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="comment">// 获取队列的互斥锁</span></span><br><span class="line">                    std::unique_lock&lt;std::mutex&gt; <span class="built_in">lock</span>(<span class="keyword">this</span>-&gt;queueMutex);</span><br><span class="line">                    <span class="comment">// 等待条件变量通知，直到有任务或线程池停止</span></span><br><span class="line">                    <span class="keyword">this</span>-&gt;condition.<span class="built_in">wait</span>(lock, [<span class="keyword">this</span>] &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">this</span>-&gt;stop || !<span class="keyword">this</span>-&gt;tasks.<span class="built_in">empty</span>();</span><br><span class="line">                    &#125;);</span><br><span class="line">                    <span class="comment">// 如果线程池停止且没有任务，退出线程</span></span><br><span class="line">                    <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;stop &amp;&amp; <span class="keyword">this</span>-&gt;tasks.<span class="built_in">empty</span>()) <span class="keyword">return</span>;</span><br><span class="line">                    <span class="comment">// 取出任务队列中的第一个任务</span></span><br><span class="line">                    task = std::<span class="built_in">move</span>(<span class="keyword">this</span>-&gt;tasks.<span class="built_in">front</span>());</span><br><span class="line">                    <span class="keyword">this</span>-&gt;tasks.<span class="built_in">pop</span>();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 执行任务</span></span><br><span class="line">                <span class="built_in">task</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 线程池析构函数，等待所有工作线程完成</span></span><br><span class="line">ThreadPool::~<span class="built_in">ThreadPool</span>() &#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 获取队列的互斥锁，并设置停止标志</span></span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(queueMutex)</span></span>;</span><br><span class="line">        stop = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通知所有等待的工作线程</span></span><br><span class="line">    condition.<span class="built_in">notify_all</span>();</span><br><span class="line">    <span class="comment">// 等待所有工作线程完成</span></span><br><span class="line">    <span class="keyword">for</span> (std::thread&amp; worker : workers) &#123;</span><br><span class="line">        worker.<span class="built_in">join</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将任务添加到任务队列中</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ThreadPool::enqueue</span><span class="params">(std::function&lt;<span class="type">void</span>()&gt; task)</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 获取队列的互斥锁</span></span><br><span class="line">        <span class="function">std::unique_lock&lt;std::mutex&gt; <span class="title">lock</span><span class="params">(queueMutex)</span></span>;</span><br><span class="line">        <span class="comment">// 如果线程池已经停止，抛出异常</span></span><br><span class="line">        <span class="keyword">if</span> (stop) <span class="keyword">throw</span> std::<span class="built_in">runtime_error</span>(<span class="string">&quot;enqueue on stopped ThreadPool&quot;</span>);</span><br><span class="line">        <span class="comment">// 将任务添加到任务队列中</span></span><br><span class="line">        tasks.<span class="built_in">emplace</span>(std::<span class="built_in">move</span>(task));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 通知一个等待的工作线程</span></span><br><span class="line">    condition.<span class="built_in">notify_one</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主函数，测试线程池功能</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个包含4个线程的线程池</span></span><br><span class="line">    <span class="function">ThreadPool <span class="title">pool</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line">    <span class="comment">// 向线程池中添加8个任务</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; ++i) &#123;</span><br><span class="line">        pool.<span class="built_in">enqueue</span>([i] &#123;</span><br><span class="line">            <span class="comment">// 输出当前任务信息和线程ID</span></span><br><span class="line">            std::cout &lt;&lt; <span class="string">&quot;Task &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; is being processed by thread &quot;</span> &lt;&lt; std::this_thread::<span class="built_in">get_id</span>() &lt;&lt; std::endl;</span><br><span class="line">            <span class="comment">// 模拟任务处理时间</span></span><br><span class="line">            std::this_thread::<span class="built_in">sleep_for</span>(std::chrono::<span class="built_in">seconds</span>(<span class="number">1</span>));</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li><strong>解释线程池中的核心线程数和最大线程数。</strong></li>
 </ol>
@@ -817,7 +507,7 @@ int main() &#123;
     <div class="item left">
       
 
-  <a href="/2024/07/01/Projects/ChatWeb/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;23.jpg" title="ChatWeb Project">
+  <a href="/2024/07/01/Projects/ChatWeb/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;29.jpg" title="ChatWeb Project">
   <span class="type">Previous Post</span>
   <span class="category"><i class="ic i-flag"></i> Projects</span>
   <h3>ChatWeb Project</h3>
@@ -827,7 +517,7 @@ int main() &#123;
     <div class="item right">
       
 
-  <a href="/2024/07/22/Coding/PjSip_Usage/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;5.jpg" title="Usage of PjSip">
+  <a href="/2024/07/22/Coding/PjSip_Usage/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;Hexlove2&#x2F;images1&#x2F;main&#x2F;images2&#x2F;6.jpg" title="Usage of PjSip">
   <span class="type">Next Post</span>
   <span class="category"><i class="ic i-flag"></i> Coding</span>
   <h3>Usage of PjSip</h3>
@@ -853,7 +543,7 @@ int main() &#123;
       </div>
       <div class="related panel pjax" data-title="Related">
         <ul>
-          <li><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="bookmark" title="C#初级笔记">C#初级笔记</a></li><li><a href="/2024/02/29/Notes/Socket%20learning/" rel="bookmark" title="TCP/IP Socket Coding">TCP/IP Socket Coding</a></li><li class="active"><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="bookmark" title="Interview Questions">Interview Questions</a></li><li><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" rel="bookmark" title="Statistical Learning">Statistical Learning</a></li><li><a href="/2024/09/13/Notes/Cmake/" rel="bookmark" title="Project Building Notes">Project Building Notes</a></li><li><a href="/2024/10/11/Notes/live555usage/" rel="bookmark" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></li>
+          <li><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="bookmark" title="C#初级笔记">C#初级笔记</a></li><li><a href="/2024/02/29/Notes/Socket%20learning/" rel="bookmark" title="TCP/IP Socket Coding">TCP/IP Socket Coding</a></li><li class="active"><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="bookmark" title="Interview Questions">Interview Questions</a></li><li><a href="/2024/08/10/Notes/The%20Elements%20of%20Statistical%20Learning/" rel="bookmark" title="Statistical Learning">Statistical Learning</a></li><li><a href="/2024/09/13/Notes/Cmake/" rel="bookmark" title="Project Building Notes">Project Building Notes</a></li><li><a href="/2024/10/11/Notes/live555usage/" rel="bookmark" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></li><li><a href="/2025/11/19/Notes/EnglishSentences/" rel="bookmark" title="English Notes">English Notes</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="Overview">
@@ -867,7 +557,7 @@ int main() &#123;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">22</span>
+        <span class="count">23</span>
         <span class="name">posts</span>
       </a>
     </div>
@@ -879,7 +569,7 @@ int main() &#123;
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">13</span>
+        <span class="count">14</span>
         <span class="name">tags</span>
       </a>
     </div>
@@ -961,10 +651,40 @@ int main() &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Journey/" title="In Journey">Journey</a>
+<a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2022/11/19/Journey/My%20diary/" title="First Diary">First Diary</a></span>
+    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/book/" title="In book?">book?</a>
+</div>
+
+    <span><a href="/2022/12/11/Template/" title="Name">Name</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Projects/" title="In Projects">Projects</a>
+</div>
+
+    <span><a href="/2022/12/09/Projects/Fox%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" title="Fox项目笔记">Fox项目笔记</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Coding/" title="In Coding">Coding</a>
+</div>
+
+    <span><a href="/2022/12/05/Coding/Unity+Git/" title="Unity+Git">Unity+Git</a></span>
   </li>
 
       
@@ -981,30 +701,20 @@ int main() &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Notes/" title="In Notes">Notes</a>
-</div>
-
-    <span><a href="/2024/07/07/Notes/%E9%9D%A2%E8%AF%95%E9%A2%98/" title="Interview Questions">Interview Questions</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
-</div>
-
-    <span><a href="/2077/07/26/Projects/blogupdatelog/" title="Blog Changelog">Blog Changelog</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Coding/" title="In Coding">Coding</a>
 </div>
 
-    <span><a href="/2024/08/06/Coding/frame/" title="Audio Frame Format Exchange">Audio Frame Format Exchange</a></span>
+    <span><a href="/2022/08/31/Coding/Comparison%20Between%20Hue%20and%20red%20subtract%20blue%20channel%20detect/" title="缺陷检测方法对比">缺陷检测方法对比</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/Journey/" title="In Journey">Journey</a>
+</div>
+
+    <span><a href="/2022/10/29/Journey/hexo/" title="关于Hexo s显示正常但Hexo d没有更新内容的问题">关于Hexo s显示正常但Hexo d没有更新内容的问题</a></span>
   </li>
 
       
@@ -1021,30 +731,10 @@ int main() &#123;
   <li class="item">
     
 <div class="breadcrumb">
-<a href="/categories/Projects/" title="In Projects">Projects</a>
-</div>
-
-    <span><a href="/2024/07/01/Projects/ChatWeb/" title="ChatWeb Project">ChatWeb Project</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
 <a href="/categories/Notes/" title="In Notes">Notes</a>
 </div>
 
-    <span><a href="/2023/01/09/Notes/Csharp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="C#初级笔记">C#初级笔记</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/Coding/" title="In Coding">Coding</a>
-</div>
-
-    <span><a href="/2024/09/05/Coding/Imageprocess/" title="Image Processing Algorithm(Raw Data)">Image Processing Algorithm(Raw Data)</a></span>
+    <span><a href="/2024/10/11/Notes/live555usage/" title="Live555 Usage(FFmpeg)">Live555 Usage(FFmpeg)</a></span>
   </li>
 
       
