@@ -1,4 +1,20 @@
 const panelHtml = `
+<div id="ai-trigger" style="
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background: rgba(254, 160, 206, 1);
+    border-radius: 6px;
+    z-index: 9998;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+">
+  
+</div>
 <div id="ai-panel" style="
     position: fixed;
     bottom: 10px;
@@ -10,6 +26,7 @@ const panelHtml = `
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     overflow-y: auto;
+    opacity: 0;  
     z-index: 9999;
     transition: all 0.3s ease;
     font-family: sans-serif;
@@ -30,7 +47,7 @@ const panelHtml = `
 `;
 
 const prompts = [
-    "You are an English teacher. Evaluate this sentence and return only the following: 1. Grammar corrections (concise) 2. More natural version (concise) 3. Explanation of errors (brief and simple), here is the sentence:",
+    "You are an English teacher. Evaluate this sentence and return only the following: 1. Grammar corrections (concise) 2. More natural version (concise) 3. Explanation of errors (brief and simple), use headline like ### in front of every part, there might be mutiple sentences, so make sure check all of them, here are the sentences:",
     "",
     ""
 ];
@@ -112,6 +129,7 @@ toggleBtn.addEventListener('click', () => {
         panel.style.maxHeight = '80vh';
         panel.style.borderRadius = '10px';
         panel.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+        //panel.style.opacity = '1';
         isFull = false;
     } else {
         panel.style.top = '0';
@@ -125,3 +143,25 @@ toggleBtn.addEventListener('click', () => {
     }
 });
 
+const trigger = document.getElementById('ai-trigger');
+
+trigger.addEventListener('mouseenter', () => {
+    panel.style.opacity = 1;
+    panel.style.pointerEvents = 'auto';
+});
+
+trigger.addEventListener('mouseleave', () => {
+    setTimeout(() => {
+        if (!panel.matches(':hover')&&!isFull) {
+            panel.style.opacity = 0;
+            panel.style.pointerEvents = 'none';
+        }
+    }, 100);
+});
+
+panel.addEventListener('mouseleave', () => {
+    if(!isFull){
+        panel.style.opacity = 0;
+        panel.style.pointerEvents = 'none';        
+    }
+});
