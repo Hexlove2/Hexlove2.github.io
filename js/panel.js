@@ -6,14 +6,15 @@ const panelHtml = `
     width: 50px;
     height: 50px;
     background: rgba(254, 160, 206, 1);
-    border-radius: 6px;
+    border-radius: 12px;
     z-index: 9998;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 ">
-  
+  AI
 </div>
 <div id="ai-panel" style="
     position: fixed;
@@ -82,9 +83,14 @@ const prompts = [
       output.innerHTML = "⏳ AI is evaluating...";
 
       try {
-        const res = await fetch("https://englishai.hexlove12.workers.dev/", {
+        const token = localStorage.getItem("ankiToken"); // 你保存 token 的地方
+
+        const res = await fetch("https://englishai.hexlove12.workers.dev/api/ai", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
           body: JSON.stringify({ sentence: final })
         });
 
