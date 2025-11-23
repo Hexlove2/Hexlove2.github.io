@@ -99,7 +99,7 @@ const prompts = [
         const data = await res.json();
         output.innerHTML = marked.parse(data.response); // Markdown -> HTML
       } catch (err) {
-        console.error(err);
+        //console.error(err);
         output.innerHTML = `❌ Error: ${err.message}`;
       }
     };
