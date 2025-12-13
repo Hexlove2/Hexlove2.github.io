@@ -2,7 +2,7 @@
 const widget = document.createElement("div");
 widget.style.position = "fixed";
 widget.style.bottom = "48vh";
-widget.style.right = "20vw";
+widget.style.right = "5vw";
 widget.style.width = "60px";
 widget.style.background = "rgba(255,255,255,0.9)";
 widget.style.padding = "10px";
@@ -31,7 +31,7 @@ widget.appendChild(btn);
 const widget2 = document.createElement("div");
 widget2.style.position = "fixed";
 widget2.style.bottom = "calc(48vh + 80px)";
-widget2.style.right = "20vw";
+widget2.style.right = "5vw";
 widget2.style.width = "60px";
 widget2.style.background = "rgba(255,255,255,0.9)";
 widget2.style.padding = "10px";
